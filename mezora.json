@@ -1,0 +1,70 @@
+{
+    "mezora1": [
+        {
+            "type": "אשם",
+            "requirements": "כבש"
+        },
+        {
+            "type": "שמן",
+            "requirements": "לוג שמן"
+        },
+        {
+            "type": "מנחה",
+            "requirements": "עשרון סולת ורביעית ההין שמן"
+        },
+        {
+            "type": "נסכים",
+            "requirements": "רביעית ההין יין"
+        },
+        {
+            "type": "חטאת",
+            "requirements": "כבשה"
+        },
+        {
+            "type": "מנחה",
+            "requirements": "עשרון סולת ורביעית ההין שמן"
+        },
+        {
+            "type": "נסכים",
+            "requirements": "רביעית ההין יין"
+        },
+        {
+            "type": "עולה",
+            "requirements": "כבש"
+        },
+        {
+            "type": "מנחה",
+            "requirements": "עשרון סולת ורביעית ההין שמן"
+        },
+        {
+            "type": "נסכים",
+            "requirements": "רביעית ההין יין"
+        }
+    ],
+    "mezora2": [
+        {
+            "type": "אשם",
+            "requirements": "כבש"
+        },
+        {
+            "type": "שמן",
+            "requirements": "לוג שמן"
+        },
+        {
+            "type": "מנחה",
+            "requirements": "עשרון סולת ורביעית ההין שמן"
+        },
+        {
+            "type": "נסכים",
+            "requirements": "רביעית ההין יין"
+        },
+        {
+            "type": "חטאת",
+            "requirements": "תור זכר / בן יונה זכר (האם גם נקבה כשרה?)"
+        },
+        {
+            "type": "עולה",
+            "requirements": "תור זכר / בן יונה זכר (האם גם נקבה כשרה?)"
+        }
+    ]
+}
