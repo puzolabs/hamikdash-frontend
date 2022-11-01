@@ -1,0 +1,23 @@
+{
+    "nesahim1": {
+        "type": "נסכים",
+        "requirements": "מעל 6 לוגים יין",
+        "input": "כמה לוגים יין אתם מביאים?"
+    },
+    "nesahim2": {
+        "type": "נסכים",
+        "requirements": "6 לוגים יין"
+    },
+    "nesahim3": {
+        "type": "נסכים",
+        "requirements": "4 לוגים יין"
+    },
+    "nesahim4": {
+        "type": "נסכים",
+        "requirements": "3 לוגים יין"
+    },
+    "nesahim5": {
+        "type": "נסכים",
+        "requirements": "שמן"
+    }
+}

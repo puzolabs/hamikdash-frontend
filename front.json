@@ -330,49 +330,12 @@
 	},
 	{
 		"code": "",
-		"title": "",
-		"korbanot": [
-		{
-			"type": "",
-			"requirements": "",
-			"eat": {
-				"what": "",
-				"who": "",
-				"where": "",
-				"when": ""
-			}
-		}]
+		"title": "ברצוני להביא נסכים לנדבה",
+		"korbanotReference": "nesahim.json" 
 	},
 	{
 		"code": "",
-		"title": "",
-		"korbanot": [
-		{
-			"type": "",
-			"requirements": "",
-			"eat": {
-				"what": "",
-				"who": "",
-				"where": "",
-				"when": ""
-			}
-		}]
-	},
-	{
-		"code": "",
-		"title": "",
-		"korbanot": [
-		{
-			"type": "",
-			"requirements": "",
-			"eat": {
-				"what": "",
-				"who": "",
-				"where": "",
-				"when": ""
-			}
-		}]
+		"title": "נדרתי להביא נסכים",
+		"korbanotReference": "nesahim.json" 
 	}
-
 ]
-
