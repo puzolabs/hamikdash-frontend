@@ -11,7 +11,8 @@ class KorbansWidget extends StatelessWidget {
 
   final List<Korban> korbanot;
 
-  Widget _buildList(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.all(8),
       itemCount: korbanot.length,
@@ -19,10 +20,5 @@ class KorbansWidget extends StatelessWidget {
         return KorbanWidget(korban: korbanot[index]);
       },
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildList(context);
   }
 }
