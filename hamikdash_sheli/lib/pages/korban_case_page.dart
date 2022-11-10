@@ -52,7 +52,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Directionality(
+        title: const Directionality(
           textDirection: TextDirection.rtl,
           child:Text("המקדש שלי"),
         ),

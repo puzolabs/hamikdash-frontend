@@ -50,18 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   Widget _buildList() {
     KorbanCasesFactory kcf = KorbanCasesFactory();
@@ -79,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListItem(KorbanCase korbanCase) {
     return Card(
       child: ListTile(
-        leading: FlutterLogo(),
+        leading: const FlutterLogo(),
         title: Text(
           korbanCase.title,
           style: Theme.of(context).textTheme.headline4,
@@ -92,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _goToKorbanDetailsPage(KorbanCase korbanCase)
   {
       Navigator.of(context).push(
-          new MaterialPageRoute<void>(
+          MaterialPageRoute<void>(
               builder: (BuildContext context) {
-                  return new KorbanCasePage(korbanCase: korbanCase);
+                  return KorbanCasePage(korbanCase: korbanCase);
               }
           )
       );
@@ -112,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Directionality(
+        title: const Directionality(
           textDirection: TextDirection.rtl,
           child:Text("המקדש שלי"),
         )
