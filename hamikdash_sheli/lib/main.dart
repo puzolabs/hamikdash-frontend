@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
-import 'package:hamikdash_sheli/korbanCasePage.dart';
+import 'package:hamikdash_sheli/pages/korban_case_page.dart';
 
 void main() {
   runApp(const MyApp());

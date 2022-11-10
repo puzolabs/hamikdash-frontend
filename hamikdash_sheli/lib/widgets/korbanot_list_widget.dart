@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/widgets/korban_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 
-class KorbanotListPage extends StatelessWidget {
-  const KorbanotListPage({
+class KorbanotListWidget extends StatelessWidget {
+  const KorbanotListWidget({
     super.key,
     required this.korbanot,
   });
