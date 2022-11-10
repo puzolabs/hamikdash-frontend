@@ -25,7 +25,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             textAlign: TextAlign.center,
           ),
           Expanded(
-            child: KorbanotListWidget(korbanot: widget.korbanCase.korbanot!)
+            child: KorbansWidget(korbanot: widget.korbanCase.korbanot!)
           ),
         ];
       }
