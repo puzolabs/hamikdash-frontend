@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/widgets/korbanot_list_widget.dart';
+import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
 
