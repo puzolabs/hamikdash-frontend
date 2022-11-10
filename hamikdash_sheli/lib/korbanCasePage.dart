@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korbanotListPage.dart';
 import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
 
 class KorbanCasePage extends StatefulWidget {
   const KorbanCasePage({super.key, required this.korbanCase});
@@ -12,31 +13,40 @@ class KorbanCasePage extends StatefulWidget {
 }
 
 class _KorbanCasePageState extends State<KorbanCasePage> {
-  
-  // Widget _buildList(KorbanCase korbanCase) {
-  //   return ListView.builder(
-  //     padding: const EdgeInsets.all(8),
-  //     itemCount: korbanCase.korbanot.length,
-  //     itemBuilder: (BuildContext context, int index) {
-  //       return _buildListItem(korbanCase.korbanot[index]);
-  //     },
-  //   );
-  // }
 
-  // Widget _buildListItem(Korban korban) {
-  //   return ListTile(
-  //       leading: FlutterLogo(),
-  //       title: Text(
-  //         korban.requirements,
-  //         style: Theme.of(context).textTheme.headline4,
-  //       ),
-  //       subtitle: Text(
-  //         korban.type,
-  //         style: Theme.of(context).textTheme.headline6?.apply(color: Colors.grey),
-  //       ),
-  //     )
-  //   ;
-  // }
+  List<Widget> _buildPanel(BuildContext context)
+  {
+      if(widget.korbanCase.korbanot != null)
+      {
+        return [
+          Text(
+            "עליכם להגיע למקדש עם הפריטים הבאים:",
+            style: Theme.of(context).textTheme.headline3,
+            textAlign: TextAlign.center,
+          ),
+          Expanded(
+            child: KorbanotListPage(korbanot: widget.korbanCase.korbanot!)
+          ),
+        ];
+      }
+      else if(widget.korbanCase.korbanotOptions != null)
+      {
+        return [
+          Text(
+            "ביחרו אחת מהאפשרויות הבאות:",
+            style: Theme.of(context).textTheme.headline3,
+            textAlign: TextAlign.center,
+          ),
+          Expanded(
+            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!),
+          ),
+        ];
+      }
+      else
+      {
+        return [];
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,17 +62,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "עליכם להגיע למקדש עם הפריטים הבאים:",
-                style: Theme.of(context).textTheme.headline3,
-                textAlign: TextAlign.center,
-              ),
-              Expanded(
-                // child: _buildList(widget.korban),
-                child: KorbanotListPage(korbanot: widget.korbanCase.korbanot),
-              ),
-            ]
+            children: _buildPanel(context)
           ),
         ),
       )

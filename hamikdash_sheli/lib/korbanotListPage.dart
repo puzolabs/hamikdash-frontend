@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/widgets/korban_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 
 class KorbanotListPage extends StatelessWidget {
@@ -15,24 +16,9 @@ class KorbanotListPage extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       itemCount: korbanot.length,
       itemBuilder: (BuildContext context, int index) {
-        return _buildListItem(context, korbanot[index]);
+        return KorbanWidget(korban: korbanot[index]);
       },
     );
-  }
-
-  Widget _buildListItem(BuildContext context, Korban korban) {
-    return ListTile(
-        leading: FlutterLogo(),
-        title: Text(
-          korban.requirements,
-          style: Theme.of(context).textTheme.headline4,
-        ),
-        subtitle: Text(
-          korban.type,
-          style: Theme.of(context).textTheme.headline6?.apply(color: Colors.grey),
-        ),
-      )
-    ;
   }
 
   @override

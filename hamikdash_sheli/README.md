@@ -16,7 +16,12 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-language and rtl
+Flutter bugs:
+rtl not when Column inside Column
+
+
+take all hard coded strings and put in a file
+language settings and rtl
 let the kid draw icons
 test for each korban type
 ci

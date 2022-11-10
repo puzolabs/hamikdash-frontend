@@ -16,12 +16,21 @@ class Korban
   Korban({this.type = "", this.requirements = ""});
 }
 
+class KorbansOption
+{
+  String name;
+  List<Korban> korbans;
+
+  KorbansOption({required this.name, required this.korbans});
+}
+
 class KorbanCase
 {
   String title;
-  List<Korban> korbanot;
+  List<Korban>? korbanot;
+  List<KorbansOption>? korbanotOptions;
 
-  KorbanCase({this.title = "", required this.korbanot });
+  KorbanCase({this.title = "", this.korbanot, this.korbanotOptions });
 }
 
 class KorbanCasesFactory
@@ -56,6 +65,25 @@ class KorbanCasesFactory
       ]
     );
 
-    return [case1, case2];
+    final case3 = KorbanCase(
+      title: "עולה ויורד",
+      korbanotOptions: [
+        KorbansOption(
+          name: "אפשרות ראשונה",
+          korbans: [
+            Korban(
+              type: "שלמים",
+              requirements: "כבשה"
+            ),
+            Korban(
+              type: "אשם",
+              requirements: "עיזה"
+            ),
+          ]
+        )
+      ],
+    );
+
+    return [case1, case2, case3];
   }
 }
