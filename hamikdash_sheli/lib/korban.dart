@@ -80,6 +80,19 @@ class KorbanCasesFactory
               requirements: "עיזה"
             ),
           ]
+        ),
+        KorbansOption(
+          name: "אפשרות שניה",
+          korbans: [
+            Korban(
+              type: "מנחה",
+              requirements: "סולת"
+            ),
+            Korban(
+              type: "נסכים",
+              requirements: "יין"
+            ),
+          ]
         )
       ],
     );
