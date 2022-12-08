@@ -8,12 +8,23 @@ enum KorbamTypes
   asham
 }
 
+class EatInfo
+{
+  String what;
+  String who;
+  String where;
+  String when;
+
+  EatInfo({this.what = "", this.who = "", this.where = "", this.when = ""});
+}
+
 class Korban
 {
   String type;
   String requirements = "";
+  EatInfo? eatInfo;
 
-  Korban({this.type = "", this.requirements = ""});
+  Korban({this.type = "", this.requirements = "", this.eatInfo});
 }
 
 class KorbansOption
@@ -73,7 +84,8 @@ class KorbanCasesFactory
           korbans: [
             Korban(
               type: "שלמים",
-              requirements: "כבשה"
+              requirements: "כבשה",
+              eatInfo: EatInfo(what: "זרוע", who: "בעלים", where: "ירושלים", when: "יום ולילה")
             ),
             Korban(
               type: "אשם",
