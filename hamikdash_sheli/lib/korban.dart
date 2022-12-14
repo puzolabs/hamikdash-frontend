@@ -123,6 +123,8 @@ class Order
 {
   List<Korban>? korbans;
   ComingOption comingOption = ComingOption.prepareAllForMe;
+  DateTime dateTime = DateTime.now().toUtc();
+  int? paymentAmount;
 }
 
 Order currentOrder = Order();

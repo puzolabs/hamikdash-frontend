@@ -3,12 +3,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
-import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
+import 'package:hamikdash_sheli/pages/summery_page.dart';
 
-class SummeryPage extends StatelessWidget {
-  const SummeryPage({
+class PaymentPage extends StatelessWidget {
+  const PaymentPage({
     super.key,
   });
+
+  void _goToSummeryPage(BuildContext context)
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const SummeryPage();
+        }
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,23 +37,18 @@ class SummeryPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "סיכום",
+                "תשלום",
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              KorbansWidget(korbanot: currentOrder.korbans!),
-              Row(
-                children: [
-                  const Text("מתי: ", style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(currentOrder.dateTime.toString()),
-                ],
-              ),
-              if(currentOrder.paymentAmount != null)
-                Row(
-                  children: [
-                    const Text("שלמתם: ", style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("${currentOrder.paymentAmount} שח"),
-                  ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _goToSummeryPage(context);
+                  },
+                  child: const Text("המשך")
+                ),
               ),
             ]
           ),

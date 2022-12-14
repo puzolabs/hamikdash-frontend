@@ -3,13 +3,35 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/pages/payment_page.dart';
+import 'package:hamikdash_sheli/pages/summery_page.dart';
 
 class ComingOptionsPage extends StatelessWidget {
   const ComingOptionsPage({
     super.key,
   });
 
-  
+  void _goToPaymentPage(BuildContext context)
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const PaymentPage();
+        }
+      )
+    );
+  }
+
+  void _goToSummeryPage(BuildContext context)
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const SummeryPage();
+        }
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +62,7 @@ class ComingOptionsPage extends StatelessWidget {
                   ),
                   onTap: () {
                     currentOrder.comingOption = ComingOption.prepareAllForMe;
+                    _goToPaymentPage(context);
                   },
                 )
               ),
@@ -52,6 +75,7 @@ class ComingOptionsPage extends StatelessWidget {
                   ),
                   onTap: () {
                     currentOrder.comingOption = ComingOption.bringingAllWithMe;
+                    _goToSummeryPage(context);
                   },
                 ),
               ),
