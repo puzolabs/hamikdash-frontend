@@ -36,9 +36,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             style: Theme.of(context).textTheme.headline3,
             textAlign: TextAlign.center,
           ),
-          Expanded(
-            child: KorbansWidget(korbanot: widget.korbanCase.korbanot!)
-          ),
+          KorbansWidget(korbanot: widget.korbanCase.korbanot!),
           Align(
             alignment: Alignment.centerLeft,
             child: ElevatedButton(
@@ -48,7 +46,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
               },
               child: const Text("המשך")
             ),
-          )
+          ),
         ];
       }
       else if(widget.korbanCase.korbanotOptions != null)
@@ -83,7 +81,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
         textDirection: TextDirection.rtl,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: _buildPanel(context)
           ),
         ),

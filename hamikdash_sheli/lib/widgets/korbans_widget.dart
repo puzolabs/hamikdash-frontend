@@ -14,6 +14,8 @@ class KorbansWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
       padding: const EdgeInsets.all(8),
       itemCount: korbanot.length,
       itemBuilder: (BuildContext context, int index) {
