@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/pages/coming_options_page.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
@@ -14,6 +15,17 @@ class KorbanCasePage extends StatefulWidget {
 
 class _KorbanCasePageState extends State<KorbanCasePage> {
 
+  void _goToComingOptionsPage()
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const ComingOptionsPage();
+        }
+      )
+    );
+  }
+
   List<Widget> _buildPanel(BuildContext context)
   {
       if(widget.korbanCase.korbanot != null)
@@ -27,6 +39,16 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
           Expanded(
             child: KorbansWidget(korbanot: widget.korbanCase.korbanot!)
           ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ElevatedButton(
+              onPressed: () {
+                currentOrder.korbans = widget.korbanCase.korbanot;
+                _goToComingOptionsPage();
+              },
+              child: const Text("המשך")
+            ),
+          )
         ];
       }
       else if(widget.korbanCase.korbanotOptions != null)

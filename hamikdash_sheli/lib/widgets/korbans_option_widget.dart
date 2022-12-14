@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/pages/coming_options_page.dart';
 import 'package:hamikdash_sheli/widgets/korban_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 
@@ -10,6 +11,17 @@ class KorbansOptionWidget extends StatelessWidget {
   });
 
   final KorbansOption korbanotOption;
+
+  void _goToComingOptionsPage(BuildContext context)
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const ComingOptionsPage();
+        }
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +51,10 @@ class KorbansOptionWidget extends StatelessWidget {
               children: <Widget>[
                 TextButton(
                   child: const Text('בחר'),
-                  onPressed: () {/* ... */},
+                  onPressed: () {
+                    currentOrder.korbans = korbanotOption.korbans;
+                    _goToComingOptionsPage(context);
+                  },
                 ),
               ],
             ),

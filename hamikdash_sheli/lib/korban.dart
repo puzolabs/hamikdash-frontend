@@ -112,3 +112,17 @@ class KorbanCasesFactory
     return [case1, case2, case3];
   }
 }
+
+enum ComingOption
+{
+  prepareAllForMe,
+  bringingAllWithMe,
+}
+
+class Order
+{
+  List<Korban>? korbans;
+  ComingOption comingOption = ComingOption.prepareAllForMe;
+}
+
+Order currentOrder = Order();
