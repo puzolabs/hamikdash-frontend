@@ -1,7 +1,13 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
 איך לקבוע תורים לבדיקת מומים
 replace korbanot with korbans
+display each korban status in the list
+in the list - allow for canceling, refund? donation ? , delete if done 
 
 צד שרת
 צריך לשמור מקום לקורבנות הכהן הגדול מנחת חביתין והתמידים
 מערכת מלאי כגון מלח וסממני הקטורת ופתילות
+if user payed for the items - need to update inventory
+
+inventory system
+workers system like TFS with items
