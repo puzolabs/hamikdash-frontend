@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/pages/coming_options_page.dart';
 import 'package:hamikdash_sheli/widgets/korban_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
+
+import '../pages/date_finder_page.dart';
 
 class KorbansOptionWidget extends StatelessWidget {
   const KorbansOptionWidget({
@@ -12,12 +13,12 @@ class KorbansOptionWidget extends StatelessWidget {
 
   final KorbansOption korbanotOption;
 
-  void _goToComingOptionsPage(BuildContext context)
+  void _goToDateFinderPage(BuildContext context)
   {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const ComingOptionsPage();
+            return const DateFinderPage();
         }
       )
     );
@@ -53,7 +54,7 @@ class KorbansOptionWidget extends StatelessWidget {
                   child: const Text('בחר'),
                   onPressed: () {
                     currentOrder.korbans = korbanotOption.korbans;
-                    _goToComingOptionsPage(context);
+                    _goToDateFinderPage(context);
                   },
                 ),
               ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/pages/coming_options_page.dart';
+import 'package:hamikdash_sheli/pages/date_finder_page.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
@@ -15,12 +15,12 @@ class KorbanCasePage extends StatefulWidget {
 
 class _KorbanCasePageState extends State<KorbanCasePage> {
 
-  void _goToComingOptionsPage()
+  void _goToDateFinderPage()
   {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const ComingOptionsPage();
+            return const DateFinderPage();
         }
       )
     );
@@ -42,7 +42,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             child: ElevatedButton(
               onPressed: () {
                 currentOrder.korbans = widget.korbanCase.korbanot;
-                _goToComingOptionsPage();
+                _goToDateFinderPage();
               },
               child: const Text("המשך")
             ),
