@@ -119,12 +119,20 @@ enum ComingOption
   bringingAllWithMe,
 }
 
+enum Status
+{
+  pending,
+  inProgress,
+  done
+}
+
 class Order
 {
   List<Korban>? korbans;
   ComingOption comingOption = ComingOption.prepareAllForMe;
   DateTime dateTime = DateTime.now().toUtc();
   int? paymentAmount;
+  Status status = Status.pending;
 }
 
 Order currentOrder = Order();
