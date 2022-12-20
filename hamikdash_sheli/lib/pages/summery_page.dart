@@ -30,20 +30,27 @@ class SummeryPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              KorbansWidget(korbanot: currentOrder.korbans!),
+              KorbansWidget(korbanot: currentOrder!.korbans!),
               Row(
                 children: [
                   const Text("מתי: ", style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(currentOrder.dateTime.toString()),
+                  Text(currentOrder!.dateTime.toString()),
                 ],
               ),
-              if(currentOrder.paymentAmount != null)
+              if(currentOrder!.paymentAmount != null)
                 Row(
                   children: [
                     const Text("שלמתם: ", style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("${currentOrder.paymentAmount} שח"),
+                    Text("${currentOrder!.paymentAmount} שח"),
                   ],
-              ),
+                ),
+              TextButton(
+                onPressed: () {
+                  visitList.add(currentOrder!);
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                child: const Text("אישור")
+              )
             ]
           ),
         ),

@@ -41,7 +41,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             alignment: Alignment.centerLeft,
             child: ElevatedButton(
               onPressed: () {
-                currentOrder.korbans = widget.korbanCase.korbanot;
+                currentOrder!.korbans = widget.korbanCase.korbanot;
                 _goToDateFinderPage();
               },
               child: const Text("המשך")

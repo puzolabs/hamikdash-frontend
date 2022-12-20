@@ -27,20 +27,24 @@ class NewVisitPage extends StatelessWidget {
           korbanCase.title,
           style: Theme.of(context).textTheme.headline4,
         ),
-        onTap: () { _goToKorbanDetailsPage(context, korbanCase); }
+        onTap: ()
+        {
+          currentOrder!.title = korbanCase.title;
+          _goToKorbanDetailsPage(context, korbanCase);
+        }
       )
     );
   }
 
   void _goToKorbanDetailsPage(BuildContext context, KorbanCase korbanCase)
   {
-      Navigator.of(context).push(
-          MaterialPageRoute<void>(
-              builder: (BuildContext context) {
-                  return KorbanCasePage(korbanCase: korbanCase);
-              }
-          )
-      );
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return KorbanCasePage(korbanCase: korbanCase);
+        }
+      )
+    );
   }
 
   @override

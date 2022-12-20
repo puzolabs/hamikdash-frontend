@@ -53,7 +53,7 @@ class KorbansOptionWidget extends StatelessWidget {
                 TextButton(
                   child: const Text('בחר'),
                   onPressed: () {
-                    currentOrder.korbans = korbanotOption.korbans;
+                    currentOrder!.korbans = korbanotOption.korbans;
                     _goToDateFinderPage(context);
                   },
                 ),

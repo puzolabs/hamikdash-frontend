@@ -128,6 +128,7 @@ enum Status
 
 class Order
 {
+  String title = "";
   List<Korban>? korbans;
   ComingOption comingOption = ComingOption.prepareAllForMe;
   DateTime dateTime = DateTime.now().toUtc();
@@ -135,4 +136,5 @@ class Order
   Status status = Status.pending;
 }
 
-Order currentOrder = Order();
+Order? currentOrder = null;
+List<Order> visitList = <Order>[];

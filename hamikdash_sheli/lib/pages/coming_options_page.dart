@@ -61,7 +61,7 @@ class ComingOptionsPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   onTap: () {
-                    currentOrder.comingOption = ComingOption.prepareAllForMe;
+                    currentOrder!.comingOption = ComingOption.prepareAllForMe;
                     _goToPaymentPage(context);
                   },
                 )
@@ -74,7 +74,7 @@ class ComingOptionsPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   onTap: () {
-                    currentOrder.comingOption = ComingOption.bringingAllWithMe;
+                    currentOrder!.comingOption = ComingOption.bringingAllWithMe;
                     _goToSummeryPage(context);
                   },
                 ),
