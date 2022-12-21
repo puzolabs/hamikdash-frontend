@@ -4,6 +4,8 @@ import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
 
+import '../widgets/korbans_summery_widget.dart';
+
 class VisitsPage extends StatefulWidget {
   const VisitsPage({
     super.key,
@@ -65,34 +67,18 @@ class _MyVisitsPageState extends State<VisitsPage> {
               title: Text(item.visit.title),
             );
           },
-          body: ListTile(
-              title: Text("this is expanded"),
-              subtitle:
-                  const Text('To delete this panel, tap the trash can icon'),
-              trailing: const Icon(Icons.delete),
-              onTap: () {
-                setState(() {
-                  _data.removeWhere((Item currentItem) => item == currentItem);
-                });
-              }),
+          body: KorbansSummeryWidget(visit: item.visit),
           isExpanded: item.isExpanded,
         );
       }).toList(),
     );
   }
 
-  Widget _buildListItem(BuildContext context, Visit visit) {
-    return Card(
-      child: ListTile(
-        leading: const FlutterLogo(),
-        title: Text(
-          visit.title,
-          style: Theme.of(context).textTheme.headline4,
-        ),
-        onTap: () {  }
-      )
-    );
-  }
+// onTap: () {
+//                 setState(() {
+//                   _data.removeWhere((Item currentItem) => item == currentItem);
+//                 });
+//               }
 
   @override
   Widget build(BuildContext context) {
