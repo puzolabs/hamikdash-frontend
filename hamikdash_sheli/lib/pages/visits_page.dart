@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
-import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
+import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
 
-import '../widgets/korbans_summery_widget.dart';
 
 class VisitsPage extends StatefulWidget {
   const VisitsPage({
@@ -67,7 +66,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
               title: Text(item.visit.title),
             );
           },
-          body: KorbansSummeryWidget(visit: item.visit),
+          body: VisitWidget(visit: item.visit),
           isExpanded: item.isExpanded,
         );
       }).toList(),

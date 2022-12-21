@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
-import 'package:hamikdash_sheli/widgets/korbans_summery_widget.dart';
+import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
 class SummeryPage extends StatelessWidget {
   const SummeryPage({
@@ -30,7 +30,7 @@ class SummeryPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              KorbansSummeryWidget(visit: currentVisit!),
+              VisitWidget(visit: currentVisit!),
               TextButton(
                 onPressed: () {
                   visitList.add(currentVisit!);

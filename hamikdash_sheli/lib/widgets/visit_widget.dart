@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 
-class KorbansSummeryWidget extends StatelessWidget {
-  const KorbansSummeryWidget({
+class VisitWidget extends StatelessWidget {
+  const VisitWidget({
     super.key,
     required this.visit,
   });
