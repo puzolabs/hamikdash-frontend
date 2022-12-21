@@ -90,7 +90,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -102,11 +102,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
               (visitList.isEmpty) ?
                 const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
               :
-              SingleChildScrollView(
-                child: Container(
-                  child: _buildPanel(),
-                ),
-              ),
+              _buildPanel(),
             ]
           ),
         ),
