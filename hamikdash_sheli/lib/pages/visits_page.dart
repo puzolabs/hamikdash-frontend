@@ -40,20 +40,15 @@ class _MyVisitsPageState extends State<VisitsPage> {
       )).toList();
   }
 
-  void _goToNewVisitPage(BuildContext context)
+  Future<void> _goToNewVisitPage(BuildContext context) async
   {
-    Navigator.of(context).push(
+    await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
             return const NewVisitPage();
         }
       )
-    )
-    //force rebuild this widget after poping from summery page
-    .then((value) => setState(()
-    {
-      _data = _generateItems();
-    }));
+    );
   }
 
   Widget _buildPanel() {
@@ -132,9 +127,14 @@ class _MyVisitsPageState extends State<VisitsPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () { 
+        onPressed: () async { 
           currentOrder = Order();
-          _goToNewVisitPage(context);
+          await _goToNewVisitPage(context);
+          //force rebuild this widget after poping from summery page
+          setState(()
+          {
+            _data = _generateItems();
+          });
         },
         tooltip: 'Add',
         child: const Icon(Icons.add),
