@@ -126,7 +126,7 @@ enum Status
   done
 }
 
-class Order
+class Visit
 {
   String title = "";
   List<Korban>? korbans;
@@ -136,5 +136,5 @@ class Order
   Status status = Status.pending;
 }
 
-Order? currentOrder = null;
-List<Order> visitList = <Order>[];
+Visit? currentVisit;
+List<Visit> visitList = <Visit>[];

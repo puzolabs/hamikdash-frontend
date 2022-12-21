@@ -20,7 +20,7 @@ class Item {
     this.isExpanded = false,
   });
 
-  Order visit;
+  Visit visit;
   bool isExpanded;
 }
 
@@ -81,7 +81,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
     );
   }
 
-  Widget _buildListItem(BuildContext context, Order visit) {
+  Widget _buildListItem(BuildContext context, Visit visit) {
     return Card(
       child: ListTile(
         leading: const FlutterLogo(),
@@ -128,7 +128,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async { 
-          currentOrder = Order();
+          currentVisit = Visit();
           await _goToNewVisitPage(context);
           //force rebuild this widget after poping from summery page
           setState(()
