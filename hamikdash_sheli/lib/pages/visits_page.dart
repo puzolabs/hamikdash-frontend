@@ -91,19 +91,21 @@ class _MyVisitsPageState extends State<VisitsPage> {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "ברוכים הבאים",
-                style: Theme.of(context).textTheme.headline3,
-                textAlign: TextAlign.center,
-              ),
-              (visitList.isEmpty) ?
-                const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
-              :
-              _buildPanel(),
-            ]
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "ברוכים הבאים",
+                  style: Theme.of(context).textTheme.headline3,
+                  textAlign: TextAlign.center,
+                ),
+                (visitList.isEmpty) ?
+                  const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
+                :
+                _buildPanel(),
+              ]
+            ),
           ),
         ),
       ),
