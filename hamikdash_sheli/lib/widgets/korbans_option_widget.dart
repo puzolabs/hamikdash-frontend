@@ -47,17 +47,21 @@ class KorbansOptionWidget extends StatelessWidget {
                 physics: const ClampingScrollPhysics(),
               )
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('בחר'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: const EdgeInsets.only(left: 20, bottom: 20),
+                child: ElevatedButton(
                   onPressed: () {
                     currentVisit!.korbans = korbanotOption.korbans;
                     _goToDateFinderPage(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(20),
+                  ),
+                  child: const Text("בחר")
                 ),
-              ],
+              ),
             ),
           ],
         ),

@@ -31,13 +31,22 @@ class SummeryPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               VisitWidget(visit: currentVisit!),
-              TextButton(
-                onPressed: () {
-                  visitList.add(currentVisit!);
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                },
-                child: const Text("אישור")
-              )
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: const EdgeInsets.only(left: 20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      visitList.add(currentVisit!);
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(20),
+                    ),
+                    child: const Text("אישור")
+                  ),
+                ),
+              ),
             ]
           ),
         ),

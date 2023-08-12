@@ -39,12 +39,18 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
           KorbansWidget(korbanot: widget.korbanCase.korbanot!),
           Align(
             alignment: Alignment.centerLeft,
-            child: ElevatedButton(
-              onPressed: () {
-                currentVisit!.korbans = widget.korbanCase.korbanot;
-                _goToDateFinderPage();
-              },
-              child: const Text("המשך")
+            child: Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: ElevatedButton(
+                onPressed: () {
+                  currentVisit!.korbans = widget.korbanCase.korbanot;
+                  _goToDateFinderPage();
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(20),
+                ),
+                child: const Text("המשך")
+              ),
             ),
           ),
         ];

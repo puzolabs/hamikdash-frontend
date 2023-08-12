@@ -1,8 +1,31 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
 איך לקבוע תורים לבדיקת מומים
 replace korbanot with korbans
-display each korban status in the list
-in the list - allow for canceling, refund? donation ? , delete if done 
+support languages
+load all use cases from the json files
+
+in the list:
+display each korban status
+allow for canceling. refund or donation ?
+when visit is done, remove from the visits list to history list
+
+new visit page:
+have an icon for each visit use-case
+
+korban case page:
+for each aminal have its own icon
+
+date_finder page:
+implement
+
+coming options page:
+have dedicate icons for each use case
+
+payment page:
+implement
+
+summery page:
+put date label in nicer position and font and size
 
 צד שרת
 צריך לשמור מקום לקורבנות הכהן הגדול מנחת חביתין והתמידים

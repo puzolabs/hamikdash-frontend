@@ -41,11 +41,17 @@ class DateFinderPage extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _goToComingOptionsPage(context);
-                  },
-                  child: const Text("המשך")
+                child: Container(
+                  margin: const EdgeInsets.only(left: 20),
+                  child:ElevatedButton(
+                    onPressed: () {
+                      _goToComingOptionsPage(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(20),
+                    ),
+                    child: const Text("המשך")
+                  ),
                 ),
               ),
             ]
