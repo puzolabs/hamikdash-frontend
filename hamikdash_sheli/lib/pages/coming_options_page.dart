@@ -49,7 +49,7 @@ class ComingOptionsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "איך אתם מגיעים עם הפרטים?",
+                "איך אתם מגיעים עם הפריטים?",
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
