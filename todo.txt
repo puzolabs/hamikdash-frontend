@@ -1,13 +1,23 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
-איך לקבוע תורים לבדיקת מומים
 replace korbanot with korbans
 support languages
 load all use cases from the json files
+login page
+about page with credits and app version and עילוי נשמות
+history page
 
 in the list:
-display each korban status
-allow for canceling. refund or donation ?
+allow for canceling
+allow to edit. only the date - not the type since it affects the payment. but maybe if he brings all - we can let him replace the korban type also
+info about selected payment
 when visit is done, remove from the visits list to history list
+
+canceling flow:
+- in case he paid, ask if refund or donation ?
+- call server:
+  - to free the time slot
+  - in case he paid and wants a refund - call payment gateway for a refund
+- message "we are processing your request, we will send you an email to {email address}"
 
 new visit page:
 have an icon for each visit use-case
@@ -15,22 +25,47 @@ have an icon for each visit use-case
 korban case page:
 for each aminal have its own icon
 
-date_finder page:
-implement
+date finder page:
+allow user to select date range
+allow searching dates by hebrew calendar
+send request to backend to get availabilities in that range and display to user
+allow user to select the time from returned list
 
 coming options page:
 have dedicate icons for each use case
+add text that for "I bring all" - that you will need to "deposit" them 3 days earlier for בדיקת מומים.
+  - only if its aminals.
+  - what about birds?
+  - maybe only for specific korban? if so - add to json files.
 
 payment page:
-implement
+nicer "next" button 
+when the user clicks ok to pay:
+send request to server to test avalability of that time slot.
+   if the time slot is available:
+    - mark this that time frame as reserved.
+    - call the payment gateway
+   if not - tell user to go back to find another date
+
 
 summery page:
-put date label in nicer position and font and size
+put date label with locale (international)
+use hebrew date also
+use jerusalem time zone (must be tested for time diferences)
+if user decided to bring all the goods with him:
+  - send request to server to test avalability of that time slot.
+      if the time slot is available:
+        - mark this that time frame as reserved.
+      if not - tell user to go back to find another date
 
 צד שרת
 צריך לשמור מקום לקורבנות הכהן הגדול מנחת חביתין והתמידים
 מערכת מלאי כגון מלח וסממני הקטורת ופתילות
 if user payed for the items - need to update inventory
+install supabase for c# lambda FaaS
+1 lambda to create a visit
+1 lambda for delete visit: delete from calendar + refund if needed
+make sure you cant reserve on saturday or holiday
 
 inventory system
 workers system like TFS with items
