@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/pages/visits_page.dart';
+import 'package:hamikdash_sheli/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const VisitsPage(),
+      home: const WelcomePage(),
     );
   }
 }
