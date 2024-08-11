@@ -20,6 +20,9 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Directionality(
         textDirection: TextDirection.rtl,
@@ -34,10 +37,11 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 150),
+              padding: EdgeInsets.fromLTRB(screenWidth * 0.05, 0, screenWidth * 0.05, screenHeight * 0.2), //const EdgeInsets.fromLTRB(20, 0, 20, 150),
               alignment: Alignment.bottomCenter,
               child: SizedBox(
                 width: double.infinity,
+                height: screenHeight * 0.08,
                 child: ElevatedButton(
                   onPressed: () {
                     _goToVisitsPage(context);
