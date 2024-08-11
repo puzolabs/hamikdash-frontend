@@ -58,7 +58,9 @@ class WelcomePage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(2),
                   ),
-                  child: const Text("התחל")
+                  child: Text("התחל",
+                    style: TextStyle(height: 1, fontSize: screenHeight * 0.04),
+                  )
                 ),
               ),
             ),
