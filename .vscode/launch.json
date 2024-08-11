@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "hamikdash_sheli",
+            "cwd": "hamikdash_sheli",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hamikdash_sheli (profile mode)",
+            "cwd": "hamikdash_sheli",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "-d",
+                "chrome"
+            ],
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hamikdash_sheli (release mode)",
+            "cwd": "hamikdash_sheli",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "-d",
+                "chrome"
+            ],
+            "flutterMode": "release"
+        }
+    ]
+}
