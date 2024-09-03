@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/cal/cal_loader.dart';
 import 'package:hamikdash_sheli/pages/welcome_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  CalLoader().loadAsset();
   runApp(const MyApp());
 }
 

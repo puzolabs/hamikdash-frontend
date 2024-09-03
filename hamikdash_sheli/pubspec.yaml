@@ -37,6 +37,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   intl: 0.18.1
+  flutter_inappwebview: 6.0.0
+  mustache_template: 2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +65,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/assets/images/
+    - lib/cal/inlineTemplate.hsb
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
