@@ -7,18 +7,8 @@
   <body>
     <script type="text/javascript">
       window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-        console.log('in app web view ready');
+        console.log('InAppWebView ready');
         inAppWebViewReady = true;
-
-        window.flutter_inappwebview.callHandler('handlerFoo')
-          .then(function(result) {
-            // print to the console the data coming
-            // from the Flutter side.
-            console.log(JSON.stringify(result));
-
-            window.flutter_inappwebview
-              .callHandler('handlerFooWithArgs', 1, true, ['bar', 5], {foo: 'baz'}, result);
-        });
       });
     </script>
 
@@ -85,10 +75,9 @@
           // `namespace` tells you the Cal namespace for which the event is fired/
           const {data} = e.detail;
 
-          console.log('inAppWebViewReady is' + inAppWebViewReady);
           if(inAppWebViewReady) {
-            console.log('sendingEVENT');
-            window.flutter_inappwebview.callHandler('handlerFoo', e.detail)
+            console.log('sending bookingSuccessful event');
+            window.flutter_inappwebview.callHandler('bookingSuccessful', e.detail)
           }
         }
       })

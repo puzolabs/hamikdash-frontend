@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed_options.dart';
+import 'summery_page.dart';
 import 'coming_options_page.dart';
 import '../utills/screen_dimension.dart';
 
@@ -23,9 +24,20 @@ class DateFinderPage extends StatelessWidget {
     );
   }
 
+  void _goToSummeryPage(BuildContext context)
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const SummeryPage();
+        }
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    var embed = CalcomEmbed(CalcomEmbedOptions(CalcomEmbedSize(100, 100), "https://26cb-85-250-233-8.ngrok-free.app", "bet-hamikdash", "minha", "month_view", false));
+    var embed = CalcomEmbed(CalcomEmbedOptions(CalcomEmbedSize(100, 100), "https://engaging-repeatedly-sloth.ngrok-free.app", "bet-hamikdash", "minha", "month_view", false));
     var html = embed.build();
 
     return Scaffold(
@@ -46,60 +58,43 @@ class DateFinderPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
-                width: 99.percentOfScreenHeight(context),
-                height: 70.percentOfScreenHeight(context),
-                child: InAppWebView(
-                  onReceivedServerTrustAuthRequest: (controller, challenge) async {
-                    print("challenge: $challenge");
-                    return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
-                  },
-                  onReceivedError: (controller, request, error) => {
-                    print("onReceivedError error message: $error")
-                  },
-                  onReceivedHttpError: (controller, request, errorResponse) => {
-                    print("onReceivedHttpError error message: $errorResponse")
-                  },
-                  onDidReceiveServerRedirectForProvisionalNavigation: (controller) => {
-                    print("redirect")
-                  },
-                  initialData: InAppWebViewInitialData(data: html),
-                  onWebViewCreated: (controller) {
-                    controller.addJavaScriptHandler(
-                        handlerName: 'handlerFoo',
-                        callback: (args) {
-                          print('got args $args');
-                          // return data to the JavaScript side!
-                          return {'bar': 'bar_value', 'baz': 'baz_value'};
-                        });
-
-                    controller.addJavaScriptHandler(
-                        handlerName: 'handlerFooWithArgs',
-                        callback: (args) {
-                          print('got args $args');
-                          // it will print: [1, true, [bar, 5], {foo: baz}, {bar: bar_value, baz: baz_value}]
-                        });
+              Container(
+                padding: EdgeInsets.fromLTRB(2.percentOfScreenHeight(context), 0, 2.percentOfScreenHeight(context), 0),
+                child: SizedBox(
+                  width: 99.percentOfScreenHeight(context), //double.infinity,
+                  height: 70.percentOfScreenHeight(context),
+                  child: InAppWebView(
+                    onReceivedServerTrustAuthRequest: (controller, challenge) async {
+                      print("challenge: $challenge");
+                      return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
                     },
-                    onConsoleMessage: (controller, consoleMessage) {
-                      print(consoleMessage);
-                      // it will print: {message: {"bar":"bar_value","baz":"baz_value"}, messageLevel: 1}
+                    onReceivedError: (controller, request, error) => {
+                      print("onReceivedError error message: $error")
                     },
-                  ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20),
-                  child:ElevatedButton(
-                    onPressed: () {
-                      _goToComingOptionsPage(context);
+                    onReceivedHttpError: (controller, request, errorResponse) => {
+                      print("onReceivedHttpError error message: $errorResponse")
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
+                    onDidReceiveServerRedirectForProvisionalNavigation: (controller) => {
+                      print("redirect")
+                    },
+                    initialData: InAppWebViewInitialData(data: html),
+                    //initialUrlRequest: URLRequest(
+                      //url: WebUri("https://app.cal.com/rick/get-rick-rolled")
+                      //url: WebUri("https://engaging-repeatedly-sloth.ngrok-free.app/team/bet-hamikdash/minha")
+                    //),
+                    onWebViewCreated: (controller) {
+                      controller.addJavaScriptHandler(
+                          handlerName: 'bookingSuccessful',
+                          callback: (args) {
+                            print('got args $args'); // it will print the selected date
+                            _goToSummeryPage(context);
+                          });
+                      },
+                      onConsoleMessage: (controller, consoleMessage) {
+                        print(consoleMessage);
+                      },
                     ),
-                    child: const Text("המשך")
-                  ),
-                ),
+                )
               ),
             ]
           ),
