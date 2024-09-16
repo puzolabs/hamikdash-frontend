@@ -131,7 +131,7 @@ class Visit
   String title = "";
   List<Korban>? korbans;
   ComingOption comingOption = ComingOption.prepareAllForMe;
-  DateTime dateTime = DateTime.now().toUtc();
+  DateTime? dateTime;
   int? paymentAmount;
   Status status = Status.pending;
 }

@@ -23,7 +23,7 @@ class VisitWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Container(
               margin: const EdgeInsets.only(right: 25, bottom: 25),
-              child: Text("הנכם מוזמנים ב ${DateFormat('EEEE, MMM d, yyyy HH:mm').format(visit.dateTime)}",
+              child: Text("הנכם מוזמנים ב ${DateFormat('EEEE, MMM d, yyyy HH:mm').format(visit.dateTime!)}",
                 style: const TextStyle(fontSize: 18)
               ),
             ),

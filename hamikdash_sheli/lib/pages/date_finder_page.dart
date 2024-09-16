@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed_options.dart';
+import 'package:hamikdash_sheli/korban.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import 'summery_page.dart';
 import 'coming_options_page.dart';
 import '../utills/screen_dimension.dart';
@@ -87,6 +89,9 @@ class DateFinderPage extends StatelessWidget {
                           handlerName: 'bookingSuccessful',
                           callback: (args) {
                             print('got args $args'); // it will print the selected date
+                            String dateTime = args[0]["data"]["date"]; // e.g. Thu, 30 Sep 2024 13:00:00 GMT
+                            DateTime dt = DateFormat('E, dd MMM yyyy HH:mm:ss').parse(dateTime);
+                            currentVisit!.dateTime = dt;
                             _goToSummeryPage(context);
                           });
                       },
