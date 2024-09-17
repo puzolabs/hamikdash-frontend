@@ -27,7 +27,7 @@ class ComingOptionsPage extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const SummeryPage();
+            return SummeryPage();
         }
       )
     );
