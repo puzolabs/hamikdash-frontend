@@ -1,16 +1,48 @@
 
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_confetti/flutter_confetti.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/pages/visits_page.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
-class SummeryPage extends StatelessWidget {
+class SummeryPage extends StatefulWidget {
   SummeryPage({
     super.key,
   });
+ 
+  @override
+  State<SummeryPage> createState() => _MySummeryPageState();
+}
 
+class _MySummeryPageState extends State<SummeryPage> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    //fire the confetti only after the display is ready. otherwise, the page crashes.
+    //code taken from https://github.com/fluttercommunity/flutter_after_layout/blob/master/lib/after_layout.dart
+    //this also works:
+    //WidgetsBinding.instance.addPostFrameCallback((_) => _fireConfetti(context));
+    WidgetsBinding.instance.endOfFrame.then(
+      (_) {
+        if (mounted) {
+          _fireConfetti(context);
+        }
+      },
+    );
+  }
+
+  void _fireConfetti(BuildContext context) {
+    Confetti.launch(
+      context,
+      options: const ConfettiOptions(
+        particleCount: 100,
+        spread: 70,
+        y: 0.6),
+    );
+  }
+  
   bool _isSnackbarActive = false;
   
   void _showToast(BuildContext context) {
@@ -52,7 +84,7 @@ class SummeryPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false, // hide the 'back' arrow
