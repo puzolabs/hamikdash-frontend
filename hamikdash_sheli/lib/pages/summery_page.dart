@@ -105,6 +105,7 @@ class _MySummeryPageState extends State<SummeryPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Icon(
+                  //use https://fonts.google.com/icons to search for icons and open the Android tab to see the icon name
                   Icons.verified, //Icons.check_circle_rounded,
                   color: Colors.greenAccent.shade700,
                   size: 60.0,
