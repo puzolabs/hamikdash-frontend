@@ -104,6 +104,11 @@ class _MySummeryPageState extends State<SummeryPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Icon(
+                  Icons.verified, //Icons.check_circle_rounded,
+                  color: Colors.greenAccent.shade700,
+                  size: 60.0,
+                ),
                 Text(
                   "הביקור הוזמן בהצלחה!",
                   style: Theme.of(context).textTheme.headline3,
