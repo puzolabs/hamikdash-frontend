@@ -71,23 +71,57 @@ class _KorbanWidgetState extends State<KorbanWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: const FlutterLogo(),
-      title: Text(
-        widget.korban.requirements,
-        style: Theme.of(context).textTheme.headline4,
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-            Text(
-            widget.korban.type,
-            style: Theme.of(context).textTheme.headline6?.apply(color: Colors.grey),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            margin: const EdgeInsets.only(right: 25),
+            child: widget.korban.type == KorbanTypes.ola
+            ? const Text('🔥 עולה' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.shlamim
+            ? const Text('🐏 שלמים' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.hatat
+            ? const Text('💔 חטאת' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.asham
+            ? const Text('😒 אשם' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.minha
+            ? const Text('🥖 מנחה' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : //widget.korban.type == KorbanTypes.nesahim
+            /* ?*/ const Text('🍾 נסכים' ,
+              style: const TextStyle(fontSize: 18)
+            ),
           ),
-          if(widget.korban.eatInfo != null)
-            _buildEatInfo(),
-        ],
-      )
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            margin: const EdgeInsets.only(right: 25),
+            child: Text(widget.korban.requirements,
+              style: const TextStyle(fontSize: 28)
+            ),
+          ),
+        ),
+        if(widget.korban.eatInfo != null)
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              margin: const EdgeInsets.only(right: 25),
+              child: _buildEatInfo()
+            )
+          )
+        ]
     );
   }
 }

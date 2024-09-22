@@ -1,11 +1,13 @@
 
-enum KorbamTypes
+enum KorbanTypes
 {
   none,
   hatat,
   ola,
   shlamim,
-  asham
+  asham,
+  minha,
+  nesahim,
 }
 
 class EatInfo
@@ -20,11 +22,11 @@ class EatInfo
 
 class Korban
 {
-  String type;
+  KorbanTypes type;
   String requirements = "";
   EatInfo? eatInfo;
 
-  Korban({this.type = "", this.requirements = "", this.eatInfo});
+  Korban({this.type = KorbanTypes.none, this.requirements = "", this.eatInfo});
 }
 
 class KorbansOption
@@ -52,11 +54,11 @@ class KorbanCasesFactory
       title: "הרהרתי הרהורי עבירה",
       korbanot: [
         Korban(
-          type: "חטאת",
+          type: KorbanTypes.hatat,
           requirements: "כבש"
         ),
         Korban(
-          type: "עולה",
+          type: KorbanTypes.ola,
           requirements: "עז"
         ),
       ]
@@ -66,11 +68,11 @@ class KorbanCasesFactory
       title: "ביטלתי מצוות עשה",
       korbanot: [
         Korban(
-          type: "שלמים",
+          type: KorbanTypes.shlamim,
           requirements: "כבשה"
         ),
         Korban(
-          type: "אשם",
+          type: KorbanTypes.asham,
           requirements: "עיזה"
         ),
       ]
@@ -83,12 +85,12 @@ class KorbanCasesFactory
           name: "אפשרות ראשונה",
           korbans: [
             Korban(
-              type: "שלמים",
+              type: KorbanTypes.shlamim,
               requirements: "כבשה",
               eatInfo: EatInfo(what: "זרוע", who: "בעלים", where: "ירושלים", when: "יום ולילה")
             ),
             Korban(
-              type: "אשם",
+              type: KorbanTypes.asham,
               requirements: "עיזה"
             ),
           ]
@@ -97,11 +99,11 @@ class KorbanCasesFactory
           name: "אפשרות שניה",
           korbans: [
             Korban(
-              type: "מנחה",
+              type: KorbanTypes.minha,
               requirements: "סולת"
             ),
             Korban(
-              type: "נסכים",
+              type: KorbanTypes.nesahim,
               requirements: "יין"
             ),
           ]

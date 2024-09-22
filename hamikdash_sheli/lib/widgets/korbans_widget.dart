@@ -13,7 +13,7 @@ class KorbansWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       padding: const EdgeInsets.all(8),
@@ -21,6 +21,9 @@ class KorbansWidget extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return KorbanWidget(korban: korbanot[index]);
       },
+      separatorBuilder: (context, index) => const SizedBox(
+        height: 30,
+      )
     );
   }
 }
