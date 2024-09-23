@@ -16,7 +16,6 @@ class KorbansWidget extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
-      padding: const EdgeInsets.all(8),
       itemCount: korbanot.length,
       itemBuilder: (BuildContext context, int index) {
         return KorbanWidget(korban: korbanot[index]);

@@ -18,6 +18,24 @@ class VisitWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              margin: const EdgeInsets.only(right: 25, top:25),
+              child: const Text('🗒️ נושא' ,
+                style: TextStyle(fontSize: 18)
+              )
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              margin: const EdgeInsets.only(right: 25, bottom: 25),
+              child: Text(visit.title,
+                style: const TextStyle(fontSize: 28)
+              ),
+            ),
+          ),
           KorbansWidget(korbanot: visit.korbans!),
           Align(
             alignment: Alignment.centerRight,
