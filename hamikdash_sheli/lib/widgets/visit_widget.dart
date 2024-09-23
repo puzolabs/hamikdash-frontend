@@ -22,40 +22,36 @@ class VisitWidget extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              margin: const EdgeInsets.only(right: 25, bottom: 25),
-              child: const Icon(
-                //use https://fonts.google.com/icons to search for icons and open the Android tab to see the icon name
-                Icons.calendar_month_rounded,
-                size: 30.0,
-              ),
+              margin: const EdgeInsets.only(right: 25, top: 25),
+              child: const Text('📅 תאריך' ,
+                style: TextStyle(fontSize: 18)
+              )
             ),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              margin: const EdgeInsets.only(right: 25, bottom: 25),
+              margin: const EdgeInsets.only(right: 25),
               child: Text(DateFormat('EEEE, MMM d, yyyy').format(visit.dateTime!),
-                style: const TextStyle(fontSize: 18)
+                style: const TextStyle(fontSize: 28)
               ),
             ),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              margin: const EdgeInsets.only(right: 25, bottom: 25),
-              child: const Icon(
-                //use https://fonts.google.com/icons to search for icons and open the Android tab to see the icon name
-                Icons.schedule_rounded,
-                size: 30.0,
-              ),
+              margin: const EdgeInsets.only(right: 25, top: 25),
+              child: const Text('🕜 שעה' ,
+                style: TextStyle(fontSize: 18)
+              )
             ),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              margin: const EdgeInsets.only(right: 25, bottom: 25),
+              margin: const EdgeInsets.only(right: 25),
               child: Text(DateFormat('HH:mm').format(visit.dateTime!),
-                style: const TextStyle(fontSize: 18)
+                style: const TextStyle(fontSize: 28)
               ),
             ),
           ),
