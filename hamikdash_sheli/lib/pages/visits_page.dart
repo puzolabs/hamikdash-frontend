@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
-import 'package:hamikdash_sheli/widgets/visit_widget.dart';
+import 'package:hamikdash_sheli/pages/details_page.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
 
 
@@ -14,31 +14,47 @@ class VisitsPage extends StatefulWidget {
   State<VisitsPage> createState() => _MyVisitsPageState();
 }
 
-// stores ExpansionPanel state information
-class Item {
-  Item({
-    required this.visit,
-    this.isExpanded = false,
-  });
-
-  Visit visit;
-  bool isExpanded;
-}
-
 class _MyVisitsPageState extends State<VisitsPage> {
   
   @override
   void initState() {
     super.initState();
-    _data = _generateItems();
   }
 
-  List<Item> _data = List<Item>.empty();
+  Widget _buildPanel() {
+    return ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: visitList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return _buildListItem(context, visitList[index]);
+      }
+    );
+  }
 
-  List<Item> _generateItems() {
-    return visitList.map<Item>((e) => Item (
-        visit: e,
-      )).toList();
+  Widget _buildListItem(BuildContext context, Visit visit) {
+    return Card(
+      child: ListTile(
+        leading: const FlutterLogo(),
+        title: Text(
+          visit.title,
+          style: Theme.of(context).textTheme.headline4,
+        ),
+        onTap: () {
+          _goToDetailsPage(context, visit);
+        }
+      )
+    );
+  }
+
+  Future<void> _goToDetailsPage(BuildContext context, Visit visit) async
+  {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return DetailsPage(visit: visit);
+        }
+      )
+    );
   }
 
   Future<void> _goToNewVisitPage(BuildContext context) async
@@ -52,33 +68,6 @@ class _MyVisitsPageState extends State<VisitsPage> {
     );
   }
 
-  Widget _buildPanel() {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((Item item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(item.visit.title),
-            );
-          },
-          body: VisitWidget(visit: item.visit),
-          isExpanded: item.isExpanded,
-        );
-      }).toList(),
-    );
-  }
-
-// onTap: () {
-//                 setState(() {
-//                   _data.removeWhere((Item currentItem) => item == currentItem);
-//                 });
-//               }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,22 +79,21 @@ class _MyVisitsPageState extends State<VisitsPage> {
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "ברוכים הבאים",
-                  style: Theme.of(context).textTheme.headline3,
-                  textAlign: TextAlign.center,
-                ),
-                (visitList.isEmpty) ?
-                  const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
-                :
-                _buildPanel(),
-              ]
-            ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "ברוכים הבאים",
+                style: Theme.of(context).textTheme.headline3,
+                textAlign: TextAlign.center,
+              ),
+              (visitList.isEmpty)
+              ? const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
+              : Expanded(
+                child:_buildPanel(),
+              )
+            ]
           ),
         ),
       ),
@@ -116,7 +104,6 @@ class _MyVisitsPageState extends State<VisitsPage> {
           //force rebuild this widget after poping from summery page
           setState(()
           {
-            _data = _generateItems();
           });
         },
         tooltip: 'Add',
