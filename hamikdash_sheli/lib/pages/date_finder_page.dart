@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed_options.dart';
 import 'package:hamikdash_sheli/korban.dart';
@@ -39,7 +40,7 @@ class DateFinderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var embed = CalcomEmbed(CalcomEmbedOptions(CalcomEmbedSize(100, 100), "https://engaging-repeatedly-sloth.ngrok-free.app", "bet-hamikdash", "minha", "month_view", false));
+    var embed = CalcomEmbed(CalcomEmbedOptions(CalcomEmbedSize(100, 100), "https://engaging-repeatedly-sloth.ngrok-free.app", "bet-hamikdash", "minha", "month_view", false, appState.user!));
     var html = embed.build();
 
     return Scaffold(

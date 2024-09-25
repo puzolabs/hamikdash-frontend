@@ -1,3 +1,6 @@
+
+import 'package:hamikdash_sheli/dataTypes/user.dart';
+
 class CalcomEmbedSize {
   CalcomEmbedSize(this.width, this.height);
 
@@ -6,7 +9,7 @@ class CalcomEmbedSize {
 }
 
 class CalcomEmbedOptions {
-  CalcomEmbedOptions(this.size, this.host, this.teamName, this.eventTitle, this.layout, this.hideEventTypeDetails);
+  CalcomEmbedOptions(this.size, this.host, this.teamName, this.eventTitle, this.layout, this.hideEventTypeDetails, this.user);
 
   CalcomEmbedSize size;
   String host; // "http://localhost:3000";
@@ -14,6 +17,7 @@ class CalcomEmbedOptions {
   String eventTitle; // "minha";
   String layout; // "month_view";
   bool hideEventTypeDetails = false;
+  User user;
     //styles,
     //dark \ light theme
     //success callbacks
@@ -29,6 +33,10 @@ class CalcomEmbedOptions {
       'eventTitle': eventTitle,
       'layout': layout,
       'hideEventTypeDetails': hideEventTypeDetails,
+      'user': {
+        'name': user.name,
+        'email': user.email,
+      },
     };
   }
 }

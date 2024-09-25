@@ -50,7 +50,11 @@
       Cal.ns.{{eventTitle}}("inline", {
         elementOrSelector: "#my-cal-inline",
         calLink: "team/{{teamName}}/{{eventTitle}}",
-        layout: "{{layout}}"
+        layout: "{{layout}}",
+        config: {
+          name: "{{user.name}}",
+          email: "{{user.email}}",
+        }
       });
 
       Cal.ns.{{eventTitle}}("ui", { "styles": { "branding": { "brandColor": "#000000" } }, "hideEventTypeDetails": {{hideEventTypeDetails}}, "layout": "{{layout}}" });
