@@ -1,0 +1,11 @@
+
+POST http://localhost:3000/api/cancel
+content-type: application/json
+
+{
+    "uid": "uRaY9DnZ5puTicsBoxByrv",
+    "cancellationReason": "ba li",
+    "allRemainingBookings": false,
+    "seatReferenceUid": "uRaY9DnZ5puTicsBoxByrv",
+    "cancelledBy": "puzolabs@gmail.com"
+}

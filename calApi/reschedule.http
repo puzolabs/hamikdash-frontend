@@ -1,0 +1,27 @@
+
+POST http://localhost:3000/api/book/event
+content-type: application/json
+
+{
+  "responses": {
+    "email": "puzolabs@gmail.com",
+    "name": "meir bsh",
+    "guests": [],
+    "location": {
+      "optionValue": "",
+      "value": "In Person (Organizer Address)"
+    }
+  },
+  "user": "bet-hamikdash",
+  "start": "2024-09-30T13:00:00+03:00",
+  "end": "2024-09-30T13:15:00+03:00",
+  "eventTypeId": 4,
+  "eventTypeSlug": "minha",
+  "timeZone": "Asia/Jerusalem",
+  "language": "en",
+  "rescheduleUid": "rfNFZrZRxjRk2rxwbZZk9S",
+  "metadata": {},
+  "hasHashedBookingLink": false,
+  "bookingUid": "rfNFZrZRxjRk2rxwbZZk9S"
+}
+
