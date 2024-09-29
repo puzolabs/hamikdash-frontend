@@ -1,0 +1,26 @@
+
+GET http://localhost:3000/api/trpc/public/slots.getSchedule?input=%7B%22json%22%3A%7B%22isTeamEvent%22%3Atrue%2C%22usernameList%22%3A%5B%22bet-hamikdash%22%5D%2C%22eventTypeSlug%22%3A%22minha%22%2C%22startTime%22%3A%222024-08-31T21%3A00%3A00.000Z%22%2C%22endTime%22%3A%222024-09-30T20%3A59%3A59.999Z%22%2C%22timeZone%22%3A%22Asia%2FJerusalem%22%2C%22duration%22%3Anull%2C%22rescheduleUid%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22duration%22%3A%5B%22undefined%22%5D%7D%7D%7D
+
+# the query string is a url-encoded structure of:
+# {
+#   "json": {
+#     "isTeamEvent": true,
+#     "usernameList": [
+#       "bet-hamikdash"
+#     ],
+#     "eventTypeSlug": "minha",
+#     "startTime": "2024-08-31T21:00:00.000Z",
+#     "endTime": "2024-09-30T20:59:59.999Z",
+#     "timeZone": "Asia/Jerusalem",
+#     "duration": null,
+#     "rescheduleUid": null
+#   },
+#   "meta": {
+#     "values": {
+#       "duration": [
+#         "undefined"
+#       ]
+#     }
+#   }
+# }
+
