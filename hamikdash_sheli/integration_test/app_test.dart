@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 import 'package:hamikdash_sheli/main.dart';
-import 'package:hamikdash_sheli/cal_api.dart';
+import 'package:hamikdash_sheli/calApi/cal_api.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
