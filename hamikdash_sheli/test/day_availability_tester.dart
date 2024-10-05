@@ -42,7 +42,6 @@ void main() {
 
     DayAvailability dayAvailability = DayAvailability.fromJson(map);
 
-    // Verify that our counter has incremented.
     expect(dayAvailability.timeSlots.length, 8);
   });
 }
