@@ -1,0 +1,7 @@
+1. can't position the UI in reschedule state
+2. can't skip redundant confirmation page
+3. skipping summery page is cumbersome - can mitigate this by setting a Booking success URL redirection to an empty HTML page
+4. don't have a way to cancel a meeting
+5. can't remove header with details about the meeting - can mitigate this with css to hide this section?
+6. localization to hebrew of 'confirm' button and cal.com's summery page seems cumbersome if at all possible
+7. bug: when entering name and email and the keyboard is shown - a yellow strip is shown on UI
