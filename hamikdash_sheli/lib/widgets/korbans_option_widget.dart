@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 
-import '../pages/date_finder_page.dart';
+import '../pages/date_selection_page.dart';
 
 class KorbansOptionWidget extends StatelessWidget {
   const KorbansOptionWidget({
@@ -13,12 +13,12 @@ class KorbansOptionWidget extends StatelessWidget {
 
   final KorbansOption korbanotOption;
 
-  void _goToDateFinderPage(BuildContext context)
+  void _goToDateSelectionPage(BuildContext context)
   {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const DateFinderPage();
+            return const DateSelectionPage();
         }
       )
     );
@@ -42,7 +42,7 @@ class KorbansOptionWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   currentVisit!.korbans = korbanotOption.korbans;
-                  _goToDateFinderPage(context);
+                  _goToDateSelectionPage(context);
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(20),

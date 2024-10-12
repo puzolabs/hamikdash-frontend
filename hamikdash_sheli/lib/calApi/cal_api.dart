@@ -1,10 +1,16 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 
-class calApi {
-  Future getAvailability(String scheme, String host, int port, String teamName, String eventName, DateTime dtStart, String end, String timeZone) async {
+import 'data_types/day_availability.dart';
+import 'data_types/get_availability_response_parser.dart';
+
+class CalApi {
+  Future<List<DayAvailability>> getAvailability(String scheme, String host, int port, String teamName, String eventName, DateTime dtStart, DateTime dtEnd, String timeZone) async {
     String start = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtStart);
+    String end   = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtEnd);
     //String start = "2024-08-31T21:00:00.000Z"; // "2024-09-30T21:00:00.000Z";
     //String end = "2024-09-30T20:59:59.999Z"; // "2024-10-31T21:59:59.999Z";
 
@@ -49,7 +55,13 @@ class calApi {
 
     final Response response;
     try {
-      response = await http.get(uri);
+      response = await http.get(uri, headers:
+        {
+          "Connection": "keep-alive",
+          "Keep-Alive": "timeout=5, max=1000",
+          "Content-Type": "application/json",
+          'Accept-Encoding': 'gzip, deflate, br'
+        });
     } on ClientException catch (error) {
       print(error.toString());
       throw Exception('Failed to get availability time slots');
@@ -57,7 +69,9 @@ class calApi {
 
     if (response.statusCode == 200) {
       print(response.body);
-        //return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+      var map = jsonDecode(response.body) as Map<String, dynamic>;
+      GetAvailabilityResponseParser parser = GetAvailabilityResponseParser.fromJson(map);
+      return parser.daysAvailability;
     } else {
       print(response.request!.url.query);
       throw Exception('Failed to get availability time slots');
