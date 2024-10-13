@@ -78,8 +78,71 @@ class CalApi {
     }
   }
 
-  Future create() async {
+  Future<String> create(String scheme, String host, int port, String teamName, String eventName, int eventTypeId, DateTime dtStart, DateTime dtEnd, String timeZone, String userName, String userEmail) async {
+    String start = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtStart);
+    String end   = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtEnd);
 
+    String template = 
+    """{
+      "responses": {
+        "email": "{{userEmail}}",
+        "name": "{{userName}}",
+        "guests": [],
+        "location": {
+          "optionValue": "",
+          "value": "In Person (Organizer Address)"
+        }
+      },
+      "user": "{{teamName}}",
+      "start": "{{start}}",
+      "end": "{{end}}",
+      "eventTypeId": {{eventTypeId}},
+      "eventTypeSlug": "{{eventName}}",
+      "timeZone": "{{timeZone}}",
+      "language": "en",
+      "metadata": {},
+      "hasHashedBookingLink": false
+    }""";
+
+    String payload = template
+    .replaceAll(" ", "")
+    .replaceAll("\n", "")
+    .replaceFirst("{{teamName}}", teamName)
+    .replaceFirst("{{eventName}}", eventName)
+    .replaceFirst("{{eventTypeId}}", eventTypeId.toString())
+    .replaceFirst("{{start}}", start)
+    .replaceFirst("{{end}}", end)
+    .replaceFirst("{{timeZone}}", timeZone).
+    replaceFirst("{{userEmail}}", userEmail)
+    .replaceFirst("{{userName}}", userName);
+
+    Uri uri = Uri(
+      scheme: scheme,
+      host: host,
+      port: port,
+      path: '/api/book/event');
+
+    final Response response;
+    try {
+      response = await http.post(uri, headers:
+        {
+          "Content-Type": "application/json",
+        },
+        body: payload);
+    } on ClientException catch (error) {
+      print(error.toString());
+      throw Exception('Failed to create a meeting');
+    }
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      var map = jsonDecode(response.body) as Map<String, dynamic>;
+      String uid = map["uid"];
+      return uid;
+    } else {
+      print(response.request!.url.query);
+      throw Exception('Failed to create a meeting');
+    }
   }
 
   Future reschedule() async {

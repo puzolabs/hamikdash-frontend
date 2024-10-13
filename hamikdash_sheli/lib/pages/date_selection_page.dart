@@ -124,6 +124,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         ),
         onTap: () {
           currentVisit!.dateTime = timeSlot;
+          _calApiManager.create("minha", timeSlot);
           _goToSummeryPage(context);
         }
       )

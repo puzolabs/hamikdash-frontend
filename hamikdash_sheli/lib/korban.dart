@@ -136,6 +136,7 @@ class Visit
   DateTime? dateTime;
   int? paymentAmount;
   Status status = Status.pending;
+  String uid = "";
 }
 
 Visit? currentVisit;

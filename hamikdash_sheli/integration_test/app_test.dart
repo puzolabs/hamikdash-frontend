@@ -26,17 +26,15 @@ void main() {
     },
   );
 
-//   group('end-to-end test', () {
-//     testWidgets('test get availability REST call', (WidgetTester tester) async {
-//       CalApi api = CalApi();
-//       int days = 1;
-// //      int days = 7;
-//       DateTime start = DateTime.now().toUtc();
-//       DateTime end = start.add(Duration(days: days));
-//       var list = await api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", start, end, "Asia/Jerusalem");
-//       expect(list.length, days);
-// //      expect(list.length, days - 1); // -1 since for Saturday we don't return time slots
-//     });
+  group('end-to-end test', () {
+    testWidgets('test get availability REST call', (WidgetTester tester) async {
+      CalApi api = CalApi();
+      DateTime start = DateTime.parse("2024-10-31T12:00:00.000Z");
+      DateTime end = DateTime.parse("2024-10-31T12:15:00.000Z");
+      var uid = await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com");
+      expect(uid, isNotNull);
+      expect(uid, isNotEmpty);
+    });
 
 //     testWidgets('tap on the floating action button, verify counter', (tester) async {
 //       // Load app widget.
@@ -57,5 +55,5 @@ void main() {
 //       // Verify the counter increments by 1.
 //       expect(find.text('1'), findsOneWidget);
 //     });
-//   });
+  });
 }
