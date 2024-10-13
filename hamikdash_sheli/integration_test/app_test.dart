@@ -27,7 +27,7 @@ void main() {
   );
 
   group('end-to-end test', () {
-    testWidgets('test get availability REST call', (WidgetTester tester) async {
+    testWidgets("test creating an event in Cal's server", (WidgetTester tester) async {
       CalApi api = CalApi();
       DateTime start = DateTime.parse("2024-10-31T12:00:00.000Z");
       DateTime end = DateTime.parse("2024-10-31T12:15:00.000Z");
