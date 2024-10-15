@@ -45,10 +45,10 @@ class CalApiManager {
       .dateTime;
   }
 
-  Future create(String eventName, DateTime start) async {
+  Future create(String eventName, DateTime start, {String? rescheduleUid}) async {
     int eventTypeId = eventMap[eventName]!.eventTypeId;
     DateTime end = start.add(eventMap[eventName]!.duration);
-    String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email);
+    String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
     currentVisit!.uid = uid;
   }
 }

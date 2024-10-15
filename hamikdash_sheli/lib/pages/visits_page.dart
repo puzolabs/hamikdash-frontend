@@ -40,18 +40,19 @@ class _MyVisitsPageState extends State<VisitsPage> {
           style: Theme.of(context).textTheme.headline4,
         ),
         onTap: () {
-          _goToDetailsPage(context, visit);
+          currentVisit = visit;
+          _goToDetailsPage(context);
         }
       )
     );
   }
 
-  Future<void> _goToDetailsPage(BuildContext context, Visit visit) async
+  Future<void> _goToDetailsPage(BuildContext context) async
   {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return DetailsPage(visit: visit);
+            return DetailsPage();
         }
       )
     );

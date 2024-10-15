@@ -78,7 +78,7 @@ class CalApi {
     }
   }
 
-  Future<String> create(String scheme, String host, int port, String teamName, String eventName, int eventTypeId, DateTime dtStart, DateTime dtEnd, String timeZone, String userName, String userEmail) async {
+  Future<String> create(String scheme, String host, int port, String teamName, String eventName, int eventTypeId, DateTime dtStart, DateTime dtEnd, String timeZone, String userName, String userEmail, {String? rescheduleUid}) async {
     String start = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtStart);
     String end   = DateFormat('yyyy-MM-ddTHH:mm:ss.000Z').format(dtEnd);
 
@@ -101,6 +101,7 @@ class CalApi {
       "timeZone": "{{timeZone}}",
       "language": "en",
       "metadata": {},
+      {{rescheduleSection}}
       "hasHashedBookingLink": false
     }""";
 
@@ -112,9 +113,10 @@ class CalApi {
     .replaceFirst("{{eventTypeId}}", eventTypeId.toString())
     .replaceFirst("{{start}}", start)
     .replaceFirst("{{end}}", end)
-    .replaceFirst("{{timeZone}}", timeZone).
-    replaceFirst("{{userEmail}}", userEmail)
-    .replaceFirst("{{userName}}", userName);
+    .replaceFirst("{{timeZone}}", timeZone)
+    .replaceFirst("{{userEmail}}", userEmail)
+    .replaceFirst("{{userName}}", userName)
+    .replaceFirst("{{rescheduleSection}}", rescheduleUid == null ? "" : _buildRescheduleSection(rescheduleUid));
 
     Uri uri = Uri(
       scheme: scheme,
@@ -139,14 +141,20 @@ class CalApi {
       var map = jsonDecode(response.body) as Map<String, dynamic>;
       String uid = map["uid"];
       return uid;
+    } else if (response.statusCode == 500 && response.body.contains("No available users found")) { // Internal Server Error
+      throw Exception('Time slot is taken');
     } else {
-      print(response.request!.url.query);
       throw Exception('Failed to create a meeting');
     }
   }
 
-  Future reschedule() async {
+  String _buildRescheduleSection(String uid) {
+    String section = """
+      "rescheduleUid": "$uid",
+      "bookingUid": "$uid",
+    """;
 
+    return section;
   }
 
   Future cancel() async {

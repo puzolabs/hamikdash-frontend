@@ -36,6 +36,23 @@ void main() {
       expect(uid, isNotEmpty);
     });
 
+    testWidgets("test rescheduling an event in Cal's server", (WidgetTester tester) async {
+      CalApi api = CalApi();
+      DateTime start = DateTime.parse("2024-10-31T12:00:00.000Z");
+      DateTime end = DateTime.parse("2024-10-31T12:15:00.000Z");
+      var uid = await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com");
+      expect(uid, isNotNull);
+      expect(uid, isNotEmpty);
+
+      start = start.add(const Duration(hours: 1));
+      end = end.add(const Duration(hours: 1));
+      var uid2 = await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com", rescheduleUid: uid);
+      expect(uid2, isNotNull);
+      expect(uid2, isNotEmpty);
+      expect(uid2, isNot(equals(uid)));
+    });
+
+
 //     testWidgets('tap on the floating action button, verify counter', (tester) async {
 //       // Load app widget.
 //       await tester.pumpWidget(const MyApp());

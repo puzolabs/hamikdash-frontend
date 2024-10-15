@@ -20,7 +20,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const DateSelectionPage();
+            return const DateSelectionPage(mode: DateSelectionMode.create);
         }
       )
     );

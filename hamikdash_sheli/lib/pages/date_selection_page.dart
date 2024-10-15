@@ -12,11 +12,18 @@ import '../calApi/data_types/day_availability.dart';
 import 'summery_page.dart';
 import '../utills/screen_dimension.dart';
 
+enum DateSelectionMode {
+  create,
+  reschedule,
+}
 
 class DateSelectionPage extends StatefulWidget {
   const DateSelectionPage({
     super.key,
+    required this.mode
   });
+
+  final DateSelectionMode mode;
 
   @override
   State<DateSelectionPage> createState() => _DateSelectionPageState();
@@ -123,11 +130,32 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
           )
         ),
         onTap: () {
-          currentVisit!.dateTime = timeSlot;
-          _calApiManager.create("minha", timeSlot);
-          _goToSummeryPage(context);
+          _timeSlotTapped(timeSlot);
         }
       )
+    );
+  }
+
+  void _timeSlotTapped(DateTime timeSlot) {
+    currentVisit!.dateTime = timeSlot;
+    if(widget.mode == DateSelectionMode.create) {
+      _calApiManager.create("minha", timeSlot);
+      _goToSummeryPage(context);
+    } else { // reschedule
+      _calApiManager.create("minha", timeSlot, rescheduleUid: currentVisit!.uid);
+      _showToast(context);
+      Navigator.pop(context);
+    }
+  }
+
+  void _showToast(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+
+    scaffold.showSnackBar(
+      SnackBar(
+        content: const Text('מועד הביקור עודכן בהצלחה'),
+        action: SnackBarAction(label: 'הבנתי', onPressed: scaffold.hideCurrentSnackBar),
+      ),
     );
   }
 

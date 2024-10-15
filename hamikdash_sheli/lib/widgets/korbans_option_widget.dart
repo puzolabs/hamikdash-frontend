@@ -18,7 +18,7 @@ class KorbansOptionWidget extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
-            return const DateSelectionPage();
+            return const DateSelectionPage(mode: DateSelectionMode.create);
         }
       )
     );

@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
+import 'date_selection_page.dart';
+
 class DetailsPage extends StatefulWidget {
   DetailsPage({
     super.key,
-    required this.visit,
   });
-
-  Visit visit;
 
   @override
   State<DetailsPage> createState() => _MyDetailsPageState();
@@ -20,6 +19,16 @@ class _MyDetailsPageState extends State<DetailsPage> {
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _goToDateSelectionPage() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const DateSelectionPage(mode: DateSelectionMode.reschedule);
+        }
+      )
+    );
   }
 
   @override
@@ -48,7 +57,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              VisitWidget(visit: widget.visit),
+              VisitWidget(visit: currentVisit!),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -68,7 +77,9 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 20),
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      await _goToDateSelectionPage();
+                      setState(() { }); // update date\time labels with updated info
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(20),
