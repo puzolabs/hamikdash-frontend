@@ -7,10 +7,10 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
 
-import '../calApi/cal_api_manager.dart';
-import '../calApi/data_types/day_availability.dart';
-import 'summery_page.dart';
-import '../utills/screen_dimension.dart';
+import 'package:hamikdash_sheli/calApi/cal_api_manager.dart';
+import 'package:hamikdash_sheli/calApi/data_types/day_availability.dart';
+import 'package:hamikdash_sheli/pages/summery_page.dart';
+import 'package:hamikdash_sheli/utills/screen_dimension.dart';
 
 enum DateSelectionMode {
   create,

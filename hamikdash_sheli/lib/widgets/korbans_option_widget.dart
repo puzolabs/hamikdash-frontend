@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/korban.dart';
 
-import '../pages/date_selection_page.dart';
+import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
 
 class KorbansOptionWidget extends StatelessWidget {
   const KorbansOptionWidget({
