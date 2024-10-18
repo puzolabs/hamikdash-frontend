@@ -6,8 +6,8 @@ import 'package:hamikdash_sheli/cal/calcom_embed.dart';
 import 'package:hamikdash_sheli/cal/calcom_embed_options.dart';
 import 'package:hamikdash_sheli/korban.dart';
 import 'package:intl/intl.dart' show DateFormat;
-import 'summery_page.dart';
-import 'coming_options_page.dart';
+import 'package:hamikdash_sheli/pages/summery_page.dart';
+import 'package:hamikdash_sheli/pages/coming_options_page.dart';
 import '../utills/screen_dimension.dart';
 
 
