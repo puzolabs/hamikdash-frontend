@@ -237,25 +237,26 @@
 			{
 				"type": "ביכורים",
 				"requirements": "הפרות שביכרו"
-			},
-			{
-				"korbanotOptions": "shlamim.json"
-			}]
+			}],
+		"korbanotOptions": "shlamim.json"
 	},
 	{
 		"code": "",
 		"title": "ברצוני להודות על נס שנעשה לי",
-		"korbanotReference": "toda.json"
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
 	},
 	{
 		"code": "",
 		"title": "ברצוני להביא קורבן תודה לנדבה",
-		"korbanotReference": "toda.json"
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
 	},
 	{
 		"code": "",
 		"title": "נדרתי להביא קורבן תודה",
-		"korbanotReference": "toda.json"
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
 	},
 	{
 		"code": "",
@@ -309,14 +310,8 @@
 	{
 		"code": "",
 		"title": "אני גר",
-		"korbanot": [
-		{
-			"korbanotOptions": "ger.json"
-		},
-		{
-			"optional": true,
-			"korbanotOptions": "shlamim.json"
-		}]
+		"korbanotOptions": "ger.json",
+		"optionalKorbanotOptions": "shlamim.json"
 	},
 	{
 		"code": "",
