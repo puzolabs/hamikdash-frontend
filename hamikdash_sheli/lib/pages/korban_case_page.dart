@@ -28,7 +28,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
 
   List<Widget> _buildPanel(BuildContext context)
   {
-      if(widget.korbanCase.korbanot != null)
+      if(widget.korbanCase.isSingleOptionKorbanCase)
       {
         return [
           Text(
@@ -55,13 +55,38 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
           ),
         ];
       }
-      else if(widget.korbanCase.korbanotOptions != null)
+      else if(widget.korbanCase.isMultiOptionsKorbanCase)
       {
         return [
           Text(
             "ביחרו אחת מהאפשרויות הבאות:",
             style: Theme.of(context).textTheme.headline3,
             textAlign: TextAlign.center,
+          ),
+          Expanded(
+            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!),
+          ),
+        ];
+      }
+      else if(widget.korbanCase.isComplexKorbanCase)
+      {
+        return [
+          Text(
+            "עליכם להגיע למקדש עם הפריטים הבאים:",
+            style: Theme.of(context).textTheme.headline3,
+            textAlign: TextAlign.center,
+          ),
+          KorbansWidget(korbanot: widget.korbanCase.korbanot!),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              margin: const EdgeInsets.only(right: 25, top: 25),
+              child: const Text(
+                "בנוסף, ביחרו אחת מהאפשרויות הבאות:",
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.right,
+              ),
+            ),
           ),
           Expanded(
             child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!),

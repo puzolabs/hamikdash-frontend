@@ -44,6 +44,10 @@ class KorbanCase
   List<KorbansOption>? korbanotOptions;
 
   KorbanCase({this.title = "", this.korbanot, this.korbanotOptions });
+
+  bool get isSingleOptionKorbanCase => korbanot != null && korbanotOptions == null;
+  bool get isMultiOptionsKorbanCase => korbanot == null && korbanotOptions != null;
+  bool get isComplexKorbanCase => korbanot != null && korbanotOptions != null ;
 }
 
 class KorbanCasesFactory
@@ -111,7 +115,50 @@ class KorbanCasesFactory
       ],
     );
 
-    return [case1, case2, case3];
+    final case4 = KorbanCase(
+      title: "תודה",
+      korbanot: [
+        Korban(
+          type: KorbanTypes.shlamim,
+          requirements: "כבשה"
+        ),
+        Korban(
+          type: KorbanTypes.asham,
+          requirements: "עיזה"
+        ),
+      ],
+      korbanotOptions: [
+        KorbansOption(
+          name: "אפשרות ראשונה",
+          korbans: [
+            Korban(
+              type: KorbanTypes.shlamim,
+              requirements: "כבשה",
+              eatInfo: EatInfo(what: "זרוע", who: "בעלים", where: "ירושלים", when: "יום ולילה")
+            ),
+            Korban(
+              type: KorbanTypes.asham,
+              requirements: "עיזה"
+            ),
+          ]
+        ),
+        KorbansOption(
+          name: "אפשרות שניה",
+          korbans: [
+            Korban(
+              type: KorbanTypes.minha,
+              requirements: "סולת"
+            ),
+            Korban(
+              type: KorbanTypes.nesahim,
+              requirements: "יין"
+            ),
+          ]
+        )
+      ],
+    );
+
+    return [case1, case2, case3, case4];
   }
 }
 
