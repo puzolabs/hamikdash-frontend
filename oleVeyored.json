@@ -2,7 +2,7 @@
     "oleVeyored1": {
         "type": "חטאת",
         "requirements": "כבשה / עיזה"
-    },
+        },
     "oleVeyored2": [{
             "type": "עולה",
             "requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
@@ -11,9 +11,9 @@
             "type": "חטאת",
             "requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
         }
-    ],
+        ],
     "oleVeyored3": {
         "type": "מנחה",
         "requirements": "עשירית האיפה סולת"
-    }
+        }
 }
