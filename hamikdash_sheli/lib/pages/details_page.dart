@@ -43,8 +43,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
             children: [
               Icon(
                 //use https://fonts.google.com/icons to search for icons and open the Android tab to see the icon name
