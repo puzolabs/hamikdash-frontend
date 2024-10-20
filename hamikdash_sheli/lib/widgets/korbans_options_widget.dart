@@ -7,9 +7,11 @@ class KorbansOptionsWidget extends StatelessWidget {
   const KorbansOptionsWidget({
     super.key,
     required this.korbanotOptions,
+    required this.onOptionSelected,
   });
 
   final List<KorbansOption> korbanotOptions;
+  final Function(KorbansOption) onOptionSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,10 @@ class KorbansOptionsWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       itemCount: korbanotOptions.length,
       itemBuilder: (BuildContext context, int index) {
-        return KorbansOptionWidget(korbanotOption: korbanotOptions[index]);
+        return KorbansOptionWidget(
+          korbanotOption: korbanotOptions[index],
+          onOptionSelected: onOptionSelected,
+        );
       },
       separatorBuilder: (context, index) => const SizedBox(
         height: 250,

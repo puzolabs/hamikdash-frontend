@@ -64,7 +64,13 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             textAlign: TextAlign.center,
           ),
           Expanded(
-            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!),
+            child: KorbansOptionsWidget(
+              korbanotOptions: widget.korbanCase.korbanotOptions!,
+              onOptionSelected: (option) {
+                currentVisit!.korbans = option.korbans;
+                _goToDateSelectionPage();
+              },
+            ),
           ),
         ];
       }
@@ -89,7 +95,14 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             ),
           ),
           Expanded(
-            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!),
+            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!,
+              onOptionSelected: (option) {
+                currentVisit!.korbans = List
+                  .from(widget.korbanCase.korbanot!)
+                  ..addAll(option.korbans);
+                _goToDateSelectionPage();
+              },
+            ),
           ),
         ];
       }
