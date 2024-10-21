@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hamikdash_sheli/calApi/data_types/get_availability_response_parser.dart';
 
 void main() {
-  testWidgets('test builing the day availability', (WidgetTester tester) async {
+  testWidgets('test building the day availability', (WidgetTester tester) async {
     
     String json = """
     {
