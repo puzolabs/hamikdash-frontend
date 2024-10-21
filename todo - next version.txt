@@ -30,7 +30,9 @@ summery page:
  - add info about selected payment
 
 details page:
-restrict editing the type:
+ use hebrew date also
+ add info about selected payment
+ restrict editing the type:
  - only if he brings all - we can let him replace the korban type without affecting the payment. otherwise, he should pay the gap or be refunded
  - only if the old visit duration is higher or equals to the new visit's. otherwise, time overlap between 2 different visitors so user has to reschedule
 
