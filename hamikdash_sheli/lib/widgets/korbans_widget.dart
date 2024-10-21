@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/dataTypes/korban.dart';
 import 'package:hamikdash_sheli/widgets/korban_widget.dart';
-import 'package:hamikdash_sheli/korban.dart';
 
 class KorbansWidget extends StatelessWidget {
   const KorbansWidget({

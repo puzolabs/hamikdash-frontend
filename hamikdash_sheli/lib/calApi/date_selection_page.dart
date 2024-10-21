@@ -1,12 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/app_state.dart';
-import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/utills/list_enhancements.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
-
 import 'package:hamikdash_sheli/calApi/cal_api_manager.dart';
 import 'package:hamikdash_sheli/calApi/data_types/day_availability.dart';
 import 'package:hamikdash_sheli/pages/summery_page.dart';
@@ -137,12 +135,12 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   }
 
   void _timeSlotTapped(DateTime timeSlot) {
-    currentVisit!.dateTime = timeSlot;
+    appState.currentVisit!.dateTime = timeSlot;
     if(widget.mode == DateSelectionMode.create) {
       _calApiManager.create("minha", timeSlot);
       _goToSummeryPage(context);
     } else { // reschedule
-      _calApiManager.create("minha", timeSlot, rescheduleUid: currentVisit!.uid);
+      _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
       _showToast(context);
       Navigator.pop(context);
     }

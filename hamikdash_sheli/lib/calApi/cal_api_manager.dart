@@ -1,9 +1,5 @@
-
 import 'package:hamikdash_sheli/calApi/cal_api.dart';
-import 'package:hamikdash_sheli/korban.dart';
 import 'package:jiffy/jiffy.dart';
-//import 'package:hamikdash_sheli/utills/date_time_enhancements.dart';
-
 import '../app_state.dart';
 import '../dataTypes/event_data.dart';
 import 'data_types/day_availability.dart';
@@ -49,6 +45,6 @@ class CalApiManager {
     int eventTypeId = eventMap[eventName]!.eventTypeId;
     DateTime end = start.add(eventMap[eventName]!.duration);
     String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
-    currentVisit!.uid = uid;
+    appState.currentVisit!.uid = uid;
   }
 }

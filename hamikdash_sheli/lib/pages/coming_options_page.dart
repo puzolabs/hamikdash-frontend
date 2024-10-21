@@ -1,8 +1,6 @@
-
-
-
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/app_state.dart';
+import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/pages/payment_page.dart';
 import 'package:hamikdash_sheli/pages/summery_page.dart';
 
@@ -61,7 +59,7 @@ class ComingOptionsPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   onTap: () {
-                    currentVisit!.comingOption = ComingOption.prepareAllForMe;
+                    appState.currentVisit!.comingOption = ComingOption.prepareAllForMe;
                     _goToPaymentPage(context);
                   },
                 )
@@ -74,7 +72,7 @@ class ComingOptionsPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   onTap: () {
-                    currentVisit!.comingOption = ComingOption.bringingAllWithMe;
+                    appState.currentVisit!.comingOption = ComingOption.bringingAllWithMe;
                     _goToSummeryPage(context);
                   },
                 ),

@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/app_state.dart';
+import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
+import 'package:hamikdash_sheli/dataTypes/korban_cases_factory.dart';
 import 'package:hamikdash_sheli/pages/korban_case_page.dart';
 
 class NewVisitPage extends StatelessWidget {
@@ -29,7 +30,7 @@ class NewVisitPage extends StatelessWidget {
         ),
         onTap: ()
         {
-          currentVisit!.title = korbanCase.title;
+          appState.currentVisit!.title = korbanCase.title;
           _goToKorbanDetailsPage(context, korbanCase);
         }
       )

@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/app_state.dart';
+import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/pages/details_page.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
 
@@ -24,9 +24,9 @@ class _MyVisitsPageState extends State<VisitsPage> {
   Widget _buildPanel() {
     return ListView.builder(
       padding: const EdgeInsets.all(8),
-      itemCount: visitList.length,
+      itemCount: appState.visitList.length,
       itemBuilder: (BuildContext context, int index) {
-        return _buildListItem(context, visitList[index]);
+        return _buildListItem(context, appState.visitList[index]);
       }
     );
   }
@@ -40,7 +40,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
           style: Theme.of(context).textTheme.headline4,
         ),
         onTap: () {
-          currentVisit = visit;
+          appState.currentVisit = visit;
           _goToDetailsPage(context);
         }
       )
@@ -89,7 +89,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              (visitList.isEmpty)
+              (appState.visitList.isEmpty)
               ? const Text("רשימת הביקורים ריקה :(", style: TextStyle(color: Colors.grey))
               : Expanded(
                 child:_buildPanel(),
@@ -100,7 +100,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async { 
-          currentVisit = Visit();
+          appState.currentVisit = Visit();
           await _goToNewVisitPage(context);
           //force rebuild this widget after poping from summery page
           setState(()

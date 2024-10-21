@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
@@ -56,7 +55,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
-              VisitWidget(visit: currentVisit!),
+              VisitWidget(visit: appState.currentVisit!),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(

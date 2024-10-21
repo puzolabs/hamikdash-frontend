@@ -1,8 +1,4 @@
-
-
-
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/pages/summery_page.dart';
 
 class PaymentPage extends StatelessWidget {

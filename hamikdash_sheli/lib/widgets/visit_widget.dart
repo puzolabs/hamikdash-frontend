@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:intl/intl.dart';
-import 'package:hamikdash_sheli/korban.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 
 class VisitWidget extends StatelessWidget {

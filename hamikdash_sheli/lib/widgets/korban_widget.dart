@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/dataTypes/korban.dart';
 
 class KorbanWidget extends StatefulWidget {
   const KorbanWidget({

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
 import 'package:hamikdash_sheli/widgets/korbans_option_widget.dart';
 
 class KorbansOptionsWidget extends StatelessWidget {

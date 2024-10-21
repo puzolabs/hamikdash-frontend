@@ -46,7 +46,6 @@ general:
  - location of 'next' button (right \ left) depends on the text direction
 
 technical dept:
- - refactor currentVisit to be in app_state
  - support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)
  - replace korbanot with korbans
  - make sure android and ios name doesn't contain the word 'example' in the result binary

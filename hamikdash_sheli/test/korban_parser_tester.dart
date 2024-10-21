@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/dataTypes/korban.dart';
+import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
+import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
 
 void main() {
   testWidgets('test building Korban', (WidgetTester tester) async {

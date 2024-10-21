@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_confetti/flutter_confetti.dart';
-import 'package:hamikdash_sheli/korban.dart';
+import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/pages/visits_page.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
@@ -114,14 +113,14 @@ class _MySummeryPageState extends State<SummeryPage> {
                   style: Theme.of(context).textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),
-                VisitWidget(visit: currentVisit!),
+                VisitWidget(visit: appState.currentVisit!),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
                     margin: const EdgeInsets.only(left: 20),
                     child: ElevatedButton(
                       onPressed: () {
-                        visitList.add(currentVisit!);
+                        appState.visitList.add(appState.currentVisit!);
                         _goToVisitsPage(context);
                       },
                       style: ElevatedButton.styleFrom(
