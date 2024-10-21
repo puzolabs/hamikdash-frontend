@@ -39,7 +39,7 @@ class Korban
   factory Korban.fromJson(Map<String, dynamic> map) {
     String type = map["type"];
     String requirements = map["requirements"];
-    EatInfo eatInfo = EatInfo.fromJson(map["eat"]);
+    EatInfo? eatInfo = map["eat"] == null ? null : EatInfo.fromJson(map["eat"]);
 
     Map<String, KorbanTypes> types = {
       "עולה": KorbanTypes.ola,
@@ -60,6 +60,17 @@ class KorbansOption
   List<Korban> korbans;
 
   KorbansOption({required this.name, required this.korbans});
+
+  factory KorbansOption.fromJson(Map<String, dynamic> map) {
+    String title = map["title"];
+    var korbanot = map["korbanot"];
+
+    List<Korban> list = korbanot
+      .map<Korban>((korban) => Korban.fromJson(korban))
+      .toList();
+    
+    return KorbansOption(name: title, korbans: list);
+  }
 }
 
 class KorbanCase
