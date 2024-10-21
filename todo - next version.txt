@@ -1,0 +1,47 @@
+
+date finder page:
+ - avoid the screen that ask the user to fill fields of its name and email - its redundant for him
+ - allow searching dates by hebrew calendar
+ - when released in cal.com next version: support rescheduleBookingSuccessful and bookingCanceled in the template
+ - flow for next version when payment is supported: user confirmed a date but didnt make it to the summery page. should we cancel ?
+
+date selection page:
+ - prevent browsing the calendar to previous month than the current date since user can't select any date
+ - if the current month has no available dates then display the first month that has availability and prevent browsing to previous months
+ - fix scrolling of slots i think should be to the entire page not only on that section. maybe Expand() should be upper in tree
+ - calendar widget bug: the calender changed event is being called twice
+ - calendar widget: disable ability to click on unsupported day
+
+coming options page:
+ - have dedicate icons for each use case
+ - add text that for "I bring all" - that you will need to "deposit" them 3 days earlier for בדיקת מומים.
+    - only if its aminals.
+    - what about birds?
+    - maybe only for specific korban? if so - add to json files.
+
+payment page:
+ - have a 'pay' button that call the payment gateway
+ - nicer "next" button
+
+summery page:
+ - use hebrew date also
+ - consider using david star svg file for the confetti particle
+ - consider the text הזמנת הביקור הושלמה בהצלחה
+ - add info about selected payment
+
+details page:
+restrict editing the type:
+ - only if he brings all - we can let him replace the korban type without affecting the payment. otherwise, he should pay the gap or be refunded
+ - only if the old visit duration is higher or equals to the new visit's. otherwise, time overlap between 2 different visitors so user has to reschedule
+
+canceling flow:
+- in case he paid, ask if refund or donation ?
+- call server:
+  - to free the time slot
+  - in case he paid and wants a refund - call payment gateway for a refund
+- message "we are processing your request, we will send you an email to {email address}"
+
+add a page for טקס הביכורים
+awesome_notifications
+event map should be a json config file instead of hard coded dart file
+

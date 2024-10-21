@@ -1,0 +1,29 @@
+
+צריך לשמור מקום לקורבנות הכהן הגדול מנחת חביתין והתמידים
+מערכת מלאי כגון מלח וסממני הקטורת ופתילות
+if user payed for the items - need to update inventory
+install supabase for c# lambda FaaS
+1 lambda to create a visit
+1 lambda for delete visit: delete from calendar + refund if needed
+make sure you cant reserve on saturday or holiday
+use payment switch - found in my DEV.com site bookmarks
+
+configure each event in cal.com:
+round robin
+remove cal.com branding
+remove "create your own booking link with Cal.com" text
+remove the header of event name and UTC time-zone and all the rest
+remove summery page - its shown for a split second - by redict successfull webhook to empty page
+remove the 2nd page of booking where user enters name and email - its redundant since he logs in
+bug: emails of cal.com are not sent
+
+have in cal.com event for each korbam type and option like עני, עשיר
+
+inventory system
+workers system like TFS with items
+
+הקמת עמותה ללא מטרת רווח
+שבוחנת יומית את ההזמנות שנוצרו
+ושתקנה את הכבשים ותוביל אותם לבדיקה 3 ימים קודם
+ותרשום את שם המשתמש על כל כבש
+

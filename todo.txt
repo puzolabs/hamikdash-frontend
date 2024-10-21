@@ -1,71 +1,58 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
-replace korbanot with korbans
 support languages
+implement analytics
+
+preparations:
+in the server define an event for each KorbanOption
+in the app, fill the event map from the server
+
+files:
 load all use cases from the json files
+persist visits and read on app load
+sync visits to remote storage so its available on other logged in devices
+
+missing screens:
 login page
 about page with credits and app version and עילוי נשמות
 history page
 
 in the list:
-allow for canceling
-allow to edit. only the date - not the type since it affects the payment. but maybe if he brings all - we can let him replace the korban type also
-info about selected payment
 when visit is done, remove from the visits list to history list
 
-canceling flow:
-- in case he paid, ask if refund or donation ?
-- call server:
-  - to free the time slot
-  - in case he paid and wants a refund - call payment gateway for a refund
-- message "we are processing your request, we will send you an email to {email address}"
-
-new visit page:
-have an icon for each visit use-case
-
 korban case page:
-for each aminal have its own icon
+in complex case like toda - probably you cant scroll
 
 date finder page:
-allow user to select date range
-allow searching dates by hebrew calendar
-send request to backend to get availabilities in that range and display to user
-allow user to select the time from returned list
-
-coming options page:
-have dedicate icons for each use case
-add text that for "I bring all" - that you will need to "deposit" them 3 days earlier for בדיקת מומים.
-  - only if its aminals.
-  - what about birds?
-  - maybe only for specific korban? if so - add to json files.
-
-payment page:
-nicer "next" button 
-when the user clicks ok to pay:
-send request to server to test avalability of that time slot.
-   if the time slot is available:
-    - mark this that time frame as reserved.
-    - call the payment gateway
-   if not - tell user to go back to find another date
-
+time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
+if no connection - display alert
+test what happens in this scenario:
+  - user A selected a time slot
+  - user B selected the same time slot and confirms
+  - user A confirms
+  expected result is user A sees alert and controls are cleared to find another date
+refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
 
 summery page:
+display the selected option
 put date label with locale (international)
-use hebrew date also
 use jerusalem time zone (must be tested for time diferences)
-if user decided to bring all the goods with him:
-  - send request to server to test avalability of that time slot.
-      if the time slot is available:
-        - mark this that time frame as reserved.
-      if not - tell user to go back to find another date
 
-צד שרת
-צריך לשמור מקום לקורבנות הכהן הגדול מנחת חביתין והתמידים
-מערכת מלאי כגון מלח וסממני הקטורת ופתילות
-if user payed for the items - need to update inventory
-install supabase for c# lambda FaaS
-1 lambda to create a visit
-1 lambda for delete visit: delete from calendar + refund if needed
-make sure you cant reserve on saturday or holiday
+details page:
+display the selected option
+allow for canceling
+allow updating the korban type
 
-inventory system
-workers system like TFS with items
+general:
+ - location of 'next' button (right \ left) depends on the text direction
+
+technical dept:
+ - refactor currentVisit to be in app_state
+ - support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)
+ - replace korbanot with korbans
+ - make sure android and ios name doesn't contain the word 'example' in the result binary
+ - make sure to depend on device dimensions
+ - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod
+ - json files should make single option as an array of options with 1 option instead of different structure
+
+
+

@@ -1,0 +1,20 @@
+animation
+splash screen
+
+visits page:
+each item displayed with the case's icon as in new visit page
+
+new visit page:
+have an icon for each visit use-case
+
+korban case page:
+have each option as a dedicated card with icon at the top, like a product page - should be part of the Gui design
+
+summery page:
+display the icon of the use case
+display the icon of the selected option
+
+details page:
+display icon specific to the case in the begining of the page
+display the icon of the selected option
+let the case's title to be the title of the page
