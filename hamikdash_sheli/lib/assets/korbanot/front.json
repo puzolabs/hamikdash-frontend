@@ -36,22 +36,22 @@
 	{
 		"code": "",
 		"title": "נשבעתי לשקר שאנני יודע עדות",
-		"korbanotOptions": "oleVeyored.json"
+		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"code": "",
 		"title": "נשבעתי לשקר בשוגג (לא בנוגע לכסף)",
-		"korbanotOptions": "oleVeyored.json"
+		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"code": "",
 		"title": "נכנסתי למקדש כשאני טמא בידיעה שזהו המקדש ושאני טמא",
-		"korbanotOptions": "oleVeyored.json"
+		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"code": "",
 		"title": "אכלתי קדשים כשאני טמא בידיעה שאלו קודשים ושאני טמא",
-		"korbanotOptions": "oleVeyored.json"
+		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"code": "",
@@ -244,19 +244,19 @@
 		"code": "",
 		"title": "ברצוני להודות על נס שנעשה לי",
 		"korbanotReference": "toda.json",
-        "korbanotOptions": "shlamimToda.json"
+        "korbanotOptions": "shlamim_toda.json"
 	},
 	{
 		"code": "",
 		"title": "ברצוני להביא קורבן תודה לנדבה",
 		"korbanotReference": "toda.json",
-        "korbanotOptions": "shlamimToda.json"
+        "korbanotOptions": "shlamim_toda.json"
 	},
 	{
 		"code": "",
 		"title": "נדרתי להביא קורבן תודה",
 		"korbanotReference": "toda.json",
-        "korbanotOptions": "shlamimToda.json"
+        "korbanotOptions": "shlamim_toda.json"
 	},
 	{
 		"code": "",
