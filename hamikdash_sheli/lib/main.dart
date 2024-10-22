@@ -4,9 +4,12 @@ import 'package:hamikdash_sheli/cal/cal_loader.dart';
 import 'package:hamikdash_sheli/dataTypes/user.dart';
 import 'package:hamikdash_sheli/pages/welcome_page.dart';
 
+import 'package:timezone/data/latest_10y.dart' as tz;
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   CalLoader().loadAsset();
+  tz.initializeTimeZones();
   
   appState.user = User(name: "meir", email:"a@b.com");
 
