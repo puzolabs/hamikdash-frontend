@@ -19,12 +19,12 @@ class KorbanCase
     var korbanot = map["korbanot"];
     var korbanotOptions = map["korbanotOptions"];
 
-    List<Korban> list = korbanot
-      .map<Korban>((korban) => Korban.fromJson(korban))
+    List<Korban>? list = korbanot
+      ?.map<Korban>((korban) => Korban.fromJson(korban))
       .toList();
 
-    List<KorbansOption> optionsList = korbanotOptions
-      .map<KorbansOption>((option) => KorbansOption.fromJson(option))
+    List<KorbansOption>? optionsList = korbanotOptions
+      ?.map<KorbansOption>((option) => KorbansOption.fromJson(option))
       .toList();
 
     return KorbanCase(title: title, korbanot: list, korbanotOptions: optionsList);

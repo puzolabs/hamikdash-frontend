@@ -8,6 +8,12 @@ enum KorbanTypes
   nesahim,
   hatat,
   asham,
+  lehem,
+  maza,
+  bicurim,
+  bekhor,
+  maasar,
+  shemen,
 }
 
 class EatInfo
@@ -48,6 +54,12 @@ class Korban
       "נסכים": KorbanTypes.nesahim,
       "חטאת": KorbanTypes.hatat,
       "אשם": KorbanTypes.asham,
+      "לחם": KorbanTypes.lehem,
+      "מצה": KorbanTypes.maza,
+      "ביכורים": KorbanTypes.bicurim,
+      "בכור": KorbanTypes.bekhor,
+      "מעשר": KorbanTypes.maasar,
+      "שמן": KorbanTypes.shemen,
   };
 
     return Korban(type: types[type]!, requirements: requirements, eatInfo: eatInfo);

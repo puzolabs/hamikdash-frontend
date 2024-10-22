@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/app_config.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
-import 'package:hamikdash_sheli/dataTypes/korban_cases_factory.dart';
 import 'package:hamikdash_sheli/pages/korban_case_page.dart';
 
 class NewVisitPage extends StatelessWidget {
   const NewVisitPage({super.key});
 
   Widget _buildList() {
-    KorbanCasesFactory kcf = KorbanCasesFactory();
-    var cases = kcf.create();
-
     return ListView.builder(
       padding: const EdgeInsets.all(8),
-      itemCount: cases.length,
+      itemCount: appConfig.korbanCases.length,
       itemBuilder: (BuildContext context, int index) {
-        return _buildListItem(context, cases[index]);
+        return _buildListItem(context, appConfig.korbanCases[index]);
       }
     );
   }

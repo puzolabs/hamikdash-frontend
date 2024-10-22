@@ -143,8 +143,8 @@
 		}]
 	},
 	{
-		"code": "הייתי מצורע ונטהרתי",
-		"title": "",
+		"code": "",
+		"title": "הייתי מצורע ונטהרתי",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -326,11 +326,11 @@
 	{
 		"code": "",
 		"title": "ברצוני להביא נסכים לנדבה",
-		"korbanotReference": "nesahim.json" 
+		"korbanotOptions": "nesahim.json" 
 	},
 	{
 		"code": "",
 		"title": "נדרתי להביא נסכים",
-		"korbanotReference": "nesahim.json" 
+		"korbanotOptions": "nesahim.json" 
 	}
 ]

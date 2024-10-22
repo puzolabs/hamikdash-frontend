@@ -7,7 +7,6 @@ in the server define an event for each KorbanOption
 in the app, fill the event map from the server
 
 files:
-load all use cases from the json files
 persist visits and read on app load
 sync visits to remote storage so its available on other logged in devices
 
