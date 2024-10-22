@@ -95,13 +95,38 @@ class _KorbanWidgetState extends State<KorbanWidget> {
               style: const TextStyle(fontSize: 18)
             )
             : widget.korban.type == KorbanTypes.minha
-            ? const Text('🥖 מנחה' ,
+            ? const Text('🥘 מנחה' ,
               style: const TextStyle(fontSize: 18)
             )
-            : //widget.korban.type == KorbanTypes.nesahim
-            /* ?*/ const Text('🍾 נסכים' ,
+            : widget.korban.type == KorbanTypes.nesahim
+            ? const Text('🍾 נסכים' ,
               style: const TextStyle(fontSize: 18)
-            ),
+            )
+            : widget.korban.type == KorbanTypes.lehem
+            ? const Text('🥖 לחם' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.maza
+            ? const Text('🫓 מצה' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.bicurim
+            ? const Text('🍇 ביכורים' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.bekhor
+            ? const Text('🥇 בכור' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.maasar
+            ? const Text('🏷️ מעשר' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : widget.korban.type == KorbanTypes.shemen
+            ? const Text('🏺 שמן' ,
+              style: const TextStyle(fontSize: 18)
+            )
+            : Container(),
           ),
         ),
         Align(

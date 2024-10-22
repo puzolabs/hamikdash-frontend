@@ -19,7 +19,9 @@ in the list:
 when visit is done, remove from the visits list to history list
 
 korban case page:
-in complex case like toda - probably you cant scroll
+in complex case like toda - you cant scroll and see yellow strip
+option card is very large - shorten it
+check each case is displayed as the json file
 
 date finder page:
 time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
@@ -30,6 +32,10 @@ test what happens in this scenario:
   - user A confirms
   expected result is user A sees alert and controls are cleared to find another date
 refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
+getAvailability sometimes gets:
+  FormatException (FormatException: Unexpected character (at character 16983)
+  ...4-12-15T14:00:00.000Z"},{"time":2024-12-15T14:15:00.000Z"},{"time":"2024...
+                                         ^
 
 summery page:
 display the selected option
