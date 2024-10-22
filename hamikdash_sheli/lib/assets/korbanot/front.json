@@ -1,0 +1,336 @@
+[
+	{
+		"code": "",
+		"title": "ברצוני להביא קורבן עולה לנדבה",
+		"korbanotOptions": "ola.json"
+	},
+	{
+		"code": "",
+		"title": "נדרתי להביא קורבן עולה",
+		"korbanotOptions": "ola.json"
+	},
+	{
+		"code": "BitulAse",
+		"title": "ביטלתי מצוות עשה",
+		"korbanotOptions": "ola.json"
+	},
+	{
+		"code": "LavHanitakLeAse",
+		"title": "עברתי על לאו הניתק לעשה",
+		"korbanotOptions": "ola.json"
+	},
+	{
+		"code": "Hirhur",
+		"title": "הרהרתי לעבור עבירה",
+		"korbanotOptions": "ola.json"
+	},
+	{
+		"code": "",
+		"title": "עברתי בשוגג על עבירה שבמזיד חייבים עליה כרת חוץ מביטול מצוות מילה, קרבן פסח וגידוף",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "כבשה / עיזה"
+		}]
+	},
+	{
+		"code": "",
+		"title": "נשבעתי לשקר שאנני יודע עדות",
+		"korbanotOptions": "oleVeyored.json"
+	},
+	{
+		"code": "",
+		"title": "נשבעתי לשקר בשוגג (לא בנוגע לכסף)",
+		"korbanotOptions": "oleVeyored.json"
+	},
+	{
+		"code": "",
+		"title": "נכנסתי למקדש כשאני טמא בידיעה שזהו המקדש ושאני טמא",
+		"korbanotOptions": "oleVeyored.json"
+	},
+	{
+		"code": "",
+		"title": "אכלתי קדשים כשאני טמא בידיעה שאלו קודשים ושאני טמא",
+		"korbanotOptions": "oleVeyored.json"
+	},
+	{
+		"code": "",
+		"title": "עבדתי עבודת אלילים בשוגג",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "עיזה"
+		}]
+	},
+	{
+		"code": "",
+		"title": "נכנסתי למקדש כשאני טמא ולא ידעתי שזהו המקדש או שאני טמא",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "עז"
+		}]
+	},
+	{
+		"code": "",
+		"title": "אכלתי קדשים כשאני טמא ולא ידעתי שאלו קודשים או שאני טמא",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "עז"
+		}]
+	},
+	{
+		"code": "",
+		"title": "גנבתי ונשבעתי על כך לשקר",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "עשקתי שכר שכיר ונשבעתי על כך לשקר",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "כיחשתי בפקדון ונשבעתי על כך לשקר",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "כיחשתי במציאה ונשבעתי על כך לשקר",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "נהנתי מההקדש",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "אני נזיר ונטמאתי למת",
+		"korbanot": [
+		{
+			"type": "עולה",
+			"requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
+		},
+		{
+			"type": "חטאת",
+			"requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
+		},
+		{
+			"type": "אשם",
+			"requirements": "כבש"
+		}]
+	},
+	{
+		"code": "הייתי מצורע ונטהרתי",
+		"title": "",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "כבש"
+		}]
+	},
+	{
+		"code": "",
+		"title": "אני מסופק האם עברתי על איסור שבמזיד חייבים עליו כרת ובשוגג חטאת",
+		"korbanot": [
+		{
+			"type": "אשם",
+			"requirements": "איל"
+		}]
+	},
+	{
+		"code": "",
+		"title": "אני נזיר/ה ומלאו ימי נזירותי",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "כבשה"
+		},
+		{
+			"type": "עולה",
+			"requirements": "כבש"
+		},
+		{
+			"type": "מנחה",
+			"requirements": "עשרון סולת ורביעית ההין שמן"
+		},
+        {
+            "type": "נסכים",
+            "requirements": "רביעית ההין יין"
+        },
+		{
+			"type": "שלמים",
+			"requirements": "איל",
+			"eat": {
+				"what": "הבשר חוץ מהאימורים, האליה, החזה, שוק ימין וזרוע ימין",
+				"who": "הבעלים וכל אדם טהור",
+				"where": "ירושלים",
+				"when": "ביום ההקרבה ובלילה שלאחריו עד חצות"
+			}
+		},
+		{
+			"type": "לחם",
+			"requirements": "עשר מצות",
+			"eat": {
+				"what": "תשע מצות",
+				"who": "הבעלים וכל אדם טהור",
+				"where": "ירושלים",
+				"when": "ביום ההקרבה ובלילה שלאחריו עד חצות"
+			}
+		},
+		{
+			"type": "לחם",
+			"requirements": "עשרה רקיקים",
+			"eat": {
+				"what": "תשעה רקיקים",
+				"who": "הבעלים וכל אדם טהור",
+				"where": "ירושלים",
+				"when": "ביום ההקרבה ובלילה שלאחריו עד חצות"
+			}
+		},
+		{
+			"type": "מנחה",
+			"requirements": "שני עשרונים סולת ושלישית ההין שמן"
+		},
+        {
+            "type": "נסכים",
+            "requirements": "שלישית ההין יין"
+        }
+	]
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא קורבן שלמים לנדבה",
+		"korbanotOptions": "shlamim.json"
+	},
+	{
+		"code": "",
+		"title": "נדרתי להביא קורבן שלמים",
+		"korbanotOptions": "shlamim.json"
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא ביכורים",
+		"korbanot": [
+			{
+				"type": "ביכורים",
+				"requirements": "הפרות שביכרו"
+			}],
+		"korbanotOptions": "shlamim.json"
+	},
+	{
+		"code": "",
+		"title": "ברצוני להודות על נס שנעשה לי",
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא קורבן תודה לנדבה",
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
+	},
+	{
+		"code": "",
+		"title": "נדרתי להביא קורבן תודה",
+		"korbanotReference": "toda.json",
+        "korbanotOptions": "shlamimToda.json"
+	},
+	{
+		"code": "",
+		"title": "נולדו בעדר שלי עגלים / כבשים / אילים / גדיים בכורים לאימם",
+		"korbanot": [
+		{
+			"type": "בכור",
+			"requirements": "הבכורים שנולדו",
+			"input": "כמה בהמות אתם מביאים?"
+		}]
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא מעשר בהמה",
+		"korbanot": [
+		{
+			"type": "מעשר",
+			"requirements": "מעשר מהעגלים / עגלות / כבשים / כבשות / אילים / גדיים / גדיות שנולדו השנה",
+			"input": "כמה בהמות אתם מביאים?",
+			"eat": {
+				"what": "הבשר חוץ מהאימורים ומהאליה",
+				"who": "הבעלים וכל אדם טהור",
+				"where": "ירושלים",
+				"when": "ביום ההקרבה ובלילה שלאחריו וביום שלאחריו"
+			}
+		}]
+	},
+	{
+		"code": "",
+		"title": "ילדתי בן/בת בשעה טובה",
+		"korbanotOptions": "yoledet.json"
+	},
+	{
+		"code": "",
+		"title": "אני מצורע",
+		"korbanotOptions": "mezora.json"
+	},
+	{
+		"code": "",
+		"title": "אני זב/ה",
+		"korbanot": [
+		{
+			"type": "חטאת",
+			"requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
+		},
+		{
+			"type": "עולה",
+			"requirements": "תור זכר / תור נקבה / בן יונה זכר / בן יונה נקבה"
+		}]
+	},
+	{
+		"code": "",
+		"title": "אני גר",
+		"korbanotOptions": "ger.json",
+		"optionalKorbanotOptions": "shlamim.json"
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא קורבן מנחה לנדבה",
+		"korbanotReference": "minha.json" 
+	},
+	{
+		"code": "",
+		"title": "נדרתי להביא קורבן מנחה",
+		"korbanotReference": "minha.json" 
+	},
+	{
+		"code": "",
+		"title": "ברצוני להביא נסכים לנדבה",
+		"korbanotReference": "nesahim.json" 
+	},
+	{
+		"code": "",
+		"title": "נדרתי להביא נסכים",
+		"korbanotReference": "nesahim.json" 
+	}
+]
