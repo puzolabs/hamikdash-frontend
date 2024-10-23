@@ -22,6 +22,16 @@ korban case page:
 in complex case like toda - you cant scroll and see yellow strip
 option card is very large - shorten it
 check each case is displayed as the json file
+אם יש כמה מנחות באותו קורבן אז לצמצם אותם לאחד
+להוסיף תיאור במקום כותרת ארוכה
+use these categories:
+נדרים ונדבות
+אירועים משמחים כמו ביכורים בכור מעשר-בהמה יולדת גר תודה
+נזיר שני אירועים
+מצורע שני סוגים
+חטאים קטנים
+חטאים גדולים
+אירועים מצערים זב
 
 date finder page:
 time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
