@@ -99,7 +99,7 @@ class _KorbanWidgetState extends State<KorbanWidget> {
               style: const TextStyle(fontSize: 18)
             )
             : widget.korban.type == KorbanTypes.nesahim
-            ? const Text('🍾 נסכים' ,
+            ? const Text('🏺 נסכים' ,
               style: const TextStyle(fontSize: 18)
             )
             : widget.korban.type == KorbanTypes.lehem
@@ -122,8 +122,8 @@ class _KorbanWidgetState extends State<KorbanWidget> {
             ? const Text('🏷️ מעשר' ,
               style: const TextStyle(fontSize: 18)
             )
-            : widget.korban.type == KorbanTypes.shemen
-            ? const Text('🏺 שמן' ,
+            : widget.korban.type == KorbanTypes.hazaot
+            ? const Text('💦 הזאות' ,
               style: const TextStyle(fontSize: 18)
             )
             : Container(),
