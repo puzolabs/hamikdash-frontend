@@ -126,6 +126,10 @@ class _KorbanWidgetState extends State<KorbanWidget> {
             ? const Text('💦 הזאות' ,
               style: const TextStyle(fontSize: 18)
             )
+            : widget.korban.type == KorbanTypes.taharatMezora
+            ? const Text('🐛 טהרת מצורע' ,
+              style: const TextStyle(fontSize: 18)
+            )
             : Container(),
           ),
         ),

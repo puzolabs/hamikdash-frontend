@@ -14,6 +14,7 @@ enum KorbanTypes
   bekhor,
   maasar,
   hazaot,
+  taharatMezora,
 }
 
 class EatInfo
@@ -60,6 +61,7 @@ class Korban
       "בכור": KorbanTypes.bekhor,
       "מעשר": KorbanTypes.maasar,
       "הזאות": KorbanTypes.hazaot,
+      "טהרת מצורע": KorbanTypes.taharatMezora,
   };
 
     return Korban(type: types[type]!, requirements: requirements, eatInfo: eatInfo);
