@@ -46,4 +46,4 @@ canceling flow:
 add a page for טקס הביכורים
 awesome_notifications
 event map should be a json config file instead of hard coded dart file
-
+add isha sota case with section sadEvent

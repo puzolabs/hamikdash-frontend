@@ -39,3 +39,21 @@ ListView without setting special properties that each item is
   a Column that wraps
   ListView (shrinkWrap: true,  physics: const ClampingScrollPhysics()) that each item is
     a Column
+
+--
+works beautifully (NewVisitPage):
+Container(
+  height: 215,
+  **width: double.infinity,**
+  child: ListView.builder(
+    padding: const EdgeInsets.only(top: 0, bottom: 0, right: 16, left: 16),
+    itemCount: korbanCases.length,
+    scrollDirection: Axis.horizontal,
+    itemBuilder: (BuildContext context, int index) {
+      return SizedBox(
+        **width: 200**,
+        child:Card()
+      )
+    },
+  )
+)
