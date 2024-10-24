@@ -20,7 +20,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: '>=3.0.0 <=3.3.0' # this is dart language version
+  #flutter: '>= 3.19.1'  # this is flutter version
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions

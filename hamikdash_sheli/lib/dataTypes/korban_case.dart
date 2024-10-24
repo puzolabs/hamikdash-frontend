@@ -10,7 +10,6 @@ enum Sections {
   nazir, // in the middle since one event is happy and the other one is part khet part avon
   caparatHataim,
   caparatAvonot,
-  mezora, // the overall context of mezora is bad and sad so its in the last but least since he was able to recover and become tahor
   sadEvent,
 }
 

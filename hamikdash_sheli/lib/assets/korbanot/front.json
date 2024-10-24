@@ -146,7 +146,7 @@
 	{
 		"section": "nazir",
 		"code": "",
-		"title": "אני נזיר ונטמאתי למת",
+		"title": "אני נזיר/ה ונטמאתי למת",
 		"korbanot": [
 		{
 			"type": "עולה",
@@ -162,7 +162,7 @@
 		}]
 	},
 	{
-		"section": "mezora",
+		"section": "sadEvent",
 		"code": "",
 		"title": "הייתי מצורע ונטהרתי",
 		"korbanot": [
@@ -184,7 +184,7 @@
 	{
 		"section": "nazir",
 		"code": "",
-		"title": "אני נזיר/ה ומלאו ימי נזירותי",
+		"title": "אני נזיר/ה והשלמתי ימי נזירותי",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -321,7 +321,7 @@
 		"korbanotOptions": "yoledet.json"
 	},
 	{
-		"section": "mezora",
+		"section": "sadEvent",
 		"code": "",
 		"title": "הייתי מצורע ואני טהור כבר שמונה ימים",
 		"korbanotOptions": "mezora.json"
@@ -329,7 +329,7 @@
 	{
 		"section": "sadEvent",
 		"code": "",
-		"title": "אני זב/ה",
+		"title": "נטהרתי מזיבה",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -343,7 +343,7 @@
 	{
 		"section": "happyEvent",
 		"code": "",
-		"title": "אני גר",
+		"title": "התגיירתי",
 		"korbanotOptions": "ger.json",
 		"optionalKorbanotOptions": "shlamim.json"
 	},
