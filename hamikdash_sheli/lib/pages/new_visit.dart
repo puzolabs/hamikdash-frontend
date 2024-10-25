@@ -23,8 +23,9 @@ class NewVisitPage extends StatelessWidget {
       (name: "כפרת עוונות", list: caparatAvonot),
       (name: "מכאן רק עולים!", list: sadEvent)];
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(8),
+    return ListView.separated(
+      padding: const EdgeInsets.only(top: 20, bottom: 20),
+      separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 30),
       itemCount: sections.length,
       itemBuilder: (BuildContext context, int index) {
         return _buildLine(context, sections[index].name, sections[index].list);
@@ -34,8 +35,15 @@ class NewVisitPage extends StatelessWidget {
 
   Widget _buildLine(BuildContext context, String title, List<KorbanCase> korbanCases) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(fontSize: 10),),
+        Padding(
+          padding: const EdgeInsets.only(top: 0, bottom: 10, right: 16, left: 16),
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 20)
+          ),
+        ),
         Container(
           height: 215,
           width: double.infinity,
