@@ -57,3 +57,7 @@ Container(
     },
   )
 )
+
+--
+on the top level page where you see the yellow strip - wrap the widget that cause it with Expanded widget
+
