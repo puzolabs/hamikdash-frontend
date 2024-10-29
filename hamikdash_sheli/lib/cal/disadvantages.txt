@@ -6,3 +6,6 @@
 6. localization to hebrew of 'confirm' button and cal.com's summery page seems cumbersome if at all possible
 7. bug: when entering name and email and the keyboard is shown - a yellow strip is shown on UI
 8. bug: time zone in the app is displayed in + 3 hours in the server. in the app it say UTC and I cant change (maybe its a setting in the server)
+
+todo:
+1. support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)

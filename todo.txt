@@ -25,15 +25,25 @@ if there are the same korban repeating like in mezora.json for minha and nasahim
 להוסיף תיאור במקום כותרת ארוכה
 
 date finder page:
-time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
-if no connection - display alert
-test what happens in this scenario:
+- time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
+- if no connection - display alert
+- test what happens in this scenario:
   - user A selected a time slot
   - user B selected the same time slot and confirms
   - user A confirms
   expected result is user A sees alert and controls are cleared to find another date
-refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
-getAvailability sometimes gets:
+- refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
+- add a test for get availability receiving:
+{
+  "result": {
+    "data": {
+      "json": {
+        "slots": {}
+      }
+    }
+  }
+}
+- getAvailability sometimes gets:
   FormatException (FormatException: Unexpected character (at character 16983)
   ...4-12-15T14:00:00.000Z"},{"time":2024-12-15T14:15:00.000Z"},{"time":"2024...
                                          ^
@@ -52,8 +62,7 @@ general:
  - location of 'next' button (right \ left) depends on the text direction
 
 technical dept:
- - support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)
  - replace korbanot with korbans
  - make sure android and ios name doesn't contain the word 'example' in the result binary
  - make sure to depend on device dimensions
- - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod
+ - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
