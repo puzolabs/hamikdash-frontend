@@ -19,7 +19,6 @@ in the list:
 when visit is done, remove from the visits list to history list
 
 korban case page:
-in complex case like toda - you cant scroll and see yellow strip
 option card is very large - shorten it
 check each case is displayed as the json file
 if there are the same korban repeating like in mezora.json for minha and nasahim then display with * 3

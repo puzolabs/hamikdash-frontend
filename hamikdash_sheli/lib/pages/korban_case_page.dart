@@ -37,7 +37,9 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             style: Theme.of(context).textTheme.headline3,
             textAlign: TextAlign.center,
           ),
-          KorbansWidget(korbanot: widget.korbanCase.korbanot!),
+          Expanded(
+            child: KorbansWidget(korbanot: widget.korbanCase.korbanot!)
+          ),
           Align(
             alignment: Alignment.centerLeft,
             child: Container(
@@ -83,7 +85,9 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             style: Theme.of(context).textTheme.headline3,
             textAlign: TextAlign.center,
           ),
-          KorbansWidget(korbanot: widget.korbanCase.korbanot!),
+          Expanded(
+            child: KorbansWidget(korbanot: widget.korbanCase.korbanot!),
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
