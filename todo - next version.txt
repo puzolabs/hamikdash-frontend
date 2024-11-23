@@ -1,3 +1,18 @@
+מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
+support languages + location of 'next' button (right \ left) depends on the text direction
+implement analytics
+
+files:
+sync visits to remote storage so its available on other logged in devices
+
+new screens:
+login page
+about page with credits and app version and נחל ארנון טקס הביכורים and עילוי נשמות
+
+korban case page:
+option card is very large - shorten it
+if there are the same korban repeating like in mezora.json for minha and nasahim then display with * 3
+להוסיף תיאור במקום כותרת ארוכה
 
 date finder page:
  - avoid the screen that ask the user to fill fields of its name and email - its redundant for him
@@ -24,12 +39,17 @@ payment page:
  - nicer "next" button
 
 summery page:
+ - display the selected option
+ - put date label with locale (international)
  - use hebrew date also
  - consider using david star svg file for the confetti particle
  - consider the text הזמנת הביקור הושלמה בהצלחה
  - add info about selected payment
 
 details page:
+ display the selected option
+ allow for canceling
+ allow updating the korban type
  use hebrew date also
  add info about selected payment
  restrict editing the type:
@@ -47,3 +67,6 @@ add a page for טקס הביכורים
 awesome_notifications
 event map should be a json config file instead of hard coded dart file
 add isha sota case with section sadEvent
+
+technical debt:
+ - replace korbanot with korbans

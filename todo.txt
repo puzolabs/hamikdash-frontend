@@ -1,6 +1,3 @@
-מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
-support languages
-implement analytics
 
 preparations:
 in the server define an event for each KorbanOption
@@ -8,21 +5,15 @@ in the app, fill the event map from the server
 
 files:
 persist visits and read on app load
-sync visits to remote storage so its available on other logged in devices
 
 missing screens:
-login page
-about page with credits and app version and עילוי נשמות
 history page
 
 in the list:
 when visit is done, remove from the visits list to history list
 
 korban case page:
-option card is very large - shorten it
 check each case is displayed as the json file
-if there are the same korban repeating like in mezora.json for minha and nasahim then display with * 3
-להוסיף תיאור במקום כותרת ארוכה
 
 date finder page:
 - time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
@@ -49,20 +40,9 @@ date finder page:
                                          ^
 
 summery page:
-display the selected option
-put date label with locale (international)
 use jerusalem time zone (must be tested for time diferences)
 
-details page:
-display the selected option
-allow for canceling
-allow updating the korban type
-
-general:
- - location of 'next' button (right \ left) depends on the text direction
-
 technical dept:
- - replace korbanot with korbans
  - make sure android and ios name doesn't contain the word 'example' in the result binary
  - make sure to depend on device dimensions
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers

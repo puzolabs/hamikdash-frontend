@@ -1,4 +1,6 @@
 animation
+lottie files
+use JustBuildThings.com golden ratio
 splash screen
 
 visits page:
