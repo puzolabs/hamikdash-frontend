@@ -15,7 +15,6 @@ remove "create your own booking link with Cal.com" text
 remove the header of event name and UTC time-zone and all the rest
 remove summery page - its shown for a split second - by redict successfull webhook to empty page
 remove the 2nd page of booking where user enters name and email - its redundant since he logs in
-bug: emails of cal.com are not sent
 
 have in cal.com event for each korbam type and option like עני, עשיר
 
@@ -27,3 +26,20 @@ workers system like TFS with items
 ושתקנה את הכבשים ותוביל אותם לבדיקה 3 ימים קודם
 ותרשום את שם המשתמש על כל כבש
 
+how to make emails work:
+~~~~~~~~~~~~~~~~~~~~~~~~
+From https://cal.com/docs/developing/guides/email/setup-mailtrap-for-email-testing :
+copy this information to .env file (values were copied from https://mailtrap.io/inboxes/3329818/messages):
+EMAIL_SERVER_HOST='sandbox.smtp.mailtrap.io'
+EMAIL_SERVER_PORT=2525
+EMAIL_SERVER_USER='88e9cc66d93ef3'
+EMAIL_SERVER_PASSWORD='b25af38db98c64'
+EMAIL_FROM='notifications@puzolabs.com'
+
+and then:
+docker compose up -d calcom
+
+If not working in production:
+The fix was merged in Aug 8, 2023
+https://github.com/calcom/cal.com/pull/10593
+So update the docker
