@@ -43,3 +43,13 @@ If not working in production:
 The fix was merged in Aug 8, 2023
 https://github.com/calcom/cal.com/pull/10593
 So update the docker
+
+alternative:
+sendpulse - wanted primary email address
+www.courier.com - 10,000 - just a wrapper
+https://www.brevo.com/pricing/ - 9000
+https://www.mailjet.com/pricing/ - 6000
+https://sendgrid.com/en-us/pricing - 3000
+resend - 
+mailgun - on reddit they say its getting worse
+https://mailtrap.io/inboxes/3329818/messages - 1000
