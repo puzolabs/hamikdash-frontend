@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/dataTypes/visit.dart';
+import 'package:hamikdash_sheli/services/visit_data_retriever.dart';
 import 'package:intl/intl.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 
@@ -14,6 +15,8 @@ class VisitWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    VisitDataRetriever vdr = VisitDataRetriever(visit:visit);
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -31,12 +34,12 @@ class VisitWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Container(
               margin: const EdgeInsets.only(right: 25, bottom: 25),
-              child: Text(visit.title,
+              child: Text(vdr.getTitle(),
                 style: const TextStyle(fontSize: 28)
               ),
             ),
           ),
-          KorbansWidget(korbanot: visit.korbans!),
+          KorbansWidget(korbanot: vdr.getKorbans()!),
           Align(
             alignment: Alignment.centerRight,
             child: Container(

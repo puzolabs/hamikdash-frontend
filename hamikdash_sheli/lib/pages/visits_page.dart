@@ -3,6 +3,7 @@ import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/pages/details_page.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
+import 'package:hamikdash_sheli/services/visit_data_retriever.dart';
 
 
 class VisitsPage extends StatefulWidget {
@@ -32,11 +33,13 @@ class _MyVisitsPageState extends State<VisitsPage> {
   }
 
   Widget _buildListItem(BuildContext context, Visit visit) {
+    VisitDataRetriever vdr = VisitDataRetriever(visit:visit);
+
     return Card(
       child: ListTile(
         leading: const FlutterLogo(),
         title: Text(
-          visit.title,
+          vdr.getTitle(),
           style: Theme.of(context).textTheme.headline4,
         ),
         onTap: () {

@@ -1,5 +1,6 @@
 
-import 'package:hamikdash_sheli/dataTypes/korban.dart';
+import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
+import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
 
 enum ComingOption
 {
@@ -16,8 +17,8 @@ enum Status
 
 class Visit
 {
-  String title = "";
-  List<Korban>? korbans;
+  CaseCodes caseCode = CaseCodes.none;
+  OptionCodes optionCode = OptionCodes.none;
   ComingOption comingOption = ComingOption.prepareAllForMe;
   DateTime? dateTime;
   int? paymentAmount;

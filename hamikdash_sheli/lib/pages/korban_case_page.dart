@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
 import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
+import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
 
@@ -46,7 +47,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
               margin: const EdgeInsets.only(left: 20),
               child: ElevatedButton(
                 onPressed: () {
-                  appState.currentVisit!.korbans = widget.korbanCase.korbanot;
+                  appState.currentVisit!.optionCode = OptionCodes.none;
                   _goToDateSelectionPage();
                 },
                 style: ElevatedButton.styleFrom(
@@ -70,7 +71,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             child: KorbansOptionsWidget(
               korbanotOptions: widget.korbanCase.korbanotOptions!,
               onOptionSelected: (option) {
-                appState.currentVisit!.korbans = option.korbans;
+                appState.currentVisit!.optionCode = option.code;
                 _goToDateSelectionPage();
               },
             ),
@@ -102,9 +103,7 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
           Expanded(
             child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!,
               onOptionSelected: (option) {
-                appState.currentVisit!.korbans = List
-                  .from(widget.korbanCase.korbanot!)
-                  ..addAll(option.korbans);
+                appState.currentVisit!.optionCode = option.code;
                 _goToDateSelectionPage();
               },
             ),

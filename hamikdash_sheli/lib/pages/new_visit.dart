@@ -72,7 +72,7 @@ class NewVisitPage extends StatelessWidget {
           ),
           onTap: ()
           {
-            appState.currentVisit!.title = korbanCase.title;
+            appState.currentVisit!.caseCode = korbanCase.code;
             _goToKorbanDetailsPage(context, korbanCase);
           }
         )
