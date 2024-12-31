@@ -1,5 +1,6 @@
 [
     {
+        "code": "firstOption",
         "title": "אפשרות ראשונה",
         "korbanot": [
             {
@@ -23,6 +24,7 @@
         ]
     },
     {
+        "code": "secondOption",
         "title": "אפשרות שניה",
         "korbanot": [
             {
@@ -46,6 +48,7 @@
         ]
     },
     {
+        "code": "thirdOption",
         "title": "אפשרות שלישית",
         "korbanot": [
             {
