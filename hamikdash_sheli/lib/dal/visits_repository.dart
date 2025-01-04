@@ -11,7 +11,7 @@ class VisitsRepository {
     _database = databaseProvider.db;
   }
 
-  Future saveVisit(Visit visit) async {
+  Future insert(Visit visit) async {
     String sql = '''
       insert into Visits
       (

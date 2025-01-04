@@ -22,7 +22,7 @@ void main() {
         ..dateTime = DateTime(2025, 1, 3, 1, 23)
         ..uid = 'calId';
 
-      await vr.saveVisit(visit);
+      await vr.insert(visit);
 
       expect(visit.id, isNotNull);
       expect(visit.id, greaterThan(0));
