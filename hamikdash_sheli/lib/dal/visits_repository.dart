@@ -45,4 +45,19 @@ class VisitsRepository {
     var list = await _database!.rawQuery(sql, [visitId]);
     return Visit.fromDatabase(list.first);
   }
+
+  Future<List<Visit>> getAll() async {
+    var list = await _database!.query("Visits");
+
+    List<Visit> returnList = list
+      .map((visit) => Visit.fromDatabase(visit))
+      .toList();
+
+      return returnList;
+  }
+
+  Future<bool> delete(int visitId) async {
+    var affectedRows = await _database!.delete("Visits", where: 'Id = ?', whereArgs: [visitId]);
+    return affectedRows == 1;
+  }
 }
