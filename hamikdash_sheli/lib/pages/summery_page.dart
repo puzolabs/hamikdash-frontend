@@ -120,9 +120,9 @@ class _MySummeryPageState extends State<SummeryPage> {
                   child: Container(
                     margin: const EdgeInsets.only(left: 20),
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         appState.visitList.add(appState.currentVisit!);
-                        appPersistence.currentVisits!.insert(appState.currentVisit!);
+                        await appPersistence.currentVisitsRepository!.insert(appState.currentVisit!);
                         _goToVisitsPage(context);
                       },
                       style: ElevatedButton.styleFrom(

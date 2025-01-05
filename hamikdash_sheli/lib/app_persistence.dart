@@ -5,13 +5,13 @@ import 'package:hamikdash_sheli/dal/visits_repository.dart';
 
 class AppPersistence {
   DatabaseProvider dp = DatabaseProvider();
-  VisitsRepository? currentVisits;
+  VisitsRepository? currentVisitsRepository;
 
   Future load() async {
     await dp.init();
     
-    currentVisits = VisitsRepository(dp, "Visits");
-    appState.visitList = await currentVisits!.getAll();
+    currentVisitsRepository = VisitsRepository(dp, "Visits");
+    appState.visitList = await currentVisitsRepository!.getAll();
   }
 
   Future close() async {

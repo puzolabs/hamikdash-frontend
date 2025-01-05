@@ -13,7 +13,7 @@ void main() async {
   
   CalLoader().loadAsset();
   KorbanotConfigFilesLoader().load();
-  appPersistence.load();
+  await appPersistence.load();
 
   tz.initializeTimeZones();
   
