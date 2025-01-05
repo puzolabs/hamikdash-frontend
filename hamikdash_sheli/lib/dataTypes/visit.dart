@@ -1,4 +1,4 @@
-
+import 'package:nanoid/nanoid.dart';
 import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
 import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
 
@@ -17,7 +17,7 @@ enum Status
 
 class Visit
 {
-  int id = 0;
+  String id = "";
   CaseCodes caseCode = CaseCodes.none;
   OptionCodes optionCode = OptionCodes.none;
   ComingOption comingOption = ComingOption.prepareAllForMe;
@@ -26,12 +26,14 @@ class Visit
   Status status = Status.pending;
   String uid = "";
 
-  Visit();
+  Visit() {
+    id = nanoid(12);
+  }
 
   Visit.withData(this.id, this.caseCode, this.optionCode, this.dateTime, this.uid);
 
   factory Visit.fromDatabase(Map<String, dynamic> map) {
-    int id = map["Id"];
+    String id = map["Id"];
     int caseCode = map["CaseCode"];
     int optionCode = map["OptionCode"];
     String dateTime = map["EventDateTime"];

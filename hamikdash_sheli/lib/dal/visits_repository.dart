@@ -15,19 +15,21 @@ class VisitsRepository {
     String sql = '''
       insert into Visits
       (
+        Id,
         CaseCode,
         OptionCode,
         EventDateTime,
         CalId,
         DateCreated
       )
-      values (?, ?, ?, ?, ?)
+      values (?, ?, ?, ?, ?, ?)
     ''';
 
     String eventDate = DateFormat('yyyy-MM-dd HH:mm').format(visit.dateTime!);
     String currentDate = DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now().toUtc());
 
-    visit.id = await _database!.rawInsert(sql, [
+    await _database!.rawInsert(sql, [
+      visit.id,
       visit.caseCode.index,
       visit.optionCode.index,
       eventDate,
@@ -35,7 +37,7 @@ class VisitsRepository {
       currentDate]);
   }
 
-  Future<Visit> get(int visitId) async {
+  Future<Visit> get(String visitId) async {
     String sql = '''
       select *
       from Visits v
@@ -56,7 +58,7 @@ class VisitsRepository {
       return returnList;
   }
 
-  Future<bool> delete(int visitId) async {
+  Future<bool> delete(String visitId) async {
     var affectedRows = await _database!.delete("Visits", where: 'Id = ?', whereArgs: [visitId]);
     return affectedRows == 1;
   }

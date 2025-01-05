@@ -25,10 +25,10 @@ void main() {
       await vr.insert(visit);
 
       expect(visit.id, isNotNull);
-      expect(visit.id, greaterThan(0));
 
       var visit2 = await vr.get(visit.id);
 
+      expect(visit2.id, equals(visit.id));
       expect(visit2.caseCode, equals(CaseCodes.bicurim));
       expect(visit2.optionCode, equals(OptionCodes.thirdOption));
       expect(visit2.dateTime, equals(DateTime(2025, 1, 3, 1, 23)));
@@ -70,5 +70,5 @@ void main() {
 
       await dp.close();
     });
-  });
+   });
 }

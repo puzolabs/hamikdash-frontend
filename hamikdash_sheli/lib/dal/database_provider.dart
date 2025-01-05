@@ -33,7 +33,7 @@ class DatabaseProvider
   String _getTableColumnsDefinition() {
     return 
       '''
-        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Id TEXT PRIMARY KEY,
         CaseCode INTEGER,
         OptionCode INTEGER,
         EventDateTime TEXT NOT NULL,
