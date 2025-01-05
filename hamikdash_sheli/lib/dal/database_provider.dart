@@ -33,7 +33,7 @@ class DatabaseProvider
   String _getTableColumnsDefinition() {
     return 
       '''
-        Id TEXT PRIMARY KEY,
+        Id TEXT PRIMARY KEY NOT NULL,
         CaseCode INTEGER,
         OptionCode INTEGER,
         EventDateTime TEXT NOT NULL,

@@ -25,6 +25,7 @@ void main() {
       await vr.insert(visit);
 
       expect(visit.id, isNotNull);
+      expect(visit.id.length, equals(12));
 
       var visit2 = await vr.get(visit.id);
 
