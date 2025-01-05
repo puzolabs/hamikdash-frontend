@@ -3,9 +3,6 @@ preparations:
 in the server define an event for each KorbanOption
 in the app, fill the event map from the server
 
-files:
-persist visits and read on app load
-
 missing screens:
 history page
 

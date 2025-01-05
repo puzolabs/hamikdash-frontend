@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamikdash_sheli/app_persistence.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/cal/cal_loader.dart';
 import 'package:hamikdash_sheli/dataTypes/user.dart';
@@ -7,10 +8,13 @@ import 'package:hamikdash_sheli/pages/welcome_page.dart';
 
 import 'package:timezone/data/latest_10y.dart' as tz;
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   CalLoader().loadAsset();
   KorbanotConfigFilesLoader().load();
+  appPersistence.load();
+
   tz.initializeTimeZones();
   
   appState.user = User(name: "meir", email:"a@b.com");

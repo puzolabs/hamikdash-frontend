@@ -6,14 +6,15 @@ import 'package:sqflite/sqflite.dart';
 
 class VisitsRepository {
   Database? _database;
+  String? tableName;
   
-  VisitsRepository(DatabaseProvider databaseProvider) {
+  VisitsRepository(DatabaseProvider databaseProvider, this.tableName) {
     _database = databaseProvider.db;
   }
 
   Future insert(Visit visit) async {
     String sql = '''
-      insert into Visits
+      insert into $tableName
       (
         Id,
         CaseCode,
@@ -40,7 +41,7 @@ class VisitsRepository {
   Future<Visit> get(String visitId) async {
     String sql = '''
       select *
-      from Visits v
+      from $tableName v
       where v.Id = ?
     ''';
 
@@ -49,7 +50,7 @@ class VisitsRepository {
   }
 
   Future<List<Visit>> getAll() async {
-    var list = await _database!.query("Visits");
+    var list = await _database!.query(tableName!);
 
     List<Visit> returnList = list
       .map((visit) => Visit.fromDatabase(visit))
@@ -59,7 +60,7 @@ class VisitsRepository {
   }
 
   Future<bool> delete(String visitId) async {
-    var affectedRows = await _database!.delete("Visits", where: 'Id = ?', whereArgs: [visitId]);
+    var affectedRows = await _database!.delete(tableName!, where: 'Id = ?', whereArgs: [visitId]);
     return affectedRows == 1;
   }
 }

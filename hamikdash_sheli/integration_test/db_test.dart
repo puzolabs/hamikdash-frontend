@@ -14,7 +14,7 @@ void main() {
     testWidgets("test saving and reading from database", (widgetTester) async {
       DatabaseProvider dp = DatabaseProvider();
       await dp.init();
-      VisitsRepository vr = VisitsRepository(dp);
+      VisitsRepository vr = VisitsRepository(dp, "Visits");
 
       Visit visit = Visit()
         ..caseCode = CaseCodes.bicurim
@@ -41,7 +41,7 @@ void main() {
     testWidgets("test getting all visits and deleting from database", (widgetTester) async {
       DatabaseProvider dp = DatabaseProvider();
       await dp.init();
-      VisitsRepository vr = VisitsRepository(dp);
+      VisitsRepository vr = VisitsRepository(dp, "Visits");
 
       Visit visit = Visit()
         ..caseCode = CaseCodes.bicurim
