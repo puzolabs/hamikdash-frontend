@@ -3,6 +3,7 @@ import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
 import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
 import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
+import 'package:hamikdash_sheli/widgets/korbans_and_options_widget.dart';
 import 'package:hamikdash_sheli/widgets/korbans_widget.dart';
 import 'package:hamikdash_sheli/widgets/korbans_options_widget.dart';
 
@@ -87,21 +88,20 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
             textAlign: TextAlign.center,
           ),
           Expanded(
-            child: KorbansWidget(korbanot: widget.korbanCase.korbanot!),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              margin: const EdgeInsets.only(right: 25, top: 25),
-              child: const Text(
-                "בנוסף, ביחרו אחת מהאפשרויות הבאות:",
-                style: TextStyle(fontSize: 18),
-                textAlign: TextAlign.right,
+            child: KorbansAndOptionsWidget(
+              korbanot: widget.korbanCase.korbanot!,
+              explainer: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  margin: const EdgeInsets.only(right: 25, top: 25),
+                  child: const Text(
+                    "בנוסף, ביחרו אחת מהאפשרויות הבאות:",
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.right,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            child: KorbansOptionsWidget(korbanotOptions: widget.korbanCase.korbanotOptions!,
+              korbanotOptions: widget.korbanCase.korbanotOptions!,
               onOptionSelected: (option) {
                 appState.currentVisit!.optionCode = option.code;
                 _goToDateSelectionPage();

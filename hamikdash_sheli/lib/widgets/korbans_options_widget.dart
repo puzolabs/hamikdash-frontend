@@ -25,7 +25,7 @@ class KorbansOptionsWidget extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const SizedBox(
-        height: 250,
+        height: 20,
       )
     );
   }
