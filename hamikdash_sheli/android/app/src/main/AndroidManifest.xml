@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hamikdash_sheli">
+    package="com.puzolabs.hamikdash_sheli">
    <application
         android:label="hamikdash_sheli"
         android:name="${applicationName}"

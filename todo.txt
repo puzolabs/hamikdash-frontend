@@ -40,6 +40,5 @@ summery page:
 use jerusalem time zone (must be tested for time diferences)
 
 technical dept:
- - make sure android and ios name doesn't contain the word 'example' in the result binary
  - make sure to depend on device dimensions
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
