@@ -21,20 +21,12 @@ date finder page:
   - user A confirms
   expected result is user A sees alert and controls are cleared to find another date
 - refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
-- add a test for get availability receiving:
-{
-  "result": {
-    "data": {
-      "json": {
-        "slots": {}
-      }
-    }
-  }
-}
 - getAvailability sometimes gets:
   FormatException (FormatException: Unexpected character (at character 16983)
   ...4-12-15T14:00:00.000Z"},{"time":2024-12-15T14:15:00.000Z"},{"time":"2024...
                                          ^
+  some other times it "format invalid: 205-01-08 so have a text saying that and a button with 'refresh' label
+  that on press just invoke again the get availability
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
