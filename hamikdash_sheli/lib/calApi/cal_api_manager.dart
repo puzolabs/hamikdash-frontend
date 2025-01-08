@@ -24,7 +24,7 @@ class CalApiManager {
 
     print("about to find availability between $monthStartDate and $monthEndDate");
 
-    return _api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", monthStartDate, monthEndDate, "Asia/Jerusalem");
+    return await _api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", monthStartDate, monthEndDate, "Asia/Jerusalem");
   }
   
   DateTime _findMonthStartDate(DateTime start) {

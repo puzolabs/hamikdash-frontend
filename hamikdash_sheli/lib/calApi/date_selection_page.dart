@@ -31,12 +31,14 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   final CalApiManager _calApiManager = CalApiManager();
   late Future<List<DayAvailability>> _futureListOfDayAvailability;
   DateTime _currentDate = DateTime.now();
+  DateTime _dateToFindAvailabilitiesFor = DateTime.now();
   final TextStyle _defaultWeekDay = const TextStyle(fontSize: 14.0, color: Colors.deepOrange); // according to this page: https://pub.dev/packages/flutter_calendar_carousel
 
   @override
   void initState() {
     super.initState();
-    _futureListOfDayAvailability = _calApiManager.getMonthAvailability(DateTime.now());
+    _dateToFindAvailabilitiesFor = DateTime.now();
+    _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
   }
 
   void _goToSummeryPage(BuildContext context)
@@ -58,7 +60,8 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
           setState(() => _currentDate = date);
         },
         onCalendarChanged:(DateTime page) {
-          _futureListOfDayAvailability = _calApiManager.getMonthAvailability(page);
+          _dateToFindAvailabilitiesFor = page;
+          _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
         },
         weekendTextStyle: const TextStyle(   //compensate that sunday displayed in red. even the default implementation (red color) overrides customDayBuilder
           color: Colors.black,
@@ -127,20 +130,20 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
             style: Theme.of(context).textTheme.headline4,
           )
         ),
-        onTap: () {
-          _timeSlotTapped(timeSlot);
+        onTap: () async {
+          await _timeSlotTapped(timeSlot);
         }
       )
     );
   }
 
-  void _timeSlotTapped(DateTime timeSlot) {
+  Future _timeSlotTapped(DateTime timeSlot) async {
     appState.currentVisit!.dateTime = timeSlot;
     if(widget.mode == DateSelectionMode.create) {
-      _calApiManager.create("minha", timeSlot);
+      await _calApiManager.create("minha", timeSlot);
       _goToSummeryPage(context);
     } else { // reschedule
-      _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
+      await _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
       _showToast(context);
       Navigator.pop(context);
     }
@@ -154,6 +157,33 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         content: const Text('מועד הביקור עודכן בהצלחה'),
         action: SnackBarAction(label: 'הבנתי', onPressed: scaffold.hideCurrentSnackBar),
       ),
+    );
+  }
+
+  Widget _showNoAvailableTimeSlotsPanel(BuildContext context) {
+    return const Column(
+      children: [
+        Text("אין זמנים פנויים היום"),
+        Text("נסו יום אחר"),
+      ],
+    );
+  }
+
+  Widget _showErrorPanel(BuildContext context) {
+    return Column(
+      children: [
+        Text("קרתה תקלה בקבלת נתונים מהשרת"),
+        ElevatedButton(
+          onPressed: () {
+            _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+            setState(() {}); // repaint
+          },
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(20),
+          ),
+          child: const Text("נסה שנית")
+        ),
+      ],
     );
   }
 
@@ -184,12 +214,12 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
                   if (snapshot.hasData) {
                     var selectedDayAvailability = snapshot.data!.findFirst((da) => da.day == _currentDate);
                     return selectedDayAvailability == null
-                    ? Container()
+                    ? _showNoAvailableTimeSlotsPanel(context)
                     : Expanded(
                         child: _buildDayAvailabilityPanel(selectedDayAvailability)
                       );
                   } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
+                    return _showErrorPanel(context);
                   }
 
                   // By default, show a loading spinner.
