@@ -62,6 +62,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         onCalendarChanged:(DateTime page) {
           _dateToFindAvailabilitiesFor = page;
           _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+          setState(() {}); // repaint
         },
         weekendTextStyle: const TextStyle(   //compensate that sunday displayed in red. even the default implementation (red color) overrides customDayBuilder
           color: Colors.black,
