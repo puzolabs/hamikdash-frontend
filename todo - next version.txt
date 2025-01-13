@@ -17,18 +17,24 @@ option card is very large - shorten it
 if there are the same korban repeating like in mezora.json for minha and nasahim then display with * 3
 להוסיף תיאור במקום כותרת ארוכה
 
-date finder page:
- - avoid the screen that ask the user to fill fields of its name and email - its redundant for him
- - allow searching dates by hebrew calendar
- - when released in cal.com next version: support rescheduleBookingSuccessful and bookingCanceled in the template
- - flow for next version when payment is supported: user confirmed a date but didnt make it to the summery page. should we cancel ?
-
 date selection page:
  - prevent browsing the calendar to previous month than the current date since user can't select any date
  - if the current month has no available dates then display the first month that has availability and prevent browsing to previous months
  - fix scrolling of slots i think should be to the entire page not only on that section. maybe Expand() should be upper in tree
  - calendar widget bug: the calender changed event is being called twice
  - calendar widget: disable ability to click on unsupported day
+ - allow searching dates by hebrew calendar
+ - flow for next version when payment is supported: user confirmed a date but didnt make it to the summery page. should we cancel ?
+ - performance: in the beginning of 'create' method you can test if the requested time is before the current time. if so - don't invoke the call to Cal's server
+    // assuming that dtStart is given in Jerusalem time zone
+    void _validateStartTime(DateTime dtStart) {
+      var now = tz.TZDateTime.now(app_globals.jerusalem!);
+      var start = tz.TZDateTime.from(dtStart, app_globals.jerusalem!); // this is not conversion but rathar constructing the variable
+
+      if(!now.isBefore(start)) { //'now' equals or after 'start'
+        throw Exception('Time slot in the past');
+      }
+    }
 
 coming options page:
  - have dedicate icons for each use case

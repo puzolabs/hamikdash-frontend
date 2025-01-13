@@ -1,0 +1,52 @@
+
+שלום תמיר מה נשמע?
+
+כאן מאיר בן שמעון, למדתי בקורס שלך במשרדי גלובל-אי לפני כחודש.
+
+יש לי שאלה שלא קשורה לגלובל-אי שאשמח אם תוכל לענות לי עליה.
+
+למדת אותנו על כך ש S3 הוא שירות בעל אמינות גבוהה של 11 תשיעיות ומאוד סקיילאבילי וכו'
+
+אבל נגיד שיש לי אפליקציה במובייל שאני רוצה שתכתוב ל S3 לבאקט פרטי (וגם כמובן תקרא ממנו).
+
+אני כמובן לא אשים את הקרדנשיאלס של החשבון ב AWS בתוך האפליקציה מטעמי אבטחה.
+
+ולכן הפרקטיקה שחשבתי עליה היא שאצטרך שתהיה לי מכונה וירטואלית ב EC2 פתוחה לאינטרנט והיא תקבל בקשות מהאפליקציה והיא תפנה ל S3 .
+
+אבל אם אעשה ככה אז ברור שהסקייאביליות של השירות תהיה לפי איך שתכננתי את ה VPC שלי ולא כפי מה שאפשר לקבל מ S3.
+
+וגם הביצועים יהיו לפי איכות המכונה שאבחר ולא כפי מה ש S3 מציע.
+
+כלומר אם אני מתכנן מכונה יחסית זולה אז כנראה לא אקבל את כל מה שיש ל S3 להציע.
+
+אז מה בעצם עוזר לי כל הביצועים והאמינות של S3 אם בגלל שיקולי אבטחה הם כנראה לא באים לידי ביטוי?
+
+מהי הדרך הנכונה לעבוד ?
+
+תודה
+
+מאיר
+
+HI Meir,
+
+ 
+
+You can do this using CloudFront in front of your S3 Static Website…
+
+ 
+
+https://repost.aws/questions/QUuAXr4xfWRdykPfvjnWIwAw/authentication-in-static-website-hosting
+
+ 
+
+For Cloudfront solution see here: https://repost.aws/knowledge-center/cloudfront-serve-static-website
+
+ 
+
+Also great info in this post: https://stackoverflow.com/questions/55874983/basic-user-authentication-for-static-site-using-aws-s3-bucket
+
+ 
+
+Cheers,
+
+Eyal

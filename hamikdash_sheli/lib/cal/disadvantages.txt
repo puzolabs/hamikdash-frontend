@@ -9,3 +9,9 @@
 
 todo:
 1. support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)
+
+date finder page:
+ - avoid the screen that ask the user to fill fields of its name and email - its redundant for him
+ - allow searching dates by hebrew calendar
+ - when released in cal.com next version: support rescheduleBookingSuccessful and bookingCanceled in the template
+ - flow for next version when payment is supported: user confirmed a date but didnt make it to the summery page. should we cancel ?
