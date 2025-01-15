@@ -15,15 +15,16 @@ check each case is displayed as the json file
 date finder page:
 - time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
 - if no connection - display alert
-- test what happens in this scenario:
-  - user A selected a time slot
-  - user B selected the same time slot and confirms
-  - user A confirms
-  expected result is user A sees alert and controls are cleared to find another date
-- refactor such that each Option has an enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
+- use enum of Options so I can derive duration and event name and event id for getMonthAvailability\event-creation\rescheduling instead of hard coded 'minha'
+- browsing to next month should clean from ui all time slots until user press on a day
+- bug: it always show 'no available times today' when entering calendar for the first time. maybe related to the fact that now() is not converted to jerusalem time zone?
+
+deatils page:
+display the time range (end time) of the visit
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
+display the time range (end time) of the visit
 
 technical dept:
  - make sure to depend on device dimensions

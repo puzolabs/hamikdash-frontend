@@ -60,6 +60,41 @@ void main() {
       expect(uid2, isNot(equals(uid)));
     });
 
+    /* a test to simulate this scenario: (double booking)
+      - user A sees available time slots
+      - user B sees the same available time slots and selects one of them
+      - user A selects the same time slot
+      expected result is that user A sees an error message and the page controls are cleared in order to get the new available time slots
+    */
+    testWidgets("test double booking in Cal's server", (WidgetTester tester) async {
+      CalApi api = CalApi();
+      DateTime start = DateTime.parse("2025-01-12T13:15:00.000Z");
+      DateTime end = DateTime.parse("2025-01-12T13:30:00.000Z");
+      var uid = await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com");
+      expect(uid, isNotNull);
+      expect(uid, isNotEmpty);
+      expect(
+        () async => await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com"),
+        //throwsA(isException));
+        //throwsException);
+        throwsA(predicate((e) => e is ArgumentError && e.message == 'Time slot is taken')));
+    });
+
+    /* a test to simulate a scenario where the user selectes a time slot in the past:
+      - the user gets available time slots
+      - user waits until a certian time slot passes
+      - user press on passed time slot to create the meeting
+      expected result is that user sees an error message and the page controls are cleared in order to get the new available time slots
+    */
+    testWidgets("test creating an event in the past in Cal's server", (WidgetTester tester) async {
+      CalApi api = CalApi();
+      DateTime start = DateTime.parse("2024-10-31T12:00:00.000Z");
+      DateTime end = DateTime.parse("2024-10-31T12:15:00.000Z");
+      expect(
+        () async => await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com"),
+        throwsException);
+    });
+
 
 //     testWidgets('tap on the floating action button, verify counter', (tester) async {
 //       // Load app widget.

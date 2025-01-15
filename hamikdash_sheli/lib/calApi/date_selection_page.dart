@@ -30,6 +30,7 @@ class DateSelectionPage extends StatefulWidget {
 class _DateSelectionPageState extends State<DateSelectionPage> {
   final CalApiManager _calApiManager = CalApiManager();
   late Future<List<DayAvailability>> _futureListOfDayAvailability;
+  late Future? _futureCreateMeeting; // nullable since I have nothing to set it to in initState()
   DateTime _currentDate = DateTime.now();
   DateTime _dateToFindAvailabilitiesFor = DateTime.now();
   final TextStyle _defaultWeekDay = const TextStyle(fontSize: 14.0, color: Colors.deepOrange); // according to this page: https://pub.dev/packages/flutter_calendar_carousel
@@ -39,16 +40,25 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
     super.initState();
     _dateToFindAvailabilitiesFor = DateTime.now();
     _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+    _futureCreateMeeting = null;
   }
 
   void _goToSummeryPage(BuildContext context)
   {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-            return SummeryPage();
-        }
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+              return SummeryPage();
+          }
+        )
       )
+    );
+  }
+
+  void _returnToPreviousPage(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+      Navigator.pop(context)
     );
   }
 
@@ -131,34 +141,35 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
             style: Theme.of(context).textTheme.headline4,
           )
         ),
-        onTap: () async {
-          await _timeSlotTapped(timeSlot);
+        onTap: () {
+          _timeSlotTapped(timeSlot);
         }
       )
     );
   }
 
-  Future _timeSlotTapped(DateTime timeSlot) async {
+  void _timeSlotTapped(DateTime timeSlot) {
     appState.currentVisit!.dateTime = timeSlot;
     if(widget.mode == DateSelectionMode.create) {
-      await _calApiManager.create("minha", timeSlot);
-      _goToSummeryPage(context);
+      _futureCreateMeeting = _calApiManager.create("minha", timeSlot);
     } else { // reschedule
-      await _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
-      _showToast(context);
-      Navigator.pop(context);
+      _futureCreateMeeting = _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
     }
+
+    setState(() {}); // repaint
   }
 
   void _showToast(BuildContext context) {
-    final scaffold = ScaffoldMessenger.of(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {      
+      final scaffold = ScaffoldMessenger.of(context);
 
-    scaffold.showSnackBar(
-      SnackBar(
-        content: const Text('מועד הביקור עודכן בהצלחה'),
-        action: SnackBarAction(label: 'הבנתי', onPressed: scaffold.hideCurrentSnackBar),
-      ),
-    );
+      scaffold.showSnackBar(
+        SnackBar(
+          content: const Text('מועד הביקור עודכן בהצלחה'),
+          action: SnackBarAction(label: 'הבנתי', onPressed: scaffold.hideCurrentSnackBar),
+        ),
+      );
+    });
   }
 
   Widget _showNoAvailableTimeSlotsPanel(BuildContext context) {
@@ -170,10 +181,10 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
     );
   }
 
-  Widget _showErrorPanel(BuildContext context) {
+  Widget _showErrorPanel(BuildContext context, String textLabel, String textButton) {
     return Column(
       children: [
-        Text("קרתה תקלה בקבלת נתונים מהשרת"),
+        Text(textLabel),
         ElevatedButton(
           onPressed: () {
             _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
@@ -182,7 +193,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(20),
           ),
-          child: const Text("נסה שנית")
+          child: Text(textButton)
         ),
       ],
     );
@@ -209,24 +220,46 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
                 textAlign: TextAlign.center,
               ),
               _buildCalendar(),
-              FutureBuilder<List<DayAvailability>>(
-                future: _futureListOfDayAvailability,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    var selectedDayAvailability = snapshot.data!.findFirst((da) => da.day == _currentDate);
-                    return selectedDayAvailability == null
-                    ? _showNoAvailableTimeSlotsPanel(context)
-                    : Expanded(
-                        child: _buildDayAvailabilityPanel(selectedDayAvailability)
-                      );
-                  } else if (snapshot.hasError) {
-                    return _showErrorPanel(context);
-                  }
+              if(_futureCreateMeeting == null)
+                FutureBuilder<List<DayAvailability>>(
+                  future: _futureListOfDayAvailability,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      var selectedDayAvailability = snapshot.data!.findFirst((da) => da.day == _currentDate);
+                      return selectedDayAvailability == null
+                      ? _showNoAvailableTimeSlotsPanel(context)
+                      : Expanded(
+                          child: _buildDayAvailabilityPanel(selectedDayAvailability)
+                        );
+                    } else if (snapshot.hasError) {
+                      return _showErrorPanel(context, "קרתה תקלה בקבלת נתונים מהשרת", "נסה שנית");
+                    }
 
-                  // By default, show a loading spinner.
-                  return const CircularProgressIndicator();
-                },
-              )
+                    // By default, show a loading spinner.
+                    return const CircularProgressIndicator();
+                  },
+                )
+              else
+                FutureBuilder(
+                  future: _futureCreateMeeting,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      _futureCreateMeeting = null;
+                      return _showErrorPanel(context, "רצועת הזמן שנבחרה כבר לא זמינה יותר", "רענן");
+                    } else if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    }
+
+                    if(widget.mode == DateSelectionMode.create) {
+                      _goToSummeryPage(context);
+                    } else { // reschedule
+                      _showToast(context);
+                      _returnToPreviousPage(context);
+                    }
+
+                    return Container(); // dummy
+                  },
+                )
             ]
           ),
         ),
