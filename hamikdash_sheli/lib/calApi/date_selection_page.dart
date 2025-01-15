@@ -151,9 +151,9 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   void _timeSlotTapped(DateTime timeSlot) {
     appState.currentVisit!.dateTime = timeSlot;
     if(widget.mode == DateSelectionMode.create) {
-      _futureCreateMeeting = _calApiManager.create("minha", timeSlot);
+      _futureCreateMeeting = _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, timeSlot);
     } else { // reschedule
-      _futureCreateMeeting = _calApiManager.create("minha", timeSlot, rescheduleUid: appState.currentVisit!.uid);
+      _futureCreateMeeting = _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, timeSlot, rescheduleUid: appState.currentVisit!.uid);
     }
 
     setState(() {}); // repaint

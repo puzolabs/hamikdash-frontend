@@ -1,4 +1,7 @@
 import 'package:hamikdash_sheli/calApi/cal_api.dart';
+import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
+import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
+import 'package:hamikdash_sheli/utills/list_enhancements.dart';
 import 'package:jiffy/jiffy.dart';
 import '../app_state.dart';
 import '../dataTypes/event_data.dart';
@@ -41,9 +44,19 @@ class CalApiManager {
       .dateTime;
   }
 
-  Future create(String eventName, DateTime start, {String? rescheduleUid}) async {
-    int eventTypeId = eventMap[eventName]!.eventTypeId;
-    DateTime end = start.add(eventMap[eventName]!.duration);
+  Future create(CaseCodes caseCode, OptionCodes optionCode, DateTime start, {String? rescheduleUid}) async {
+    var eventData =
+      eventMap.findFirst((element) => element.caseCode == caseCode && element.optionCode == optionCode) ??
+      eventMap.findFirst((element) => element.caseCode == caseCode);
+    
+    if(eventData == null) {
+      return;
+    }
+
+    String eventName = eventData.eventName;
+    int eventTypeId = eventData.eventTypeId;
+    DateTime end = start.add(eventData.duration);
+    
     String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
     appState.currentVisit!.uid = uid;
   }
