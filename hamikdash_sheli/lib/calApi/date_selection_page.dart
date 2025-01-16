@@ -43,6 +43,13 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
     _futureCreateMeeting = null;
   }
 
+  bool _areDateTimesEqual(DateTime first, DateTime second) {
+    return
+      first.year == second.year &&
+      first.month == second.month &&
+      first.day == second.day;
+  }
+
   void _goToSummeryPage(BuildContext context)
   {
     WidgetsBinding.instance.addPostFrameCallback((_) =>
@@ -225,7 +232,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
                   future: _futureListOfDayAvailability,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      var selectedDayAvailability = snapshot.data!.findFirst((da) => da.day == _currentDate);
+                      var selectedDayAvailability = snapshot.data!.findFirst((da) => _areDateTimesEqual(da.day, _currentDate));
                       return selectedDayAvailability == null
                       ? _showNoAvailableTimeSlotsPanel(context)
                       : Expanded(

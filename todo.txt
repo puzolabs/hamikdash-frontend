@@ -17,10 +17,10 @@ date finder page:
 - if no connection - display alert
 - use enum of Options so I can derive duration and event name and event id for getMonthAvailability instead of hard coded 'minha'
 - browsing to next month should clean from ui all time slots until user press on a day
-- bug: it always show 'no available times today' when entering calendar for the first time. maybe related to the fact that now() is not converted to jerusalem time zone?
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
+display date with out WEDNSDAY for hebrew users
 
 technical dept:
  - make sure to depend on device dimensions
