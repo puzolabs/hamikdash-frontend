@@ -39,7 +39,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   void initState() {
     super.initState();
     _dateToFindAvailabilitiesFor = DateTime.now();
-    _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+    _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
     _futureCreateMeeting = null;
   }
 
@@ -78,7 +78,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         },
         onCalendarChanged:(DateTime page) {
           _dateToFindAvailabilitiesFor = page;
-          _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+          _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
           setState(() {}); // repaint
         },
         weekendTextStyle: const TextStyle(   //compensate that sunday displayed in red. even the default implementation (red color) overrides customDayBuilder
@@ -194,7 +194,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         Text(textLabel),
         ElevatedButton(
           onPressed: () {
-            _futureListOfDayAvailability = _calApiManager.getMonthAvailability(_dateToFindAvailabilitiesFor);
+            _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
             setState(() {}); // repaint
           },
           style: ElevatedButton.styleFrom(

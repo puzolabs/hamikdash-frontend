@@ -14,7 +14,17 @@ class CalApiManager {
   //since for most times the user would browse the calendar by entire months,
   //and only once, when the page loads, it would be optimized to start the search only from the day the page loaded - so it doesn't worth it.
   //when browsing next month - call getAvailbility() agin for that month
-  Future<List<DayAvailability>> getMonthAvailability(DateTime time) async {
+  Future<List<DayAvailability>> getMonthAvailability(CaseCodes caseCode, OptionCodes optionCode, DateTime time) async {
+    var eventData =
+      eventMap.findFirst((element) => element.caseCode == caseCode && element.optionCode == optionCode) ??
+      eventMap.findFirst((element) => element.caseCode == caseCode);
+    
+    if(eventData == null) {
+      return List.empty();
+    }
+
+    String eventName = eventData.eventName;
+
     var monthStartDate = _findMonthStartDate(time);
     var thisMonthStartDate = _findMonthStartDate(DateTime.now());
 
@@ -27,7 +37,7 @@ class CalApiManager {
 
     print("about to find availability between $monthStartDate and $monthEndDate");
 
-    return await _api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", monthStartDate, monthEndDate, "Asia/Jerusalem");
+    return await _api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, monthStartDate, monthEndDate, "Asia/Jerusalem");
   }
   
   DateTime _findMonthStartDate(DateTime start) {

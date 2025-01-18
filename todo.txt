@@ -15,7 +15,6 @@ check each case is displayed as the json file
 date finder page:
 - time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
 - if no connection - display alert
-- use enum of Options so I can derive duration and event name and event id for getMonthAvailability instead of hard coded 'minha'
 - browsing to next month should clean from ui all time slots until user press on a day
 
 summery page:

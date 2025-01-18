@@ -9,6 +9,7 @@
 
 todo:
 1. support more templating options for calcom widget: CalcomEmbedOptions: styles, dark \ light theme, success callbacks. but remove size since its always (100,100)
+2. use enum of Options so I can derive duration and event name and event id for getMonthAvailability instead of hard coded 'minha'
 
 date finder page:
  - avoid the screen that ask the user to fill fields of its name and email - its redundant for him
