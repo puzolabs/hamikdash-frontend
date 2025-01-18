@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hamikdash_sheli/app_globals.dart';
 import 'package:hamikdash_sheli/app_persistence.dart';
 import 'package:hamikdash_sheli/app_state.dart';
@@ -31,6 +32,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: const [
+        Locale('he', 'IL'), // Israeli Hebrew
+        Locale('en', 'US'), // American English
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       title: 'בית הבחירה',
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -68,7 +68,7 @@ class VisitWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Container(
               margin: const EdgeInsets.only(right: 25),
-              child: Text(intl.DateFormat('EEEE, MMM d, yyyy').format(visit.dateTime!),
+              child: Text(intl.DateFormat.yMMMMEEEEd(/*Localizations.localeOf(context).toString()*/'he_IL').format(visit.dateTime!),
                 style: const TextStyle(fontSize: 28)
               ),
             ),

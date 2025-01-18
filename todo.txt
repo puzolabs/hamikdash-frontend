@@ -20,7 +20,6 @@ date finder page:
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
-display date with out WEDNSDAY for hebrew users
 
 technical dept:
  - make sure to depend on device dimensions
