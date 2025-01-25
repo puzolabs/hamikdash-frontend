@@ -22,7 +22,7 @@ date selection page:
  - if the current month has no available dates then display the first month that has availability and prevent browsing to previous months
  - fix scrolling of slots i think should be to the entire page not only on that section. maybe Expand() should be upper in tree
  - calendar widget bug: the calender changed event is being called twice
- - calendar widget: disable ability to click on unsupported day
+ - calendar widget: disable ability to click on unsupported day meaning days totally not available should be grayed out
  - allow searching dates by hebrew calendar
  - flow for next version when payment is supported: user confirmed a date but didnt make it to the summery page. should we cancel ?
  - performance: in the beginning of 'create' method you can test if the requested time is before the current time. if so - don't invoke the call to Cal's server
@@ -57,7 +57,6 @@ summery page:
 
 details page:
  display the selected option
- allow for canceling
  allow updating the korban type
  use hebrew date also
  add info about selected payment

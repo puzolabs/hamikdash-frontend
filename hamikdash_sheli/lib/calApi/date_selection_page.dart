@@ -33,6 +33,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   late Future? _futureCreateMeeting; // nullable since I have nothing to set it to in initState()
   DateTime _currentDate = DateTime.now();
   DateTime _dateToFindAvailabilitiesFor = DateTime.now();
+  bool _monthChanged = false;
   final TextStyle _defaultWeekDay = const TextStyle(fontSize: 14.0, color: Colors.deepOrange); // according to this page: https://pub.dev/packages/flutter_calendar_carousel
 
   @override
@@ -77,9 +78,14 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
           setState(() => _currentDate = date);
         },
         onCalendarChanged:(DateTime page) {
-          _dateToFindAvailabilitiesFor = page;
-          _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
-          setState(() {}); // repaint
+          print("onCalendarChanged start. month selected ${page.day}.${page.month}.${page.year}");
+          setState(() { // repaint
+            _monthChanged = true;
+            _dateToFindAvailabilitiesFor = page;
+            _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
+            print("onCalendarChanged. setting month to ${page.day}.${page.month}.${page.year}");
+          });
+          print("onCalendarChanged end. month selected ${page.day}.${page.month}.${page.year}");
         },
         weekendTextStyle: const TextStyle(   //compensate that sunday displayed in red. even the default implementation (red color) overrides customDayBuilder
           color: Colors.black,
@@ -183,7 +189,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
     return const Column(
       children: [
         Text("אין זמנים פנויים היום"),
-        Text("נסו יום אחר"),
+        Text("נסה יום אחר"),
       ],
     );
   }
@@ -194,8 +200,9 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         Text(textLabel),
         ElevatedButton(
           onPressed: () {
-            _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
-            setState(() {}); // repaint
+            setState(() { // repaint
+              _futureListOfDayAvailability = _calApiManager.getMonthAvailability(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, _dateToFindAvailabilitiesFor);
+            });
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(20),
@@ -204,6 +211,26 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         ),
       ],
     );
+  }
+
+  Widget _handleMonthChanged(AsyncSnapshot<List<DayAvailability>> snapshot) {
+    _monthChanged = false;
+    DayAvailability? selectedDayAvailability = snapshot.data!.firstOrNull;
+
+    if(selectedDayAvailability == null) {
+      print("at build() for month selected. no available days for month starting at ${_dateToFindAvailabilitiesFor.day}.${_dateToFindAvailabilitiesFor.month}.${_dateToFindAvailabilitiesFor.year}");
+    } else {
+      print("at build() for month selected. about to select date ${selectedDayAvailability.day.day}.${selectedDayAvailability.day.month}.${selectedDayAvailability.day.year} for month starting at ${_dateToFindAvailabilitiesFor.day}.${_dateToFindAvailabilitiesFor.month}.${_dateToFindAvailabilitiesFor.year}");
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        setState(() {
+          _currentDate = selectedDayAvailability.day;
+          print("at build() for month selected. date selected ${selectedDayAvailability.day.day}.${selectedDayAvailability.day.month}.${selectedDayAvailability.day.year} for month starting at ${_dateToFindAvailabilitiesFor.day}.${_dateToFindAvailabilitiesFor.month}.${_dateToFindAvailabilitiesFor.year}");
+        });
+      });
+    }
+
+    print("build() end.");
+    return Container(); // dummy. usefull when user browsed to old month. otherwise the spinner is shown endlessly
   }
 
   @override
@@ -229,15 +256,27 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
               _buildCalendar(),
               if(_futureCreateMeeting == null)
                 FutureBuilder<List<DayAvailability>>(
+                  // its very important to set the key since otherwise pressing a lot of times fastly on the 'next\prev month'
+                  // would cause _futureListOfDayAvailability to represent a certain month
+                  // while _dateToFindAvailabilitiesFor a different month
+                  key: ValueKey(_futureListOfDayAvailability),
                   future: _futureListOfDayAvailability,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      var selectedDayAvailability = snapshot.data!.findFirst((da) => _areDateTimesEqual(da.day, _currentDate));
-                      return selectedDayAvailability == null
-                      ? _showNoAvailableTimeSlotsPanel(context)
-                      : Expanded(
-                          child: _buildDayAvailabilityPanel(selectedDayAvailability)
-                        );
+                      print("build() start.");
+                      if(_monthChanged) { // user pressed on the next\prev month buttons
+                        return _handleMonthChanged(snapshot);
+                      } else { // user pressed on a day
+                        print("at build() for day selected. about to find time slots for ${_currentDate.day}.${_currentDate.month}.${_currentDate.year} for month starting at ${_dateToFindAvailabilitiesFor.day}.${_dateToFindAvailabilitiesFor.month}.${_dateToFindAvailabilitiesFor.year}");
+                        DayAvailability? selectedDayAvailability = snapshot.data!.findFirst((da) => _areDateTimesEqual(da.day, _currentDate));
+
+                        print("build() end.");
+                        return selectedDayAvailability == null
+                        ? _showNoAvailableTimeSlotsPanel(context)
+                        : Expanded(
+                            child: _buildDayAvailabilityPanel(selectedDayAvailability)
+                          );
+                      }
                     } else if (snapshot.hasError) {
                       return _showErrorPanel(context, "קרתה תקלה בקבלת נתונים מהשרת", "נסה שנית");
                     }

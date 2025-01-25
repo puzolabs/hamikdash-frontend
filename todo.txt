@@ -13,12 +13,13 @@ korban case page:
 check each case is displayed as the json file
 
 date finder page:
-- time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
-- if no connection - display alert
-- browsing to next month should clean from ui all time slots until user press on a day
+time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than the response from the server)
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
+
+details page:
+allow for canceling
 
 technical dept:
  - make sure to depend on device dimensions
