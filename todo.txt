@@ -3,11 +3,8 @@ preparations:
 in the server define an event for each KorbanOption
 in the app, fill the event map from the server
 
-missing screens:
-history page
-
-in the list:
-when visit is done, remove from the visits list to history list
+register to time changed notification:
+when a visit is done, change the visit's status + remove from the visits list to history list
 
 korban case page:
 check each case is displayed as the json file
@@ -19,7 +16,7 @@ summery page:
 use jerusalem time zone (must be tested for time diferences)
 
 details page:
-allow for canceling
+allow for canceling. send cancel request to cal + delete from db and list
 
 technical dept:
  - make sure to depend on device dimensions

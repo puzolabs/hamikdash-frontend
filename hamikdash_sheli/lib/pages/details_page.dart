@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/app_state.dart';
+import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
@@ -56,33 +57,39 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 textAlign: TextAlign.center,
               ),
               VisitWidget(visit: appState.currentVisit!),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
+              Visibility(
+                visible: appState.currentVisit!.status != Status.done,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20),
+                      ),
+                      child: const Text("ביטול")
                     ),
-                    child: const Text("ביטול")
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20),
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      await _goToDateSelectionPage();
-                      setState(() { }); // update date\time labels with updated info
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20),
+              Visibility(
+                visible: appState.currentVisit!.status != Status.done,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 20),
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        await _goToDateSelectionPage();
+                        setState(() { }); // update date\time labels with updated info
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20),
+                      ),
+                      child: const Text("עדכון")
                     ),
-                    child: const Text("עדכון")
                   ),
                 ),
               ),

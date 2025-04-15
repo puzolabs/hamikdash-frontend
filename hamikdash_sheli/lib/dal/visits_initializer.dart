@@ -17,6 +17,7 @@ class VisitsInitializer {
 
     //after moving all new completed visits to its own repository - read them all
     completedList = await completedVisitsRepository.getAll();
+    completedList.forEach((visit) => visit.status = Status.done);
 
     _sort(completedList);
   }

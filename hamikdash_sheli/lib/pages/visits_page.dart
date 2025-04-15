@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/pages/details_page.dart';
+import 'package:hamikdash_sheli/pages/history_page.dart';
 import 'package:hamikdash_sheli/pages/new_visit.dart';
 import 'package:hamikdash_sheli/services/visit_data_retriever.dart';
 
@@ -72,6 +73,17 @@ class _MyVisitsPageState extends State<VisitsPage> {
     );
   }
 
+  Future<void> _goToHistoryPage(BuildContext context) async
+  {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+            return const HistoryPage();
+        }
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +93,25 @@ class _MyVisitsPageState extends State<VisitsPage> {
           child:Text("המקדש שלי"),
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text('תפריט'),
+            ),
+            ListTile(
+              title: const Text('ביקורים קודמים'),
+              onTap: () {
+                Navigator.pop(context); // close the drawer
+                _goToHistoryPage(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Center(
@@ -88,7 +119,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "ברוכים הבאים",
+                "הביקורים הבאים",
                 style: Theme.of(context).textTheme.headline3,
                 textAlign: TextAlign.center,
               ),
