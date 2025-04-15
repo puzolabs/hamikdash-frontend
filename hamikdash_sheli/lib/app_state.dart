@@ -8,6 +8,7 @@ class AppState
   User? user;
   Visit? currentVisit;
   List<Visit> visitList = <Visit>[];
+  List<Visit> completedList = <Visit>[];
 }
 
 var appState = AppState();

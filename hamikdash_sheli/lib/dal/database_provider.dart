@@ -5,41 +5,56 @@ class DatabaseProvider
 {
   Database? _db;
 
-  Future init() async {
+  Future init(String dbName) async {
     var databasesPath = await getDatabasesPath();
-    String path = p.join(databasesPath, 'bet-hamikdash.db');
+    String path = p.join(databasesPath, dbName);
 
     _db = await openDatabase(
       path,
-      version: 1,
+      version: 2,
+      // when creating the db on a new device
       onCreate: (Database db, int version) async {
-        String columns = _getTableColumnsDefinition();
-
-        // When creating the db, create the table
-        await db.execute(
-        '''CREATE TABLE IF NOT EXISTS Visits (
-            $columns
-          );
-
-          CREATE TABLE IF NOT EXISTS CompletedVisits (
-            $columns
-          );
-        ''');
-    });
+        var batch = db.batch();
+        _createVisitsTable(batch);
+        _createCompletedVisitsTable(batch);
+        await batch.commit();
+      },
+      // when upgrading the app version
+      onUpgrade: (db, oldVersion, newVersion) async {
+        var batch = db.batch();
+        if (oldVersion == 1) {
+          _createCompletedVisitsTable(batch);
+        }
+        await batch.commit();
+      });
   }
 
   Database? get db => _db;
 
-  String _getTableColumnsDefinition() {
-    return 
-      '''
-        Id TEXT PRIMARY KEY NOT NULL,
-        CaseCode INTEGER,
-        OptionCode INTEGER,
-        EventDateTime TEXT NOT NULL,
-        CalId TEXT NOT NULL,
-        DateCreated TEXT NOT NULL
-      ''';
+  void _createVisitsTable(Batch batch) {
+    batch.execute(
+      '''CREATE TABLE IF NOT EXISTS Visits (
+          Id TEXT PRIMARY KEY NOT NULL,
+          CaseCode INTEGER,
+          OptionCode INTEGER,
+          EventDateTime TEXT NOT NULL,
+          CalId TEXT NOT NULL,
+          DateCreated TEXT NOT NULL
+         );'''
+    );
+  }
+
+  void _createCompletedVisitsTable(Batch batch) {
+    batch.execute(
+      '''CREATE TABLE IF NOT EXISTS CompletedVisits (
+          Id TEXT PRIMARY KEY NOT NULL,
+          CaseCode INTEGER,
+          OptionCode INTEGER,
+          EventDateTime TEXT NOT NULL,
+          CalId TEXT NOT NULL,
+          DateCreated TEXT NOT NULL
+         );'''
+    );
   }
 
   Future close() async {

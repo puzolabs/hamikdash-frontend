@@ -63,4 +63,9 @@ class VisitsRepository {
     var affectedRows = await _database!.delete(tableName!, where: 'Id = ?', whereArgs: [visitId]);
     return affectedRows == 1;
   }
+
+  Future<int> deleteAll() async {
+    var affectedRows = await _database!.delete(tableName!);
+    return affectedRows;
+  }
 }

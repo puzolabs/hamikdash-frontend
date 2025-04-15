@@ -20,6 +20,8 @@ void main() async {
 
   tz.initializeTimeZones();
   app_globals.jerusalem = tz.getLocation('Asia/Jerusalem');
+
+  await appPersistence.initVisitLists();
   
   appState.user = User(name: "meir", email:"a@b.com");
 

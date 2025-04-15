@@ -13,7 +13,7 @@ void main() {
   group('db test', () {
     testWidgets("test saving and reading from database", (widgetTester) async {
       DatabaseProvider dp = DatabaseProvider();
-      await dp.init();
+      await dp.init('bet-hamikdash-test.db');
       VisitsRepository vr = VisitsRepository(dp, "Visits");
 
       Visit visit = Visit()
@@ -40,8 +40,9 @@ void main() {
 
     testWidgets("test getting all visits and deleting from database", (widgetTester) async {
       DatabaseProvider dp = DatabaseProvider();
-      await dp.init();
+      await dp.init('bet-hamikdash-test.db');
       VisitsRepository vr = VisitsRepository(dp, "Visits");
+      vr.deleteAll();
 
       Visit visit = Visit()
         ..caseCode = CaseCodes.bicurim
@@ -60,7 +61,7 @@ void main() {
       await vr.insert(visit2);
 
       var visits = await vr.getAll();
-      expect(visits.length, greaterThan(0));
+      expect(visits.length, equals(2));
 
       visits.forEach((visit) async {
         await vr.delete(visit.id);
