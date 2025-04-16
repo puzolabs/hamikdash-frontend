@@ -3,9 +3,6 @@ preparations:
 in the server define an event for each KorbanOption
 in the app, fill the event map from the server
 
-register to time changed notification:
-when a visit is done, change the visit's status + remove from the visits list to history list
-
 korban case page:
 check each case is displayed as the json file
 

@@ -12,6 +12,9 @@ new screens:
 login page
 about page with credits and app version and נחל ארנון טקס הביכורים and עילוי נשמות
 
+check on entering visits screen - or - register to time changed notification:
+when a visit is done, change the visit's status + remove from the visits list to history list
+
 korban case page:
 option card is very large - shorten it
 if there are the same korban repeating like in mezora.json for minha and nasahim then display with * 3
@@ -63,6 +66,7 @@ details page:
  restrict editing the type:
  - only if he brings all - we can let him replace the korban type without affecting the payment. otherwise, he should pay the gap or be refunded
  - only if the old visit duration is higher or equals to the new visit's. otherwise, time overlap between 2 different visitors so user has to reschedule
+allow to delete from db only a completed visit (otherwise for pending visit enable 'cancel')
 
 canceling flow:
 - in case he paid, ask if refund or donation ?
