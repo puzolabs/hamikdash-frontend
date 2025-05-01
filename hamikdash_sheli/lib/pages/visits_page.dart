@@ -53,13 +53,17 @@ class _MyVisitsPageState extends State<VisitsPage> {
 
   Future<void> _goToDetailsPage(BuildContext context) async
   {
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(
+    bool? result = await Navigator.of(context).push<bool>(
+      MaterialPageRoute(
         builder: (BuildContext context) {
             return DetailsPage();
         }
       )
     );
+
+    if(result != null && result == true) {
+      setState(() { }); //repaint
+    }
   }
 
   Future<void> _goToNewVisitPage(BuildContext context) async

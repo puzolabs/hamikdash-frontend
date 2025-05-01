@@ -95,6 +95,15 @@ void main() {
         throwsException);
     });
 
+    testWidgets("test canceling an event in Cal's server", (WidgetTester tester) async {
+      CalApi api = CalApi();
+      DateTime start = DateTime.parse("2025-05-23T12:00:00.000Z");
+      DateTime end = DateTime.parse("2025-05-23T12:15:00.000Z");
+      var uid = await api.create("http", "10.0.2.2", 3000, "bet-hamikdash", "minha", 4, start, end, "Asia/Jerusalem", "aaa", "aaa@bbb.com");
+      expect(uid, isNotNull);
+      expect(uid, isNotEmpty);
+      await expectLater(api.cancel("http", "10.0.2.2", 3000, uid), completes);
+    });
 
 //     testWidgets('tap on the floating action button, verify counter', (tester) async {
 //       // Load app widget.

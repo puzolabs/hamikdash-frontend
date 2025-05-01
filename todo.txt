@@ -11,6 +11,7 @@ time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than
 
 summery page:
 use jerusalem time zone (must be tested for time diferences)
+dont insert to list only when user press  ishur - since what if he didnt press it and leave the page as it is?
 
 details page:
 allow for canceling. send cancel request to cal + delete from db and list

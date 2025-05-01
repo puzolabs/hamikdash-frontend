@@ -157,7 +157,44 @@ class CalApi {
     return section;
   }
 
-  Future cancel() async {
+  Future cancel(String scheme, String host, int port, String uid) async {
+    String template = 
+    """{
+        "uid": "{{uid}}",
+        "cancellationReason": "ba-li",
+        "allRemainingBookings": false,
+        "seatReferenceUid": "{{uid}}",
+        "cancelledBy": "puzolabs@gmail.com"
+    }""";
 
+    String payload = template
+    .replaceAll(" ", "")
+    .replaceAll("\n", "")
+    .replaceAll("{{uid}}", uid);
+
+    Uri uri = Uri(
+      scheme: scheme,
+      host: host,
+      port: port,
+      path: '/api/cancel');
+
+    final Response response;
+    try {
+      response = await http.post(uri, headers:
+        {
+          "Content-Type": "application/json",
+        },
+        body: payload);
+    } on ClientException catch (error) {
+      print(error.toString());
+      throw Exception('Failed to cancel a meeting. error is ${error.message}');
+    }
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print('Failed to cancel a meeting. status: ${response.statusCode}. body: ${response.body}');
+      throw Exception('Failed to cancel a meeting. status: ${response.statusCode}. body: ${response.body}');
+    }
   }
 }

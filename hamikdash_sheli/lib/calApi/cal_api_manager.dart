@@ -70,4 +70,8 @@ class CalApiManager {
     String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
     appState.currentVisit!.uid = uid;
   }
+
+  Future cancel(String uid) async {
+    await _api.cancel("http", "10.0.2.2", 3000, uid);
+  }
 }
