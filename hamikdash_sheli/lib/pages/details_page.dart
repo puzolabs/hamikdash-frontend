@@ -4,8 +4,8 @@ import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/calApi/cal_api_manager.dart';
 import 'package:hamikdash_sheli/dataTypes/visit.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
-
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
+import 'package:rounded_loading_button_plus/rounded_loading_button.dart';
 
 class DetailsPage extends StatefulWidget {
   DetailsPage({
@@ -18,12 +18,11 @@ class DetailsPage extends StatefulWidget {
 
 class _MyDetailsPageState extends State<DetailsPage> {
   final CalApiManager _calApiManager = CalApiManager();
-  late Future? _futureCancelMeeting; // nullable since I have nothing to set it to in initState()
+  final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
 
   @override
   void initState() {
     super.initState();
-    _futureCancelMeeting = null;
   }
 
   Future<void> _goToDateSelectionPage() async {
@@ -36,27 +35,25 @@ class _MyDetailsPageState extends State<DetailsPage> {
     );
   }
 
-  Future _cancel(BuildContext context) async {
-    await _calApiManager.cancel(appState.currentVisit!.uid);
-    await appPersistence.currentVisitsRepository!.delete(appState.currentVisit!.uid);    
-  }
+  void _cancel() async {
+    try {
+      await _calApiManager.cancel(appState.currentVisit!.uid);
+    } catch(e) {
+      //we dont care to leave wasted time slot on the server side
+      //so continue below to remove it from local db
+    }
 
-  void _showErrorToast(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('ביטול הביקור נכשל'),
-      ),
-    );
-  }
+    await appPersistence.currentVisitsRepository!.delete(appState.currentVisit!.id);
 
-  void _returnToPreviousPage(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) =>
-      Navigator.pop(context, true)
-    );
+    appState.visitList.removeWhere((v) => v.uid == appState.currentVisit!.uid);
+    appState.currentVisit!.status = Status.canceled;
+    
+    _btnController.success();
+    setState(() {}); // repaint to hide the 'update' button
   }
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Directionality(
@@ -82,46 +79,24 @@ class _MyDetailsPageState extends State<DetailsPage> {
               ),
               VisitWidget(visit: appState.currentVisit!),
               Visibility(
-                visible: appState.currentVisit!.status != Status.done,
+                visible: appState.currentVisit!.status == Status.pending || appState.currentVisit!.status == Status.canceled,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
                     margin: const EdgeInsets.only(left: 20),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {  // repaint
-                          _futureCancelMeeting = _cancel(context);
-                        });
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(20),
+                    //user can't press the button while spinner is showing
+                    child: RoundedLoadingButton(
+                      controller: _btnController,
+                      onPressed: _cancel,
+                      child: const Text('ביטול',
+                        style: TextStyle(color: Colors.white)
                       ),
-                      child: const Text("ביטול")
-                    ),
+                    )
                   ),
                 ),
               ),
-              if(_futureCancelMeeting != null)
-                FutureBuilder(
-                  future: _futureCancelMeeting,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      _futureCancelMeeting = null;
-                      _showErrorToast(context);
-                      return Container(); //dummy
-                    } else if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    }
-      
-                    appState.visitList.removeWhere((v) => v.uid == appState.currentVisit!.uid);
-                    appState.currentVisit = null;
-                    _returnToPreviousPage(context);
-                    
-                    return Container(); // dummy
-                  },
-                ),
               Visibility(
-                visible: appState.currentVisit!.status != Status.done,
+                visible: appState.currentVisit!.status == Status.pending,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(

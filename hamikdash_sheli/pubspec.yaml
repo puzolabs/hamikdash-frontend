@@ -49,6 +49,7 @@ dependencies:
   sqflite: 2.3.2
   path: 1.9.0
   nanoid: 1.0.0
+  rounded_loading_button_plus: 3.0.1
 
 dev_dependencies:
   flutter_test:

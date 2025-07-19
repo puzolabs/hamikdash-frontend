@@ -12,7 +12,8 @@ enum Status
 {
   pending,
   inProgress,
-  done
+  done,
+  canceled,
 }
 
 class Visit

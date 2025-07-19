@@ -53,7 +53,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
 
   Future<void> _goToDetailsPage(BuildContext context) async
   {
-    bool? result = await Navigator.of(context).push<bool>(
+    await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) {
             return DetailsPage();
@@ -61,8 +61,9 @@ class _MyVisitsPageState extends State<VisitsPage> {
       )
     );
 
-    if(result != null && result == true) {
-      setState(() { }); //repaint
+    if(appState.currentVisit!.status == Status.canceled) {
+      appState.currentVisit = null;
+      setState(() { }); //repaint to remove the canceled visit from the list
     }
   }
 

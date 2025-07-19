@@ -14,7 +14,9 @@ use jerusalem time zone (must be tested for time diferences)
 dont insert to list only when user press  ishur - since what if he didnt press it and leave the page as it is?
 
 details page:
-allow for canceling. send cancel request to cal + delete from db and list
+text 'you can cancel here'. text 'canceling completed'.
+prevent going back during cancelation.
+ask are you sure? before canceling
 
 technical dept:
  - make sure to depend on device dimensions
