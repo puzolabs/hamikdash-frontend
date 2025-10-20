@@ -94,6 +94,8 @@ class _MySummeryPageState extends State<SummeryPage> {
         ),
       ),
       body: PopScope(
+        //prvent going back since the user might change the details
+        //but changing details would end up on this page that does inserting and not updating
         canPop: false,
         onPopInvoked: (didPop) {
           _showToast(context);
