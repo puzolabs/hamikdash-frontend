@@ -13,7 +13,6 @@ summery page:
 use jerusalem time zone (must be tested for time diferences)
 
 details page:
-bug: updating the date is not saved to db. no update method on the repository class
 text 'you can cancel here'. text 'canceling completed'.
 prevent going back during cancelation.
 ask are you sure? before canceling

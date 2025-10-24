@@ -38,6 +38,29 @@ class VisitsRepository {
       currentDate]);
   }
 
+  Future update(Visit visit) async {
+    String sql = '''
+      update $tableName set
+      CaseCode = ?,
+      OptionCode = ?,
+      EventDateTime = ?,
+      CalId = ?,
+      DateCreated = ?
+      where Id = ?
+    ''';
+
+    String eventDate = DateFormat('yyyy-MM-dd HH:mm').format(visit.dateTime!);
+    String currentDate = DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now().toUtc());
+
+    await _database!.rawUpdate(sql, [
+      visit.caseCode.index,
+      visit.optionCode.index,
+      eventDate,
+      visit.uid,
+      currentDate,
+      visit.id]);
+  }
+
   Future<Visit> get(String visitId) async {
     String sql = '''
       select *

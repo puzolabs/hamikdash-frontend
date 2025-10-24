@@ -181,6 +181,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
 
   Future _updateVisit() async {
     await _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, appState.currentVisit!.dateTime!, rescheduleUid: appState.currentVisit!.uid);
+    await appPersistence.currentVisitsRepository!.update(appState.currentVisit!);
   }
 
   void _showToast(BuildContext context) {
