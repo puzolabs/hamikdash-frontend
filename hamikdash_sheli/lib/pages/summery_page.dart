@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_confetti/flutter_confetti.dart';
-import 'package:hamikdash_sheli/app_persistence.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/pages/visits_page.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
@@ -122,9 +121,7 @@ class _MySummeryPageState extends State<SummeryPage> {
                   child: Container(
                     margin: const EdgeInsets.only(left: 20),
                     child: ElevatedButton(
-                      onPressed: () async {
-                        appState.visitList.add(appState.currentVisit!);
-                        await appPersistence.currentVisitsRepository!.insert(appState.currentVisit!);
+                      onPressed: () {
                         _goToVisitsPage(context);
                       },
                       style: ElevatedButton.styleFrom(

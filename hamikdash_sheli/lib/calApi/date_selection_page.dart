@@ -9,6 +9,7 @@ import 'package:hamikdash_sheli/calApi/cal_api_manager.dart';
 import 'package:hamikdash_sheli/calApi/data_types/day_availability.dart';
 import 'package:hamikdash_sheli/pages/summery_page.dart';
 import 'package:hamikdash_sheli/utills/screen_dimension.dart';
+import 'package:hamikdash_sheli/app_persistence.dart';
 
 enum DateSelectionMode {
   create,
@@ -164,12 +165,22 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   void _timeSlotTapped(DateTime timeSlot) {
     appState.currentVisit!.dateTime = timeSlot;
     if(widget.mode == DateSelectionMode.create) {
-      _futureCreateMeeting = _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, timeSlot);
+      _futureCreateMeeting = _createVisit();
     } else { // reschedule
-      _futureCreateMeeting = _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, timeSlot, rescheduleUid: appState.currentVisit!.uid);
+      _futureCreateMeeting = _updateVisit();
     }
 
     setState(() {}); // repaint
+  }
+
+  Future _createVisit() async {
+    await _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, appState.currentVisit!.dateTime!);
+    appState.visitList.add(appState.currentVisit!);
+    await appPersistence.currentVisitsRepository!.insert(appState.currentVisit!);
+  }
+
+  Future _updateVisit() async {
+    await _calApiManager.create(appState.currentVisit!.caseCode, appState.currentVisit!.optionCode, appState.currentVisit!.dateTime!, rescheduleUid: appState.currentVisit!.uid);
   }
 
   void _showToast(BuildContext context) {
