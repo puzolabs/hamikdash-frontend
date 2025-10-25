@@ -80,7 +80,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
               VisitWidget(visit: appState.currentVisit!),
               const SizedBox(height: 20),
               Visibility(
-                visible: appState.currentVisit!.status == Status.pending || appState.currentVisit!.status == Status.canceled,
+                visible: appState.currentVisit!.status == Status.pending,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 20.0, left: 20.0),
                   child: Row(
@@ -98,6 +98,14 @@ class _MyDetailsPageState extends State<DetailsPage> {
                       )
                     ]
                   ),
+                ),
+              ),
+              Visibility(
+                visible: appState.currentVisit!.status == Status.canceled,
+                child: const Padding(
+                  padding: EdgeInsets.only(right: 20.0, left: 20.0),
+                  child: Text("הביקור בוטל בהצלחה",
+                    style: TextStyle(fontSize: 28)),
                 ),
               ),
               Visibility(
