@@ -78,39 +78,47 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 textAlign: TextAlign.center,
               ),
               VisitWidget(visit: appState.currentVisit!),
+              const SizedBox(height: 20),
               Visibility(
                 visible: appState.currentVisit!.status == Status.pending || appState.currentVisit!.status == Status.canceled,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 20),
-                    //user can't press the button while spinner is showing
-                    child: RoundedLoadingButton(
-                      controller: _btnController,
-                      onPressed: _cancel,
-                      child: const Text('ביטול',
-                        style: TextStyle(color: Colors.white)
-                      ),
-                    )
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("מעוניינים לבטל את הביקור? ליחצו כאן"),
+                      //user can't press the button while spinner is showing
+                      RoundedLoadingButton(
+                        width: 100,
+                        controller: _btnController,
+                        onPressed: _cancel,
+                        child: const Text('ביטול',
+                          style: TextStyle(color: Colors.white)
+                        ),
+                      )
+                    ]
                   ),
                 ),
               ),
               Visibility(
                 visible: appState.currentVisit!.status == Status.pending,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 20),
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        await _goToDateSelectionPage();
-                        setState(() { }); // update date\time labels with updated info
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(20),
-                      ),
-                      child: const Text("עדכון")
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("מעוניינים לעדכן את הביקור? ליחצו כאן"),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await _goToDateSelectionPage();
+                          setState(() { }); // update date\time labels with updated info
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(20),
+                        ),
+                        child: const Text("עדכון")
+                      )
+                    ],
                   ),
                 ),
               ),
