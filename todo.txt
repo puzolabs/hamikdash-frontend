@@ -13,7 +13,6 @@ summery page:
 use jerusalem time zone (must be tested for time diferences)
 
 details page:
-prevent going back during cancelation.
 ask are you sure? before canceling
 
 technical dept:

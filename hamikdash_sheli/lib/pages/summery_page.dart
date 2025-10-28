@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_confetti/flutter_confetti.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/pages/visits_page.dart';
+import 'package:hamikdash_sheli/utills/single_snackbar_manager.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 
 class SummeryPage extends StatefulWidget {
@@ -14,6 +15,7 @@ class SummeryPage extends StatefulWidget {
 }
 
 class _MySummeryPageState extends State<SummeryPage> {
+  SingleSnackbarManager _snackbarManager = new SingleSnackbarManager('נא ליחצו על כפתור אישור', 'הבנתי');
 
   @override
   void initState() {
@@ -42,30 +44,6 @@ class _MySummeryPageState extends State<SummeryPage> {
     );
   }
   
-  bool _isSnackbarActive = false;
-  
-  void _showToast(BuildContext context) {
-    if(_isSnackbarActive) {
-      return;
-    }
-
-    _isSnackbarActive = true;
-
-    final scaffold = ScaffoldMessenger.of(context);
-
-    scaffold
-      .showSnackBar(
-        SnackBar(
-          content: const Text('נא ליחצו על כפתור אישור'),
-          action: SnackBarAction(label: 'הבנתי', onPressed: scaffold.hideCurrentSnackBar),
-        ),
-      )
-      .closed
-        .then((SnackBarClosedReason reason) {
-        _isSnackbarActive = false ;
-      });
-  }
-
   void _goToVisitsPage(BuildContext context)
   {
     //I am using the technique below since calling:
@@ -97,7 +75,7 @@ class _MySummeryPageState extends State<SummeryPage> {
         //but changing details would end up on this page that does inserting and not updating
         canPop: false,
         onPopInvoked: (didPop) {
-          _showToast(context);
+          _snackbarManager.showToast(context);
         },
         child: Directionality(
           textDirection: TextDirection.rtl,
