@@ -3,6 +3,7 @@ import 'package:hamikdash_sheli/app_persistence.dart';
 import 'package:hamikdash_sheli/app_state.dart';
 import 'package:hamikdash_sheli/calApi/cal_api_manager.dart';
 import 'package:hamikdash_sheli/dataTypes/visit.dart';
+import 'package:hamikdash_sheli/utills/are_you_sure_alert_dialog.dart';
 import 'package:hamikdash_sheli/utills/single_snackbar_manager.dart';
 import 'package:hamikdash_sheli/widgets/visit_widget.dart';
 import 'package:hamikdash_sheli/calApi/date_selection_page.dart';
@@ -106,7 +107,16 @@ class _MyDetailsPageState extends State<DetailsPage> {
                         RoundedLoadingButton(
                           width: 100,
                           controller: _btnController,
-                          onPressed: _cancel,
+                          onPressed: () async {
+                            AreYouSureAlertDialog alert = AreYouSureAlertDialog("אישור ביטול", "בטוחים שברצונכם לבטל את הביקור?", "לא", "כן");
+                            bool confirmed = await alert.showAdaptiveConfirmationDialog(context);
+                            if(confirmed) {
+                              _cancel();
+                            }
+                            else {
+                              _btnController.reset();
+                            }
+                          },
                           child: const Text('ביטול',
                             style: TextStyle(color: Colors.white)
                           ),
