@@ -72,6 +72,20 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
   }
 
   Widget _buildCalendar() {
+    final calendarWidth = MediaQuery.of(context).size.width;
+
+    // Allocate part of available height to make room for headers, week titles, etc.
+    // Adjust this factor if needed for perfect fit.
+    final calendarHeight = MediaQuery.of(context).size.height * 0.55;
+
+    //on a Pixel C tablet landscape (the height is 1800 pixels), 3.5 aspect ratio displays the 6 week lines perfectly
+    //4 lines for 4 weeks + 1 line of the 1st day that is in saturday + 1 line for the 30th day that is in sunday
+    //like in November 2025.
+    //on a Pixel C tablet portrait (the height is 2560 pixels), 2.5 is the perfect value.
+    //on Pixel 6 smartphone portrait (the height is 2400 pixels), 1 is the perfect value.
+    //on Pixel 6 smartphone landscape (the height is 1080 pixels), 5 is the perfect value.
+    final childAspectRatio = (calendarWidth * 6) / (calendarHeight * 7); // 7 days per row, 6 week rows always
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0),
       child: CalendarCarousel<Event>(
@@ -92,18 +106,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
           color: Colors.black,
         ),
         todayButtonColor: Colors.blue,
-        customWeekDayBuilder: (weekday, weekdayName) {
-          switch (weekday) {
-            case 0: return Text('ראשון', style: _defaultWeekDay);
-            case 1: return Text('שני', style: _defaultWeekDay);
-            case 2: return Text('שלישי', style: _defaultWeekDay);
-            case 3: return Text('רביעי', style: _defaultWeekDay);
-            case 4: return Text('חמישי', style: _defaultWeekDay);
-            case 5: return Text('שישי', style: _defaultWeekDay);
-            case 6: return Text('שבת', style: _defaultWeekDay);
-          }
-          return Container();
-        },
+        locale: "he",
         customDayBuilder: (
           bool isSelectable,
           int index,
@@ -128,7 +131,8 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         },
         weekFormat: false,
         markedDatesMap: null,
-        height: 420.0,
+        height: calendarHeight, // 420.0,
+        childAspectRatio: childAspectRatio,
         selectedDateTime: _currentDate,
         daysHaveCircularBorder: null, // null for not rendering any border, true for circular border, false for rectangular border
       ),
