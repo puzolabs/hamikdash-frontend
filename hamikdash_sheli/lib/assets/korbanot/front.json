@@ -3,36 +3,43 @@
 		"section": "nedarimUndavot",
 		"code": "olaNedava",
 		"title": "ברצוני להביא קורבן עולה לנדבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "olaNeder",
 		"title": "נדרתי להביא קורבן עולה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "bitulAse",
 		"title": "ביטלתי מצוות עשה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "lavHanitakLeAse",
 		"title": "עברתי על לאו הניתק לעשה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "hirhur",
 		"title": "הרהרתי לעבור עבירה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "shogeg",
-		"title": "עברתי בשוגג על עבירה שבמזיד חייבים עליה כרת חוץ מביטול מצוות מילה, קרבן פסח וגידוף",
+		"title": "עברתי עבירה בשוגג",
+		"details": "על עבירה שבמזיד חייבים עליה כרת. חוץ מביטול מצוות מילה, קרבן פסח וגידוף",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -42,31 +49,39 @@
 	{
 		"section": "caparatHataim",
 		"code": "shvuatSheker",
-		"title": "נשבעתי לשקר שאנני יודע עדות",
+		"title": "נשבעתי לשקר שאינני יודע עדות",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "shvuatShekerBeShogeg",
-		"title": "נשבעתי לשקר בשוגג (לא בנוגע לכסף)",
+		"title": "נשבעתי לשקר בשוגג",
+		"details": "לא בנוגע לכסף",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "tameLamikdash",
-		"title": "נכנסתי למקדש כשאני טמא בידיעה שזהו המקדש ושאני טמא",
+		"title": "נכנסתי למקדש כשאני טמא",
+		"details": "בידיעה שזהו המקדש ושאני טמא",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "tameKodashim",
-		"title": "אכלתי קדשים כשאני טמא בידיעה שאלו קודשים ושאני טמא",
+		"title": "אכלתי קדשים כשאני טמא",
+		"details": "בידיעה שאלו קודשים ושאני טמא",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "elilim",
 		"title": "עבדתי עבודת אלילים בשוגג",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -76,7 +91,9 @@
 	{
 		"section": "caparatHataim",
 		"code": "tameLamikdashBeShogeg",
-		"title": "נכנסתי למקדש כשאני טמא ולא ידעתי שזהו המקדש או שאני טמא",
+		"title": "נכנסתי למקדש כשאני טמא",
+		"details": "ולא ידעתי שזהו המקדש או שאני טמא",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -86,7 +103,9 @@
 	{
 		"section": "caparatHataim",
 		"code": "tameKodashimBeShogeg",
-		"title": "אכלתי קדשים כשאני טמא ולא ידעתי שאלו קודשים או שאני טמא",
+		"title": "אכלתי קדשים כשאני טמא",
+		"details": "ולא ידעתי שאלו קודשים או שאני טמא",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -97,6 +116,7 @@
 		"section": "caparatAvonot",
 		"code": "ganav",
 		"title": "גנבתי ונשבעתי על כך לשקר",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -107,6 +127,7 @@
 		"section": "caparatAvonot",
 		"code": "loShilamti",
 		"title": "עשקתי שכר שכיר ונשבעתי על כך לשקר",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -117,6 +138,7 @@
 		"section": "caparatAvonot",
 		"code": "shekerBePikadon",
 		"title": "כיחשתי בפקדון ונשבעתי על כך לשקר",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -127,6 +149,7 @@
 		"section": "caparatAvonot",
 		"code": "shekerBeMetzia",
 		"title": "כיחשתי במציאה ונשבעתי על כך לשקר",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -137,6 +160,7 @@
 		"section": "caparatAvonot",
 		"code": "hekdesh",
 		"title": "נהנתי מההקדש",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -146,7 +170,9 @@
 	{
 		"section": "nazir",
 		"code": "nazirTame",
-		"title": "אני נזיר/ה ונטמאתי למת",
+		"title": "אני נזיר/ה",
+		"details": "ונטמאתי למת",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "עולה",
@@ -164,7 +190,9 @@
 	{
 		"section": "sadEvent",
 		"code": "mezoraTahor",
-		"title": "הייתי מצורע ונטהרתי",
+		"title": "הייתי מצורע",
+		"details": "ונטהרתי",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "טהרת מצורע",
@@ -174,7 +202,9 @@
 	{
 		"section": "caparatAvonot",
 		"code": "mesupak",
-		"title": "אני מסופק האם עברתי על איסור שבמזיד חייבים עליו כרת ובשוגג חטאת",
+		"title": "אני מסופק האם עברתי על איסור",
+		"details": "שבמזיד חייבים עליו כרת ובשוגג חטאת",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -184,7 +214,9 @@
 	{
 		"section": "nazir",
 		"code": "nazir",
-		"title": "אני נזיר/ה והשלמתי ימי נזירותי",
+		"title": "אני נזיר/ה",
+		"details": "והשלמתי ימי נזירותי",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -246,18 +278,21 @@
 		"section": "nedarimUndavot",
 		"code": "shlamimNedava",
 		"title": "ברצוני להביא קורבן שלמים לנדבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "shlamim.json"
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "shlamimNeder",
 		"title": "נדרתי להביא קורבן שלמים",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "shlamim.json"
 	},
 	{
 		"section": "happyEvent",
 		"code": "bicurim",
 		"title": "ברצוני להביא ביכורים",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 			{
 				"type": "ביכורים",
@@ -269,6 +304,7 @@
 		"section": "happyEvent",
 		"code": "toda",
 		"title": "ברצוני להודות על נס שנעשה לי",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
@@ -276,6 +312,7 @@
 		"section": "nedarimUndavot",
 		"code": "todaNedava",
 		"title": "ברצוני להביא קורבן תודה לנדבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
@@ -283,13 +320,16 @@
 		"section": "nedarimUndavot",
 		"code": "todaNeder",
 		"title": "נדרתי להביא קורבן תודה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
 	{
 		"section": "happyEvent",
 		"code": "bekhor",
-		"title": "נולדו בעדר שלי עגלים / כבשים / אילים / גדיים בכורים לאימם",
+		"title": "נולדו בעדר שלי בכורים לאימם",
+		"details": "עגלים / כבשים / אילים / גדיים",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "בכור",
@@ -301,6 +341,7 @@
 		"section": "happyEvent",
 		"code": "maaser",
 		"title": "ברצוני להביא מעשר בהמה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "מעשר",
@@ -318,18 +359,22 @@
 		"section": "happyEvent",
 		"code": "yoledet",
 		"title": "ילדתי בן/בת בשעה טובה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "yoledet.json"
 	},
 	{
 		"section": "sadEvent",
 		"code": "mezoraTahorSofi",
-		"title": "הייתי מצורע ואני טהור כבר שמונה ימים",
+		"title": "הייתי מצורע",
+		"details": "ואני טהור כבר שמונה ימים",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "mezora.json"
 	},
 	{
 		"section": "sadEvent",
 		"code": "zav",
 		"title": "נטהרתי מזיבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -344,6 +389,7 @@
 		"section": "happyEvent",
 		"code": "ger",
 		"title": "התגיירתי",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ger.json",
 		"optionalKorbanotOptions": "shlamim.json"
 	},
@@ -351,24 +397,28 @@
 		"section": "nedarimUndavot",
 		"code": "minhaNedava",
 		"title": "ברצוני להביא קורבן מנחה לנדבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotReference": "minha.json" 
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "minhaNeder",
 		"title": "נדרתי להביא קורבן מנחה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotReference": "minha.json" 
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "nesahimNedava",
 		"title": "ברצוני להביא נסכים לנדבה",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "nesahim.json" 
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "nesahimNeder",
 		"title": "נדרתי להביא נסכים",
+		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "nesahim.json" 
 	}
 ]

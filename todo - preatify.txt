@@ -6,9 +6,8 @@ splash screen
 visits page:
 when the list is empty show illustration
 each item displayed with the case's icon as in new visit page
-
-new visit page:
-have an icon for each visit use-case
+in korban title remove / and use . instead
+better categories: money, mikdash, swear shvu'ot, 
 
 korban case page:
 have each option as a dedicated card with icon at the top, like a product page - should be part of the Gui design

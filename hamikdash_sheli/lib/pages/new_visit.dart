@@ -45,7 +45,7 @@ class NewVisitPage extends StatelessWidget {
           ),
         ),
         Container(
-          height: 215,
+          height: 310,
           width: double.infinity,
           child: ListView.builder(
             padding: const EdgeInsets.only(top: 0, bottom: 0, right: 16, left: 16),
@@ -61,26 +61,69 @@ class NewVisitPage extends StatelessWidget {
   }
   
   Widget _buildListItem(BuildContext context, KorbanCase korbanCase) {
-    return SizedBox(
+    return SizedBox( // force same height to all cards, even those who have no details
       width: 200,
-      child:Card(
-        child: ListTile(
-          leading: const FlutterLogo(),
-          title: Text(
-            korbanCase.title,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          onTap: ()
-          {
+      height: 310,
+      child: Card (
+        elevation: 8.0, // Good shadow
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0), // Rounded corners
+        ),
+        child: InkWell( // Makes the card tappable with a splash
+          onTap: () {
             appState.currentVisit!.caseCode = korbanCase.code;
-            _goToKorbanDetailsPage(context, korbanCase);
-          }
-        )
+            _goToKorbanCasePage(context, korbanCase);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // 1. Image or Icon (Visual Hook)
+                Container(
+                  width: double.infinity, // Take the full width of the card//120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0), // smaller than the card border radius, giving a nice visual hierarchy
+                    image: DecorationImage(
+                      image: AssetImage(korbanCase.image),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12.0),
+                // 2. Title (Most important)
+                Text(
+                  korbanCase.title,
+    //                maxLines: 2,
+  //                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4.0),
+                // 3. Subtitle/details
+                Expanded(
+                  child: Text(
+                    korbanCase.details, 
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600]
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       )
     );
   }
 
-  void _goToKorbanDetailsPage(BuildContext context, KorbanCase korbanCase)
+  void _goToKorbanCasePage(BuildContext context, KorbanCase korbanCase)
   {
     Navigator.of(context).push(
       MaterialPageRoute<void>(

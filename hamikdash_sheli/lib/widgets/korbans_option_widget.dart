@@ -14,29 +14,29 @@ class KorbansOptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            korbanotOption.name,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          KorbansWidget(korbanot: korbanotOption.korbans),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              margin: const EdgeInsets.only(left: 20, bottom: 20),
-              child: ElevatedButton(
-                onPressed: () => onOptionSelected.call(korbanotOption),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.all(20),
-                ),
-                child: const Text("בחר")
+    return Card (
+      elevation: 8.0, // Good shadow
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0), // Rounded corners
+      ),
+      child: InkWell( // Makes the card tappable with a splash
+        onTap: () {
+          onOptionSelected.call(korbanotOption);
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                korbanotOption.name,
+                style: Theme.of(context).textTheme.headline4,
               ),
-            ),
-          ),
-        ],
-      );
+              KorbansWidget(korbanot: korbanotOption.korbans),
+            ],
+          )
+        )
+      )
+    );
   }
 }

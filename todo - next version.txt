@@ -1,6 +1,7 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
 support languages + location of 'next' button (right \ left) depends on the text direction
 implement analytics
+add to front.json a descriptin element like בתכלס מה זה אומר 6 לוגים יין למשל
 
 ger:
 missing support for optionalKorbanotOptions

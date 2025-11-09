@@ -60,10 +60,12 @@ class KorbanCase
   Sections section;
   CaseCodes code;
   String title;
+  String details;
+  String image;
   List<Korban>? korbanot;
   List<KorbansOption>? korbanotOptions;
 
-  KorbanCase({this.section = Sections.none, this.code = CaseCodes.none, this.title = "", this.korbanot, this.korbanotOptions });
+  KorbanCase({this.section = Sections.none, this.code = CaseCodes.none, this.title = "", this.details = "", this.image = "", this.korbanot, this.korbanotOptions });
 
   bool get isSingleOptionKorbanCase => korbanot != null && korbanotOptions == null;
   bool get isMultiOptionsKorbanCase => korbanot == null && korbanotOptions != null;
@@ -73,6 +75,8 @@ class KorbanCase
     String section = map["section"];
     String code = map["code"];
     String title = map["title"];
+    String details = map["details"] ?? "";
+    String image = map["image"];
     var korbanot = map["korbanot"];
     var korbanotOptions = map["korbanotOptions"];
 
@@ -84,6 +88,6 @@ class KorbanCase
       ?.map<KorbansOption>((option) => KorbansOption.fromJson(option))
       .toList();
 
-    return KorbanCase(section: Sections.values.byName(section), code: CaseCodes.values.byName(code), title: title, korbanot: list, korbanotOptions: optionsList);
+    return KorbanCase(section: Sections.values.byName(section), code: CaseCodes.values.byName(code), title: title, details: details, image: image, korbanot: list, korbanotOptions: optionsList);
   }
 }

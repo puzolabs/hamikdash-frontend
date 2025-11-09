@@ -27,6 +27,14 @@ class VisitDataRetriever {
     return korbanCase!.title;
   }
 
+  String getImage() {
+    if(korbanCase == null) {
+      return "";
+    }
+
+    return korbanCase!.image;
+  }
+
   List<Korban>? getKorbans() {
     if(korbanCase == null) {
       return null;

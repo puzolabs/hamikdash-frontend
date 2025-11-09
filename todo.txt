@@ -20,7 +20,8 @@ technical dept:
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
 
 minimum pretify on tablet:
- - in visits page, the text of inside the rectangle of out side of the rectyangle. we need a description text inside the visittype
  - in 'choose' \ 'next' button - dont make it circle but rectangle + make it a card
- - icons for minha and nesachim, bread and matza doesnt work
-
+ - icons for nose subject, minha and nesachim, bread and matza doesnt work
+ - before the western wall i see the flutter icon. maybe only on debug?
+ - new visit page: generate an image for each visit use-case
+ - new visits page: cards too high. make the width larger

@@ -36,7 +36,12 @@ class _MyHistoryPageState extends State<HistoryPage> {
 
     return Card(
       child: ListTile(
-        leading: const FlutterLogo(),
+        leading: Image.asset(
+          vdr.getImage(),
+          width: 24,
+          height: 24,
+          fit: BoxFit.cover,
+        ),
         title: Text(
           vdr.getTitle(),
           style: Theme.of(context).textTheme.headline4,
