@@ -98,7 +98,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 Visibility(
                   visible: appState.currentVisit!.status == Status.pending,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -106,6 +106,10 @@ class _MyDetailsPageState extends State<DetailsPage> {
                         //user can't press the button while spinner is showing
                         RoundedLoadingButton(
                           width: 100,
+                          height: 50,
+                          elevation: 8, // Adds a prominent shadow
+                          borderRadius: 10,
+                          color: const Color(0xFFfffbfe),
                           controller: _btnController,
                           onPressed: () async {
                             AreYouSureAlertDialog alert = AreYouSureAlertDialog("אישור ביטול", "בטוחים שברצונכם לבטל את הביקור?", "לא", "כן");
@@ -118,7 +122,10 @@ class _MyDetailsPageState extends State<DetailsPage> {
                             }
                           },
                           child: const Text('ביטול',
-                            style: TextStyle(color: Colors.white)
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            )
                           ),
                         )
                       ]
@@ -136,7 +143,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 Visibility(
                   visible: appState.currentVisit!.status == Status.pending,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+                    padding: const EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -147,7 +154,15 @@ class _MyDetailsPageState extends State<DetailsPage> {
                             setState(() { }); // update date\time labels with updated info
                           },
                           style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.all(20),
+                            minimumSize: const Size(100, 50), // Ensures a minimum width and height,
+                            elevation: 8, // Adds a prominent shadow
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            textStyle: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           child: const Text("עדכון")
                         )

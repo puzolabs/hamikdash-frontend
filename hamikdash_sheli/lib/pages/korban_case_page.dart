@@ -45,14 +45,22 @@ class _KorbanCasePageState extends State<KorbanCasePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, bottom: 20),
               child: ElevatedButton(
                 onPressed: () {
                   appState.currentVisit!.optionCode = OptionCodes.none;
                   _goToDateSelectionPage();
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.all(20),
+                  minimumSize: const Size(150, 50), // Ensures a minimum width and height,
+                  elevation: 8, // Adds a prominent shadow
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  textStyle: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 child: const Text("המשך")
               ),
