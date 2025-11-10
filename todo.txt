@@ -14,7 +14,6 @@ use jerusalem time zone (must be tested for time diferences)
 
 technical dept:
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
- -  בן יונה ליונה change
 
 minimum pretify on tablet:
  - icons for 'nose' subject, minha and nesachim, bread and matza doesnt work
