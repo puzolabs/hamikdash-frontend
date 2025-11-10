@@ -12,9 +12,6 @@ time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than
 summery page:
 use jerusalem time zone (must be tested for time diferences)
 
-details page:
- - 'cancellation succedded' should be centered
-
 technical dept:
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
  -  בן יונה ליונה change

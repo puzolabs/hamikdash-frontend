@@ -134,10 +134,16 @@ class _MyDetailsPageState extends State<DetailsPage> {
                 ),
                 Visibility(
                   visible: appState.currentVisit!.status == Status.canceled,
-                  child: const Padding(
-                    padding: EdgeInsets.only(right: 20.0, left: 20.0),
-                    child: Text("הביקור בוטל בהצלחה",
-                      style: TextStyle(fontSize: 28)),
+                  child: const Center (
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text("הביקור בוטל בהצלחה",
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                    ),
                   ),
                 ),
                 Visibility(
