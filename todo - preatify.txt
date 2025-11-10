@@ -5,7 +5,6 @@ splash screen
 
 visits page:
 when the list is empty show illustration
-each item displayed with the case's icon as in new visit page
 in korban title remove / and use . instead
 better categories: money, mikdash, swear shvu'ot, 
 
