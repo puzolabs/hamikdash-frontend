@@ -19,4 +19,3 @@ minimum pretify on tablet:
  - icons for 'nose' subject, minha and nesachim, bread and matza doesnt work
  - before the western wall i see the flutter icon. maybe only on debug?
  - new visit page: generate an image for each visit use-case
- - new visits page: cards too high. make the width larger - or better - expand the image height to push the text below

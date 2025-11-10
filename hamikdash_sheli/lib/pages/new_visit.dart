@@ -61,65 +61,62 @@ class NewVisitPage extends StatelessWidget {
   }
   
   Widget _buildListItem(BuildContext context, KorbanCase korbanCase) {
-    return SizedBox( // force same height to all cards, even those who have no details
-      width: 200,
-      height: 310,
-      child: Card (
-        elevation: 8.0, // Good shadow
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0), // Rounded corners
-        ),
-        child: InkWell( // Makes the card tappable with a splash
-          onTap: () {
-            appState.currentVisit!.caseCode = korbanCase.code;
-            _goToKorbanCasePage(context, korbanCase);
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                // 1. Image or Icon (Visual Hook)
-                Container(
-                  width: double.infinity, // Take the full width of the card//120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0), // smaller than the card border radius, giving a nice visual hierarchy
-                    image: DecorationImage(
-                      image: AssetImage(korbanCase.image),
-                      fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: SizedBox( // force same height to all cards, even those who have no details
+        width: 200,
+        height: 310,
+        child: Card (
+          elevation: 8.0, // Good shadow
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0), // Rounded corners
+          ),
+          child: InkWell( // Makes the card tappable with a splash
+            onTap: () {
+              appState.currentVisit!.caseCode = korbanCase.code;
+              _goToKorbanCasePage(context, korbanCase);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0), // smaller than the card border radius, giving a nice visual hierarchy
+                        image: DecorationImage(
+                          image: AssetImage(korbanCase.image),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 12.0),
-                // 2. Title (Most important)
-                Text(
-                  korbanCase.title,
-    //                maxLines: 2,
-  //                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                  const SizedBox(height: 12.0),
+                  Text(
+                    korbanCase.title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),                  
                   ),
-                ),
-                const SizedBox(height: 4.0),
-                // 3. Subtitle/details
-                Expanded(
-                  child: Text(
-                    korbanCase.details, 
-                    maxLines: 4,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600]
+                  const SizedBox(height: 4.0),
+                  Visibility(
+                    visible: korbanCase.details !=  "",
+                    child: Text(
+                      korbanCase.details, 
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey[600]
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      )
+      ),
     );
   }
 
