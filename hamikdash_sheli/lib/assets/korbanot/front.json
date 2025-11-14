@@ -3,14 +3,14 @@
 		"section": "nedarimUndavot",
 		"code": "olaNedava",
 		"title": "ברצוני להביא קורבן עולה לנדבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/olaNedava.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "olaNeder",
 		"title": "נדרתי להביא קורבן עולה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/olaNeder.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
@@ -278,21 +278,21 @@
 		"section": "nedarimUndavot",
 		"code": "shlamimNedava",
 		"title": "ברצוני להביא קורבן שלמים לנדבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shlamimNedava.png",
 		"korbanotOptions": "shlamim.json"
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "shlamimNeder",
 		"title": "נדרתי להביא קורבן שלמים",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shlamimNeder.png",
 		"korbanotOptions": "shlamim.json"
 	},
 	{
 		"section": "happyEvent",
 		"code": "bicurim",
 		"title": "ברצוני להביא ביכורים",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/bicurim_white.png",
 		"korbanot": [
 			{
 				"type": "ביכורים",
@@ -312,7 +312,7 @@
 		"section": "nedarimUndavot",
 		"code": "todaNedava",
 		"title": "ברצוני להביא קורבן תודה לנדבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/todaNedava.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
@@ -320,7 +320,7 @@
 		"section": "nedarimUndavot",
 		"code": "todaNeder",
 		"title": "נדרתי להביא קורבן תודה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/todaNeder.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
@@ -397,14 +397,14 @@
 		"section": "nedarimUndavot",
 		"code": "minhaNedava",
 		"title": "ברצוני להביא קורבן מנחה לנדבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/minhaNedava.png",
 		"korbanotReference": "minha.json" 
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "minhaNeder",
 		"title": "נדרתי להביא קורבן מנחה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/minhaNeder.png",
 		"korbanotReference": "minha.json" 
 	},
 	{
