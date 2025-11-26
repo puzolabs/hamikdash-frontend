@@ -47,14 +47,14 @@
 		}]
 	},
 	{
-		"section": "caparatHataim",
+		"section": "swear",
 		"code": "shvuatSheker",
 		"title": "נשבעתי לשקר שאינני יודע עדות",
 		"image": "lib/assets/images/sheep.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
-		"section": "caparatHataim",
+		"section": "swear",
 		"code": "shvuatShekerBeShogeg",
 		"title": "נשבעתי לשקר בשוגג",
 		"details": "לא בנוגע לכסף",
@@ -62,7 +62,7 @@
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
-		"section": "caparatHataim",
+		"section": "temple",
 		"code": "tameLamikdash",
 		"title": "נכנסתי למקדש כשאני טמא",
 		"details": "בידיעה שזהו המקדש ושאני טמא",
@@ -70,7 +70,7 @@
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
-		"section": "caparatHataim",
+		"section": "temple",
 		"code": "tameKodashim",
 		"title": "אכלתי קדשים כשאני טמא",
 		"details": "בידיעה שאלו קודשים ושאני טמא",
@@ -89,7 +89,7 @@
 		}]
 	},
 	{
-		"section": "caparatHataim",
+		"section": "temple",
 		"code": "tameLamikdashBeShogeg",
 		"title": "נכנסתי למקדש כשאני טמא",
 		"details": "ולא ידעתי שזהו המקדש או שאני טמא",
@@ -101,7 +101,7 @@
 		}]
 	},
 	{
-		"section": "caparatHataim",
+		"section": "temple",
 		"code": "tameKodashimBeShogeg",
 		"title": "אכלתי קדשים כשאני טמא",
 		"details": "ולא ידעתי שאלו קודשים או שאני טמא",
@@ -157,7 +157,7 @@
 		}]
 	},
 	{
-		"section": "caparatAvonot",
+		"section": "temple",
 		"code": "hekdesh",
 		"title": "נהנתי מההקדש",
 		"image": "lib/assets/images/sheep.png",
@@ -200,7 +200,7 @@
 		}]
 	},
 	{
-		"section": "caparatAvonot",
+		"section": "caparatHataim",
 		"code": "mesupak",
 		"title": "אני מסופק האם עברתי על איסור",
 		"details": "שבמזיד חייבים עליו כרת ובשוגג חטאת",

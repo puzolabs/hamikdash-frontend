@@ -11,6 +11,8 @@ enum Sections {
   caparatHataim,
   caparatAvonot,
   sadEvent,
+  swear,
+  temple,
 }
 
 enum CaseCodes {

@@ -14,13 +14,17 @@ class NewVisitPage extends StatelessWidget {
     var caparatHataim = appConfig.korbanCases.where((kc) => kc.section == Sections.caparatHataim).toList();
     var caparatAvonot = appConfig.korbanCases.where((kc) => kc.section == Sections.caparatAvonot).toList();
     var sadEvent = appConfig.korbanCases.where((kc) => kc.section == Sections.sadEvent).toList();
+    var swear = appConfig.korbanCases.where((kc) => kc.section == Sections.swear).toList();
+    var temple = appConfig.korbanCases.where((kc) => kc.section == Sections.temple).toList();
 
     List sections = [
       (name: "אירועים משמחים", list: happy),
       (name: "נדרים ונדבות", list: nedarimUndavot),
+      (name: "מקדש וקודשיו", list: temple),
       (name: "נזיר", list: nazir),
       (name: "כפרת חטאים", list: caparatHataim),
-      (name: "כפרת עוונות", list: caparatAvonot),
+      (name: "כספים", list: caparatAvonot),
+      (name: "שבועות", list: swear),
       (name: "מכאן רק עולים!", list: sadEvent)];
 
     return ListView.separated(

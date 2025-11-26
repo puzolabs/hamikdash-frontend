@@ -6,7 +6,6 @@ splash screen
 visits page:
 when the list is empty show illustration
 in korban title remove / and use . instead
-better categories: money, mikdash, swear shvu'ot, 
 
 korban case page:
 have each option as a dedicated card with icon at the top, like a product page - should be part of the Gui design
