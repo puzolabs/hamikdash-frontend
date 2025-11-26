@@ -17,21 +17,21 @@
 		"section": "caparatHataim",
 		"code": "bitulAse",
 		"title": "ביטלתי מצוות עשה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/bitulAse.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "lavHanitakLeAse",
 		"title": "עברתי על לאו הניתק לעשה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/lavHanitakLeAse.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
 		"section": "caparatHataim",
 		"code": "hirhur",
 		"title": "הרהרתי לעבור עבירה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/hirhur.png",
 		"korbanotOptions": "ola.json"
 	},
 	{
@@ -172,7 +172,7 @@
 		"code": "nazirTame",
 		"title": "אני נזיר/ה",
 		"details": "ונטמאתי למת",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/nazirTame.png",
 		"korbanot": [
 		{
 			"type": "עולה",
@@ -192,7 +192,7 @@
 		"code": "mezoraTahor",
 		"title": "הייתי מצורע",
 		"details": "ונטהרתי",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/mezoraTahor.png",
 		"korbanot": [
 		{
 			"type": "טהרת מצורע",
@@ -216,7 +216,7 @@
 		"code": "nazir",
 		"title": "אני נזיר/ה",
 		"details": "והשלמתי ימי נזירותי",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/nazir.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -304,7 +304,7 @@
 		"section": "happyEvent",
 		"code": "toda",
 		"title": "ברצוני להודות על נס שנעשה לי",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/toda.png",
 		"korbanotReference": "toda.json",
         "korbanotOptions": "shlamim_toda.json"
 	},
@@ -329,7 +329,7 @@
 		"code": "bekhor",
 		"title": "נולדו בעדר שלי בכורים לאימם",
 		"details": "עגלים / כבשים / אילים / גדיים",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/bekhor.png",
 		"korbanot": [
 		{
 			"type": "בכור",
@@ -341,7 +341,7 @@
 		"section": "happyEvent",
 		"code": "maaser",
 		"title": "ברצוני להביא מעשר בהמה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/maaser.png",
 		"korbanot": [
 		{
 			"type": "מעשר",
@@ -359,7 +359,7 @@
 		"section": "happyEvent",
 		"code": "yoledet",
 		"title": "ילדתי בן/בת בשעה טובה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/yoledet.png",
 		"korbanotOptions": "yoledet.json"
 	},
 	{
@@ -367,14 +367,14 @@
 		"code": "mezoraTahorSofi",
 		"title": "הייתי מצורע",
 		"details": "ואני טהור כבר שמונה ימים",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/mezoraTahorSofi.png",
 		"korbanotOptions": "mezora.json"
 	},
 	{
 		"section": "sadEvent",
 		"code": "zav",
 		"title": "נטהרתי מזיבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/zav.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -389,7 +389,7 @@
 		"section": "happyEvent",
 		"code": "ger",
 		"title": "התגיירתי",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/ger.png",
 		"korbanotOptions": "ger.json",
 		"optionalKorbanotOptions": "shlamim.json"
 	},
@@ -411,14 +411,14 @@
 		"section": "nedarimUndavot",
 		"code": "nesahimNedava",
 		"title": "ברצוני להביא נסכים לנדבה",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/nesahimNedava.png",
 		"korbanotOptions": "nesahim.json" 
 	},
 	{
 		"section": "nedarimUndavot",
 		"code": "nesahimNeder",
 		"title": "נדרתי להביא נסכים",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/nesahimNeder.png",
 		"korbanotOptions": "nesahim.json" 
 	}
 ]

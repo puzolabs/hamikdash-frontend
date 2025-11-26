@@ -19,3 +19,7 @@ minimum pretify on tablet:
  - icons for 'nose' subject, minha and nesachim, bread and matza doesnt work
  - before the western wall i see the flutter icon. maybe only on debug?
  - new visit page: generate an image for each visit use-case
+ - replace המשקדש שלי ב בית הבחירה
+ - remove the house icon on start page
+ - reorder the cases such that birth is before bekhor etc
+ - consider hide the sadEvent collection and show it only by a setting key
