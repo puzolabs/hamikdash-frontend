@@ -39,7 +39,7 @@
 		"code": "shogeg",
 		"title": "עברתי עבירה בשוגג",
 		"details": "על עבירה שבמזיד חייבים עליה כרת. חוץ מביטול מצוות מילה, קרבן פסח וגידוף",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shogeg.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -50,7 +50,7 @@
 		"section": "swear",
 		"code": "shvuatSheker",
 		"title": "נשבעתי לשקר שאינני יודע עדות",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shvuatSheker.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
@@ -58,7 +58,7 @@
 		"code": "shvuatShekerBeShogeg",
 		"title": "נשבעתי לשקר בשוגג",
 		"details": "לא בנוגע לכסף",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shvuatShekerBeShogeg.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
@@ -81,7 +81,7 @@
 		"section": "caparatHataim",
 		"code": "elilim",
 		"title": "עבדתי עבודת אלילים בשוגג",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/elilim.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -116,7 +116,7 @@
 		"section": "caparatAvonot",
 		"code": "ganav",
 		"title": "גנבתי ונשבעתי על כך לשקר",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/ganav.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -127,7 +127,7 @@
 		"section": "caparatAvonot",
 		"code": "loShilamti",
 		"title": "עשקתי שכר שכיר ונשבעתי על כך לשקר",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/loShilamti.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -138,7 +138,7 @@
 		"section": "caparatAvonot",
 		"code": "shekerBePikadon",
 		"title": "כיחשתי בפקדון ונשבעתי על כך לשקר",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shekerBePikadon.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -149,7 +149,7 @@
 		"section": "caparatAvonot",
 		"code": "shekerBeMetzia",
 		"title": "כיחשתי במציאה ונשבעתי על כך לשקר",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/shekerBeMetzia.png",
 		"korbanot": [
 		{
 			"type": "אשם",
@@ -204,7 +204,7 @@
 		"code": "mesupak",
 		"title": "אני מסופק האם עברתי על איסור",
 		"details": "שבמזיד חייבים עליו כרת ובשוגג חטאת",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/mesupak.png",
 		"korbanot": [
 		{
 			"type": "אשם",
