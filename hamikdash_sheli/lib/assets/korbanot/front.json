@@ -66,7 +66,7 @@
 		"code": "tameLamikdash",
 		"title": "נכנסתי למקדש כשאני טמא",
 		"details": "בידיעה שזהו המקדש ושאני טמא",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/tameLamikdash.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
@@ -74,7 +74,7 @@
 		"code": "tameKodashim",
 		"title": "אכלתי קדשים כשאני טמא",
 		"details": "בידיעה שאלו קודשים ושאני טמא",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/tameKodashim.png",
 		"korbanotOptions": "ole_veyored.json"
 	},
 	{
@@ -93,7 +93,7 @@
 		"code": "tameLamikdashBeShogeg",
 		"title": "נכנסתי למקדש כשאני טמא",
 		"details": "ולא ידעתי שזהו המקדש או שאני טמא",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/tameLamikdashBeShogeg.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -105,7 +105,7 @@
 		"code": "tameKodashimBeShogeg",
 		"title": "אכלתי קדשים כשאני טמא",
 		"details": "ולא ידעתי שאלו קודשים או שאני טמא",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/tameKodashimBeShogeg.png",
 		"korbanot": [
 		{
 			"type": "חטאת",
@@ -160,7 +160,7 @@
 		"section": "temple",
 		"code": "hekdesh",
 		"title": "נהנתי מההקדש",
-		"image": "lib/assets/images/sheep.png",
+		"image": "lib/assets/images/cases/hekdesh.png",
 		"korbanot": [
 		{
 			"type": "אשם",
