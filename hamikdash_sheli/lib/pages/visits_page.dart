@@ -100,7 +100,7 @@ class _MyVisitsPageState extends State<VisitsPage> {
       appBar: AppBar(
         title: const Directionality(
           textDirection: TextDirection.rtl,
-          child:Text("המקדש שלי"),
+          child:Text("בית הבחירה"),
         ),
       ),
       drawer: Drawer(

@@ -67,7 +67,7 @@ class _MySummeryPageState extends State<SummeryPage> {
         automaticallyImplyLeading: false, // hide the 'back' arrow
         title: const Directionality(
           textDirection: TextDirection.rtl,
-          child:Text("המקדש שלי"),
+          child:Text("בית הבחירה"),
         ),
       ),
       body: PopScope(

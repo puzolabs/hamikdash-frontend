@@ -65,7 +65,7 @@ class _MyDetailsPageState extends State<DetailsPage> {
       appBar: AppBar(
         title: const Directionality(
           textDirection: TextDirection.rtl,
-          child:Text("המקדש שלי"),
+          child:Text("בית הבחירה"),
         ),
       ),
       body: PopScope(
