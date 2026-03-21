@@ -35,15 +35,6 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(0, 20.percentOfScreenHeight(context), 0, 0),
-              //alignment: Alignment.topCenter,
-              child: SizedBox(
-                width: double.infinity,
-                height: 8.percentOfScreenHeight(context),
-                child: Image.asset('lib/assets/images/icon.png'),
-              ),
-            ),
-            Container(
               padding: EdgeInsets.fromLTRB(0, 30.percentOfScreenHeight(context), 0, 0),
               //alignment: Alignment.topCenter,
               child: SizedBox(
