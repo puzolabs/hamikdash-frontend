@@ -157,20 +157,21 @@ class CalApi {
     return section;
   }
 
-  Future cancel(String scheme, String host, int port, String uid) async {
+  Future cancel(String scheme, String host, int port, String uid, String userEmail) async {
     String template = 
     """{
         "uid": "{{uid}}",
         "cancellationReason": "ba-li",
         "allRemainingBookings": false,
         "seatReferenceUid": "{{uid}}",
-        "cancelledBy": "puzolabs@gmail.com"
+        "cancelledBy": "{{userEmail}}"
     }""";
 
     String payload = template
     .replaceAll(" ", "")
     .replaceAll("\n", "")
-    .replaceAll("{{uid}}", uid);
+    .replaceAll("{{uid}}", uid)
+    .replaceAll("{{userEmail}}", userEmail);
 
     Uri uri = Uri(
       scheme: scheme,

@@ -21,7 +21,6 @@ technical dept:
      Locale
    visit_widget:
      he_IL
-   cal_api: puzolabs@gmail.com  -> will it even work for other users? have a test!
    date_selection_page: 'he' local line 109
 
 

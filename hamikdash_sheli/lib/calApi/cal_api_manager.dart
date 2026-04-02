@@ -77,6 +77,6 @@ class CalApiManager {
   }
 
   Future cancel(String uid) async {
-    await _api.cancel(calScheme, calHost, calPort, uid);
+    await _api.cancel(calScheme, calHost, calPort, uid, appState.user!.email);
   }
 }
