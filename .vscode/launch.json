@@ -33,6 +33,26 @@
                 "chrome"
             ],
             "flutterMode": "release"
+        },
+        {
+            "name": "App (QA)",
+            "cwd": "hamikdash_sheli",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+              "--dart-define-from-file",
+              "lib/config/config_qa.json"
+            ]
+        },
+        {
+            "name": "App (Production)",
+            "cwd": "hamikdash_sheli",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+              "--dart-define-from-file",
+              "lib/config/config_prod.json"
+            ]
         }
     ]
 }

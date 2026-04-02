@@ -1,3 +1,4 @@
+import 'package:hamikdash_sheli/app_config.dart';
 import 'package:hamikdash_sheli/calApi/cal_api.dart';
 import 'package:hamikdash_sheli/dataTypes/korban_case.dart';
 import 'package:hamikdash_sheli/dataTypes/korbans_option.dart';
@@ -9,6 +10,10 @@ import 'data_types/day_availability.dart';
 
 class CalApiManager {
   final CalApi _api = CalApi();
+  final String calScheme = AppConfig.calApiScheme;
+  final String calHost = AppConfig.calApiHost;
+  final int calPort = int.parse(AppConfig.calApiPort);
+  final String calTeamName = AppConfig.calApiTeamName;
 
   //find availability for the whole month, meaning start from the first day of the month,
   //since for most times the user would browse the calendar by entire months,
@@ -37,7 +42,7 @@ class CalApiManager {
 
     print("about to find availability between $monthStartDate and $monthEndDate");
 
-    return await _api.getAvailability("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, monthStartDate, monthEndDate, "Asia/Jerusalem");
+    return await _api.getAvailability(calScheme, calHost, calPort, calTeamName, eventName, monthStartDate, monthEndDate, "Asia/Jerusalem");
   }
   
   DateTime _findMonthStartDate(DateTime start) {
@@ -67,11 +72,11 @@ class CalApiManager {
     int eventTypeId = eventData.eventTypeId;
     DateTime end = start.add(eventData.duration);
     
-    String uid = await _api.create("http", "10.0.2.2", 3000, "bet-hamikdash", eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
+    String uid = await _api.create(calScheme, calHost, calPort, calTeamName, eventName, eventTypeId, start, end, "Asia/Jerusalem", appState.user!.name, appState.user!.email, rescheduleUid: rescheduleUid);
     appState.currentVisit!.uid = uid;
   }
 
   Future cancel(String uid) async {
-    await _api.cancel("http", "10.0.2.2", 3000, uid);
+    await _api.cancel(calScheme, calHost, calPort, uid);
   }
 }

@@ -1,7 +1,7 @@
 
 preparations:
 in the server define an event for each KorbanOption
-in the app, fill the event map from the server
+in the app, fill the event map from the server (event_data.dart)
 
 korban case page:
 check each case is displayed as the json file
@@ -12,12 +12,23 @@ time zone in the app should be displayed in jerusalem timezone (+3\+2 hours than
 summery page:
 use jerusalem time zone (must be tested for time diferences)
 
+login page is a must since i need to distinguish users
+
 technical dept:
  - dont use hard coded strings e.g. Cal.com's host name - use preferences for qa and prod. read the preferences from remote like Firebase offers
+   main: 
+     appState.user,
+     Locale
+   visit_widget:
+     he_IL
+   cal_api: puzolabs@gmail.com  -> will it even work for other users? have a test!
+   date_selection_page: 'he' local line 109
+
 
 minimum pretify on tablet:
  - icons for 'nose' subject, minha and nesachim, bread and matza doesnt work
- - before the western wall i see the flutter icon. maybe only on debug?
+ - before the western wall i see the flutter icon. maybe only on debug? i see it after pc restart
  - new visit page: generate an image for each visit use-case
  - reorder the cases such that birth is before bekhor etc
  - consider hide the sadEvent collection and show it only by a setting key
+ - בית הבחירה text on load page should have white contour

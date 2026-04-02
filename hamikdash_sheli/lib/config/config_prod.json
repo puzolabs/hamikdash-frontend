@@ -1,0 +1,7 @@
+{
+    "CAL_API_SCHEME": "http",
+    "CAL_API_HOST": "10.0.2.2",
+    "CAL_API_PORT": "3000",
+    "CAL_API_TEAM_NAME": "bet-hamikdash",
+    "ENV": "PROD"
+}
