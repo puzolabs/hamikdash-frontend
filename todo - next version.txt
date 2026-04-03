@@ -1,5 +1,13 @@
 מה לעשות עם מצורע שצריך שני תורים אחד בלי קורבן ואחד עם
-support languages + location of 'next' button (right \ left) depends on the text direction
+
+localization:
+ - support languages
+ - location of 'next' button (right \ left) depends on the text direction
+ - remove hard coded strings in:
+    main: Locale * 3 palces
+    visit_widget: he_IL
+    date_selection_page: 'he' local line 109
+
 implement analytics
 add to front.json a descriptin element like בתכלס מה זה אומר 6 לוגים יין למשל
 
